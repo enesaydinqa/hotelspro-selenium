@@ -3,7 +3,6 @@ package selenium.tests.web;
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsTest;
 import context.flag.NetworkExecutable;
-import context.flag.ParallelExecutable;
 import context.flag.SerialExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.apache.log4j.Logger;
@@ -29,12 +28,13 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
     public void init() throws Exception
     {
         super.init(true);
+
         mainPage = new MainPageWebPage(driver);
     }
 
     @Test
     @Description("Anasayfa yüklenirken yapılan png/jpg request lerin 200 (ok) olduğunun kontrolü")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testHomePageLoadPNG()
     {
         navigateToURL(UrlFactory.MAIN_URL);
@@ -52,7 +52,7 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
 
     @Test
     @Description("Anasayfa yüklenirken yapılan request lerin response larının 400 den küçük olduğunun kontrolü")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testHomePageNetwork()
     {
         navigateToURL(UrlFactory.MAIN_URL);

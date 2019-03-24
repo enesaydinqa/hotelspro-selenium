@@ -2,7 +2,7 @@ package selenium.tests.adaptive;
 
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsResponsiveTest;
-import context.flag.ParallelExecutable;
+import context.flag.SerialExecutable;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
@@ -38,7 +38,7 @@ public class ProductTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Ürün fiyatı ile Sepete Ekle dediğimizde çıkan fiyat aynı mı ?")
-    @Category(ParallelExecutable.class)
+    @Category(SerialExecutable.class)
     public void testProductAndBasketPriceCompare()
     {
         navigateToURL(UrlFactory.THE_NEWEST_0_TO_50_PRICE);
@@ -70,7 +70,7 @@ public class ProductTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Sepetteki ürünlerin fiyatları toplamı ile Toplam Tutar alanındaki tutar eşit mi ?")
-    @Category(ParallelExecutable.class)
+    @Category(SerialExecutable.class)
     public void testBasketAndSubTotalCountCompare()
     {
         List<Double> productPrices = new ArrayList<>();
@@ -125,7 +125,7 @@ public class ProductTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Kargo alanı x tl mi ?")
-    @Category(ParallelExecutable.class)
+    @Category(SerialExecutable.class)
     public void testShippingFee()
     {
         navigateToURL(UrlFactory.THE_NEWEST_0_TO_50_PRICE);
@@ -154,7 +154,7 @@ public class ProductTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Sepet Tutarı x in üzeri ise kargo ücretsiz mi ?")
-    @Category(ParallelExecutable.class)
+    @Category(SerialExecutable.class)
     public void testShippingFree()
     {
         Double addedBasketProduct = 0.0;
@@ -190,7 +190,7 @@ public class ProductTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Hediye paketini işaretlediğimde x TL sepete ekliyor mu ?")
-    @Category(ParallelExecutable.class)
+    @Category(SerialExecutable.class)
     public void testGiftPackageFee()
     {
         randomProductSelectAndAddBasket();

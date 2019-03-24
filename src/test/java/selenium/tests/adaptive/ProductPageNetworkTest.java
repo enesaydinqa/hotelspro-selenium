@@ -3,7 +3,6 @@ package selenium.tests.adaptive;
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsResponsiveTest;
 import context.flag.NetworkExecutable;
-import context.flag.ParallelExecutable;
 import context.flag.SerialExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import net.lightbody.bmp.core.har.HarResponse;

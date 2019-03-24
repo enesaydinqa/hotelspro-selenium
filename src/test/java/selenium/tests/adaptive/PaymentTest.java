@@ -2,8 +2,8 @@ package selenium.tests.adaptive;
 
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsResponsiveTest;
-import context.flag.ParallelExecutable;
 import context.flag.PaymentExecutable;
+import context.flag.SerialExecutable;
 import context.objects.CreditCard;
 import context.objects.User;
 import org.junit.Assert;
@@ -38,7 +38,7 @@ public class PaymentTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Giriş yapılan kullanıcı ile alışveriş tamamlama senaryosu.")
-    @Category({PaymentExecutable.class, ParallelExecutable.class})
+    @Category({PaymentExecutable.class, SerialExecutable.class})
     public void testUserLoggedAgreementVisible()
     {
         randomProductSelectAndAddBasket();

@@ -90,7 +90,7 @@
 
                     <parallel>classes</parallel>
                     <forkCount>${fork.count}</forkCount>
-                    <reuseForks>true</reuseForks>
+                    <reuseForks>false</reuseForks>
                 </configuration>
             </plugin>
             <plugin>

@@ -3,7 +3,6 @@ package selenium.tests.web;
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsTest;
 import context.flag.NetworkExecutable;
-import context.flag.ParallelExecutable;
 import context.flag.SerialExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.apache.log4j.Logger;
@@ -31,6 +30,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsTest
     public void init() throws Exception
     {
         super.init(true);
+
         mainPage = new MainPageWebPage(driver);
         productDetailPage = new ProductDetailPage(driver);
     }
