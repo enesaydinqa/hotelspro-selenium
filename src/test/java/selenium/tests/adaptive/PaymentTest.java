@@ -14,8 +14,10 @@ import selenium.pages.UrlFactory;
 import selenium.pages.mobile.NewAddressRegistrationPage;
 import selenium.pages.mobile.PaymentPage;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.stream.IntStream;
 
+@NotThreadSafe
 public class PaymentTest extends AbstractNYXCosmeticsResponsiveTest
 {
     private NewAddressRegistrationPage newAddressRegistrationPage;

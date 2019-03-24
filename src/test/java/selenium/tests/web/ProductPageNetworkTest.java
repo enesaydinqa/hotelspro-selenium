@@ -4,6 +4,7 @@ import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsTest;
 import context.flag.NetworkExecutable;
 import context.flag.ParallelExecutable;
+import context.flag.SerialExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -14,9 +15,11 @@ import selenium.pages.UrlFactory;
 import selenium.pages.web.MainPageWebPage;
 import selenium.pages.web.ProductDetailPage;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@NotThreadSafe
 public class ProductPageNetworkTest extends AbstractNYXCosmeticsTest
 {
     private static final Logger logger = Logger.getLogger(ProductPageNetworkTest.class);
@@ -34,7 +37,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsTest
 
     @Test
     @Description("Ürün detay sayfasında yapılan requestlerin response ların 400 den küçük olduğunun kontrolü")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testProductDetail()
     {
         navigateToURL(UrlFactory.MAIN_URL);
@@ -57,7 +60,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsTest
 
     @Test
     @Description("Ürün detay açıklamasının 20 karakter veya daha fazla olduğunun kontrolü")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testProductDescriptionLength()
     {
         navigateToURL(UrlFactory.MAIN_URL);

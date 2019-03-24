@@ -4,6 +4,7 @@ import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsResponsiveTest;
 import context.flag.NetworkExecutable;
 import context.flag.ParallelExecutable;
+import context.flag.SerialExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -13,8 +14,10 @@ import org.junit.experimental.categories.Category;
 import selenium.pages.UrlFactory;
 import selenium.pages.mobile.MainResponsivePage;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.List;
 
+@NotThreadSafe
 public class HomePageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 {
     private static final Logger logger = Logger.getLogger(HomePageNetworkTest.class);
@@ -30,7 +33,7 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Adaptive - Anasayfa yüklenirken yapılan png/jpg request lerin 200 (ok) olduğunun kontrolü")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testAdaptiveHomePageLoadPNG()
     {
         navigateToURL(UrlFactory.MAIN_URL);
@@ -46,7 +49,7 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Adaptive - Anasayfa yüklenirken yapılan request lerin response larının 400 den küçük olduğunun kontrolü")
-    @Category(ParallelExecutable.class)
+    @Category({SerialExecutable.class, NetworkExecutable.class})
     public void testAdaptiveHomePageNetwork()
     {
         navigateToURL(UrlFactory.MAIN_URL);

@@ -4,6 +4,7 @@ import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsTest;
 import context.flag.NetworkExecutable;
 import context.flag.ParallelExecutable;
+import context.flag.SerialExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -13,9 +14,11 @@ import org.junit.experimental.categories.Category;
 import selenium.pages.UrlFactory;
 import selenium.pages.web.MainPageWebPage;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@NotThreadSafe
 public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
 {
     private static final Logger logger = Logger.getLogger(HomePageNetworkTest.class);
@@ -65,7 +68,7 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
 
     @Test
     @Description("Anasayfa daki ürünlerin fiyatının 0 dan büyük olduğunun kontrolü")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testProductSalePrice()
     {
         navigateToURL(UrlFactory.MAIN_URL);
@@ -75,7 +78,7 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
 
     @Test
     @Description("Anasayfadaki slider ın çalıştığının kontrolü")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testHomePageSlider()
     {
         navigateToURL(UrlFactory.MAIN_URL);

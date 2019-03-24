@@ -4,6 +4,7 @@ import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsResponsiveTest;
 import context.flag.NetworkExecutable;
 import context.flag.ParallelExecutable;
+import context.flag.SerialExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import net.lightbody.bmp.core.har.HarResponse;
 import org.apache.log4j.Logger;
@@ -14,9 +15,11 @@ import org.junit.experimental.categories.Category;
 import selenium.pages.UrlFactory;
 import selenium.pages.mobile.MainResponsivePage;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.ArrayList;
 import java.util.List;
 
+@NotThreadSafe
 public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 {
     private static final Logger logger = Logger.getLogger(ProductPageNetworkTest.class);
@@ -32,7 +35,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Ürün detay sayfasında min 2 adet görsel var mı kontrolü.")
-    @Category({NetworkExecutable.class, ParallelExecutable.class})
+    @Category({NetworkExecutable.class, SerialExecutable.class})
     public void testProductDetailPageLoadImages()
     {
         navigateToURL(UrlFactory.THE_NEWEST_0_TO_50_PRICE);
@@ -62,7 +65,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("En yeniler sayfası yüklenirken yapılan requestlerin response larının 200 olduğunun kontrolü.")
-    @Category(ParallelExecutable.class)
+    @Category({SerialExecutable.class, NetworkExecutable.class})
     public void testTheNewestLoadRequest()
     {
         navigateToURL(UrlFactory.THE_NEWEST_0_TO_50_PRICE);
@@ -82,7 +85,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("En yeniler sayfası yüklenirken yapılan requestlerin response larının 200 olduğunun kontrolü.")
-    @Category(ParallelExecutable.class)
+    @Category(SerialExecutable.class)
     public void testCartPageLoadRequest()
     {
         randomProductSelectAndAddBasket();

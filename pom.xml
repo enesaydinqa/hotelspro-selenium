@@ -13,6 +13,7 @@
         <surefire.version>2.21.0</surefire.version>
         <jetty.http.port>8090</jetty.http.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fork.count>1</fork.count>
         <testcase.groups></testcase.groups>
     </properties>
 
@@ -31,6 +32,12 @@
             <id>Parallel</id>
             <properties>
                 <testcase.groups>context.flag.ParallelExecutable</testcase.groups>
+            </properties>
+        </profile>
+        <profile>
+            <id>Serial</id>
+            <properties>
+                <testcase.groups>context.flag.SerialExecutable</testcase.groups>
             </properties>
         </profile>
         <profile>
@@ -79,6 +86,11 @@
                 </executions>
                 <configuration combine.self="override">
                     <groups>${testcase.groups}</groups>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
+
+                    <parallel>classes</parallel>
+                    <forkCount>${fork.count}</forkCount>
+                    <reuseForks>true</reuseForks>
                 </configuration>
             </plugin>
             <plugin>

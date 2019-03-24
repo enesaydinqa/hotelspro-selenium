@@ -13,10 +13,12 @@ import selenium.pages.mobile.CartPage;
 import selenium.pages.mobile.MainResponsivePage;
 import selenium.pages.mobile.ProductDetailPage;
 
+import javax.annotation.concurrent.NotThreadSafe;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@NotThreadSafe
 public class ProductTest extends AbstractNYXCosmeticsResponsiveTest
 {
     private static final Logger logger = Logger.getLogger(ProductTest.class);
