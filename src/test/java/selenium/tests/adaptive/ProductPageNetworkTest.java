@@ -3,7 +3,7 @@ package selenium.tests.adaptive;
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsResponsiveTest;
 import context.flag.NetworkExecutable;
-import context.flag.SerialExecutable;
+import context.flag.ParallelExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import net.lightbody.bmp.core.har.HarResponse;
 import org.apache.log4j.Logger;
@@ -34,7 +34,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Ürün detay sayfasında min 2 adet görsel var mı kontrolü.")
-    @Category({NetworkExecutable.class, SerialExecutable.class})
+    @Category({NetworkExecutable.class, ParallelExecutable.class})
     public void testProductDetailPageLoadImages()
     {
         navigateToURL(UrlFactory.THE_NEWEST_0_TO_50_PRICE);
@@ -64,7 +64,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("En yeniler sayfası yüklenirken yapılan requestlerin response larının 200 olduğunun kontrolü.")
-    @Category({SerialExecutable.class, NetworkExecutable.class})
+    @Category({ParallelExecutable.class})
     public void testTheNewestLoadRequest()
     {
         navigateToURL(UrlFactory.THE_NEWEST_0_TO_50_PRICE);
@@ -84,7 +84,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("En yeniler sayfası yüklenirken yapılan requestlerin response larının 200 olduğunun kontrolü.")
-    @Category(SerialExecutable.class)
+    @Category({NetworkExecutable.class, ParallelExecutable.class})
     public void testCartPageLoadRequest()
     {
         randomProductSelectAndAddBasket();

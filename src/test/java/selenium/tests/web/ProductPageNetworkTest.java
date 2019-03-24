@@ -3,7 +3,7 @@ package selenium.tests.web;
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsTest;
 import context.flag.NetworkExecutable;
-import context.flag.SerialExecutable;
+import context.flag.ParallelExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -37,7 +37,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsTest
 
     @Test
     @Description("Ürün detay sayfasında yapılan requestlerin response ların 400 den küçük olduğunun kontrolü")
-    @Category({NetworkExecutable.class, SerialExecutable.class})
+    @Category({NetworkExecutable.class, ParallelExecutable.class})
     public void testProductDetail()
     {
         navigateToURL(UrlFactory.MAIN_URL);
@@ -60,7 +60,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsTest
 
     @Test
     @Description("Ürün detay açıklamasının 20 karakter veya daha fazla olduğunun kontrolü")
-    @Category({NetworkExecutable.class, SerialExecutable.class})
+    @Category({ParallelExecutable.class})
     public void testProductDescriptionLength()
     {
         navigateToURL(UrlFactory.MAIN_URL);

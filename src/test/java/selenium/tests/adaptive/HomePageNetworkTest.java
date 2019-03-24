@@ -3,7 +3,7 @@ package selenium.tests.adaptive;
 import context.annotations.Description;
 import context.base.AbstractNYXCosmeticsResponsiveTest;
 import context.flag.NetworkExecutable;
-import context.flag.SerialExecutable;
+import context.flag.ParallelExecutable;
 import net.lightbody.bmp.core.har.HarEntry;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -32,7 +32,7 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Adaptive - Anasayfa yüklenirken yapılan png/jpg request lerin 200 (ok) olduğunun kontrolü")
-    @Category({NetworkExecutable.class, SerialExecutable.class})
+    @Category({NetworkExecutable.class, ParallelExecutable.class})
     public void testAdaptiveHomePageLoadPNG()
     {
         navigateToURL(UrlFactory.MAIN_URL);
@@ -48,7 +48,7 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
     @Test
     @Description("Adaptive - Anasayfa yüklenirken yapılan request lerin response larının 400 den küçük olduğunun kontrolü")
-    @Category({SerialExecutable.class, NetworkExecutable.class})
+    @Category({NetworkExecutable.class, ParallelExecutable.class})
     public void testAdaptiveHomePageNetwork()
     {
         navigateToURL(UrlFactory.MAIN_URL);

@@ -4,6 +4,7 @@ import context.driver.DriverManager;
 import context.driver.DriverWebTestFactory;
 import context.helper.JSHelper;
 import context.recorder.VideoRecorder;
+import context.utils.RandomProxy;
 import context.utils.ReportGenerate;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.core.har.Har;
@@ -102,10 +103,20 @@ public abstract class AbstractWebTest extends AbstractLayoutDesignTest
         {
             Runtime.getRuntime().exec("browserstacklocal/BrowserStackLocal --key " + accessKey);
 
-            proxy = new BrowserMobProxyServer();
-            proxy.start();
-            proxy.enableHarCaptureTypes(CaptureType.REQUEST_BINARY_CONTENT);
-            proxy.newHar();
+            try
+            {
+                RandomProxy randomProxy = new RandomProxy();
+
+                proxy = new BrowserMobProxyServer();
+                proxy.setMitmDisabled(false);
+                proxy.start(randomProxy.getRandomProxy());
+                proxy.enableHarCaptureTypes(CaptureType.REQUEST_BINARY_CONTENT);
+                proxy.newHar();
+            }
+            catch (Exception ex)
+            {
+                logger.error("Already Use Proxy, retrying start proxy.");
+            }
         }
 
         driver = driverManager.getDriver(withProxy);
