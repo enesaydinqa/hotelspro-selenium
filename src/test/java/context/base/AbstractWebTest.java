@@ -103,20 +103,26 @@ public abstract class AbstractWebTest extends AbstractLayoutDesignTest
         {
             Runtime.getRuntime().exec("browserstacklocal/BrowserStackLocal --key " + accessKey);
 
-            try
+            while (true)
             {
-                RandomProxy randomProxy = new RandomProxy();
+                try
+                {
+                    RandomProxy randomProxy = new RandomProxy();
 
-                proxy = new BrowserMobProxyServer();
-                proxy.setMitmDisabled(false);
-                proxy.start(randomProxy.getRandomProxy());
-                proxy.enableHarCaptureTypes(CaptureType.REQUEST_BINARY_CONTENT);
-                proxy.newHar();
+                    proxy = new BrowserMobProxyServer();
+                    proxy.setMitmDisabled(false);
+                    proxy.start(randomProxy.getRandomProxy());
+                    proxy.enableHarCaptureTypes(CaptureType.REQUEST_BINARY_CONTENT);
+                    proxy.newHar();
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    logger.error("Already Use Proxy, retrying start proxy.");
+                    continue;
+                }
             }
-            catch (Exception ex)
-            {
-                logger.error("Already Use Proxy, retrying start proxy.");
-            }
+
         }
 
         driver = driverManager.getDriver(withProxy);
