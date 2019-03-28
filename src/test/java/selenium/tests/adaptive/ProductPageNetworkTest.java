@@ -30,6 +30,8 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
     {
         super.init(true);
         mainPage = new MainResponsivePage(driver);
+
+        resetHar();
     }
 
     @Test

@@ -30,6 +30,8 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
         super.init(true);
 
         mainPage = new MainPageWebPage(driver);
+
+        resetHar();
     }
 
     @Test

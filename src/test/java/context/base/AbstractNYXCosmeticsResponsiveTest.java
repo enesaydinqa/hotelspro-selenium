@@ -117,4 +117,18 @@ public abstract class AbstractNYXCosmeticsResponsiveTest extends AbstractRespons
             wait(3);
         }
     }
+
+    protected void resetHar()
+    {
+        if (proxy != null)
+        {
+            proxy.endHar();
+            proxy.newHar();
+        }
+        else
+        {
+            throw new UnsupportedOperationException("This test did not start with proxy");
+        }
+    }
+
 }

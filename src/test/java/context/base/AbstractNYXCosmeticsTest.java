@@ -32,4 +32,16 @@ public abstract class AbstractNYXCosmeticsTest extends AbstractWebTest
 
     }
 
+    protected void resetHar()
+    {
+        if (proxy != null)
+        {
+            proxy.endHar();
+            proxy.newHar();
+        }
+        else
+        {
+            throw new UnsupportedOperationException("This test did not start with proxy");
+        }
+    }
 }

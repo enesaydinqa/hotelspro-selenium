@@ -33,6 +33,8 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsTest
 
         mainPage = new MainPageWebPage(driver);
         productDetailPage = new ProductDetailPage(driver);
+
+        resetHar();
     }
 
     @Test
