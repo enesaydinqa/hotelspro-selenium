@@ -39,6 +39,9 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
     {
         navigateToURL(UrlFactory.MAIN_URL);
         pageLongDownScroll();
+
+        wait(5);
+
         List<HarEntry> entries = proxy.getHar().getLog().getEntries();
 
         entries.stream().filter(link -> link.getRequest().getUrl().contains(".png") | link.getRequest().getUrl().contains(".jpg"))
@@ -57,9 +60,13 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
     {
         navigateToURL(UrlFactory.MAIN_URL);
         pageLongDownScroll();
+
+        wait(5);
+
         List<HarEntry> entries = proxy.getHar().getLog().getEntries();
 
-        entries.stream()
+        entries
+                .stream()
                 .forEach(png -> {
                     logger.info("Check Response This Url -> " + png.getRequest().getUrl());
                     Assert.assertTrue("HTTP Request Error : " + png.getRequest().getUrl(), 400 > png.getResponse().getStatus());
@@ -72,7 +79,8 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
     public void testProductSalePrice()
     {
         navigateToURL(UrlFactory.MAIN_URL);
-        IntStream.range(0, mainPage.getProductSalePrices().size())
+        IntStream
+                .range(0, mainPage.getProductSalePrices().size())
                 .forEach(count -> Assert.assertNotEquals(0, getText(mainPage.getProductSalePrices().get(count))));
     }
 
@@ -85,7 +93,8 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsTest
 
         closeCampaingPopup();
 
-        IntStream.range(0, 3)
+        IntStream
+                .range(0, 3)
                 .forEach(i ->
                 {
                     waitElementVisible(mainPage.getActiveSliderImage());

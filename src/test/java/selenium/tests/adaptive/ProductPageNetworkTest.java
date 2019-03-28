@@ -49,6 +49,8 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
 
         closeCampaingPopup();
 
+        wait(5);
+
         List<HarEntry> entries = proxy.getHar().getLog().getEntries();
 
         List<HarResponse> imageCount = new ArrayList<>();
@@ -67,6 +69,7 @@ public class ProductPageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
     @Category({ParallelExecutable.class})
     public void testTheNewestLoadRequest()
     {
+
         navigateToURL(UrlFactory.THE_NEWEST_0_TO_50_PRICE);
 
         pageLongDownScroll();

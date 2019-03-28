@@ -37,6 +37,9 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
     {
         navigateToURL(UrlFactory.MAIN_URL);
         pageLongDownScroll();
+
+        wait(5);
+
         List<HarEntry> entries = proxy.getHar().getLog().getEntries();
 
         entries.stream().filter(link -> link.getRequest().getUrl().contains(".png") | link.getRequest().getUrl().contains(".jpg"))
@@ -53,6 +56,9 @@ public class HomePageNetworkTest extends AbstractNYXCosmeticsResponsiveTest
     {
         navigateToURL(UrlFactory.MAIN_URL);
         pageLongDownScroll();
+
+        wait(5);
+
         List<HarEntry> entries = proxy.getHar().getLog().getEntries();
 
         entries.forEach(png -> {
