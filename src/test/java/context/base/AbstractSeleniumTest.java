@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public abstract class AbstractSeleniumTest extends DriverManager implements SeleniumActions
+public abstract class AbstractSeleniumTest extends DriverManager implements Commons
 {
     @Override
     public String getCurrentURL()

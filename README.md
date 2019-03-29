@@ -1,4 +1,4 @@
-# nyxcosmetics
+# anywork-selenium
 
 - Parameters
 
@@ -6,16 +6,14 @@
 -Dbrowser.type=chrome
 -Djetty.port=8090
 -Dtake.a.video=false
--Dshipping.fee=7.99
--Dpr.for.shipping.free=120
--Dgift.package.fee=5.00
 
 
 --> Serial Test Execute 
 
-mvn clean install site -Dremote.test=false -Dbrowser.type=chrome -Djetty.port=8090 -Dtake.a.video=false -Dshipping.fee=7.99 -Dpr.for.shipping.free=120 -Dgift.package.fee=5.00 -P "Serial"
+mvn clean install site -Dbrowser.type=chrome -Dtake.a.video=false  -P "Serial"
 
 
 --> Parallel Test Execute 
 
-mvn clean install site -Dremote.test=false -Dbrowser.type=chrome -Djetty.port=8090 -Dtake.a.video=false -Dshipping.fee=7.99 -Dpr.for.shipping.free=120 -Dgift.package.fee=5.00 -P "Parallel" -Dfork.count=5
+mvn clean install site -Dbrowser.type=chrome -Dtake.a.video=true -P "Parallel" -Dfork.count=1
+

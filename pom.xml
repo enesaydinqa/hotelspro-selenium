@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.selenium</groupId>
-    <artifactId>nyxcosmetics</artifactId>
+    <artifactId>anywork-selenium</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -44,12 +44,6 @@
             <id>Network</id>
             <properties>
                 <testcase.groups>context.flag.NetworkExecutable</testcase.groups>
-            </properties>
-        </profile>
-        <profile>
-            <id>Payment</id>
-            <properties>
-                <testcase.groups>context.flag.PaymentExecutable</testcase.groups>
             </properties>
         </profile>
     </profiles>

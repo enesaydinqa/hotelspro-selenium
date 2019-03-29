@@ -3,23 +3,15 @@ package context.recorder;
 import org.apache.log4j.Logger;
 import org.monte.media.Format;
 import org.monte.media.FormatKeys;
-import org.monte.media.FormatKeys.MediaType;
+import org.monte.media.FormatKeys.*;
 import org.monte.media.math.Rational;
 import org.monte.screenrecorder.ScreenRecorder;
 
 import java.awt.*;
 import java.io.File;
 
-import static org.monte.media.FormatKeys.EncodingKey;
-import static org.monte.media.FormatKeys.FrameRateKey;
-import static org.monte.media.FormatKeys.KeyFrameIntervalKey;
-import static org.monte.media.FormatKeys.MIME_AVI;
-import static org.monte.media.FormatKeys.MediaTypeKey;
-import static org.monte.media.FormatKeys.MimeTypeKey;
-import static org.monte.media.VideoFormatKeys.CompressorNameKey;
-import static org.monte.media.VideoFormatKeys.DepthKey;
-import static org.monte.media.VideoFormatKeys.ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE;
-import static org.monte.media.VideoFormatKeys.QualityKey;
+import static org.monte.media.FormatKeys.*;
+import static org.monte.media.VideoFormatKeys.*;
 
 public class VideoRecorder
 {
@@ -30,7 +22,7 @@ public class VideoRecorder
     public static void startRecording(String fileName) throws Exception
     {
 
-        File file = new File(System.getProperty("user.dir") + "/src/test/resources/test-case-videos");
+        File file = new File(System.getProperty("user.dir") + "/src/test/resources/test-scenario-video");
 
         if (!file.exists())
         {
@@ -56,7 +48,7 @@ public class VideoRecorder
                 .getDefaultScreenDevice()
                 .getDefaultConfiguration();
 
-        screenRecorder = new ScreenRecord(gc, captureSize,
+        screenRecorder = new Screenshot(gc, captureSize,
                 new Format(MediaTypeKey, FormatKeys.MediaType.FILE, MimeTypeKey, MIME_AVI),
                 new Format(MediaTypeKey, FormatKeys.MediaType.VIDEO, EncodingKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE,
                         CompressorNameKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE,

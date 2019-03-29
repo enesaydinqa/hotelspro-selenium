@@ -18,7 +18,7 @@ public class ReportGenerate extends TestWatcher
     protected void failed(Throwable e, org.junit.runner.Description description)
     {
         ExtentReports extent = createReport();
-        ExtentTest test = extent.startTest(description.getDisplayName(), "Test failed, getText here for further details");
+        ExtentTest test = extent.startTest(description.getDisplayName());
 
         String testDescription = getDescription(description);
 
@@ -46,7 +46,7 @@ public class ReportGenerate extends TestWatcher
     private ExtentReports createReport()
     {
         ExtentReports extent = new ExtentReports(filenameOfReport, false);
-        extent.config().reportName("NYX Costemics Regression Tests");
+        extent.config().reportName("Anywork Regression Tests");
         extent.config().reportHeadline("Regression Test Results");
         return extent;
     }

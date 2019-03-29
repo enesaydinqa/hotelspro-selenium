@@ -15,9 +15,7 @@ public abstract class DriverManager
     public static String session;
     public static Properties prop;
 
-    protected static final String accessKey = "FPqXDFz4bqk1jvqXDZ3d";
-
-    protected void createDriver(Boolean withProxy) throws Exception
+    protected void createDriver(Boolean withProxy)
     {
     }
 

@@ -7,20 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class Configuration
-{
+public class Configuration {
     private static final Logger logger = Logger.getLogger(Configuration.class);
 
     private Properties configProps = new Properties();
 
-    private String browserStackUrl;
-    private Double prShippingFree;
-    private Double giftPackageFee;
-    private Double shippingFee;
-    private Boolean remoteTest;
     private String browserType;
-    private String username;
-    private String accessKey;
     private Boolean takeAVideo;
     private String galenReportPath;
     private String harFilePath;
@@ -30,18 +22,14 @@ public class Configuration
     private Integer implicitlyWait;
     private String macChromeDriver;
     private String windowsChromeDriver;
+    private String dbConnectionString;
+    private String dbUser;
+    private String dbUserPassword;
 
-    public Configuration() throws IOException
-    {
+    public Configuration() throws IOException {
         loadConfigProperties();
 
-        this.browserStackUrl = configProps.getProperty("browserstack.url");
-        this.prShippingFree = Double.valueOf(System.getProperties().getProperty("pr.for.shipping.free"));
-        this.shippingFee = Double.valueOf(System.getProperties().getProperty("shipping.fee"));
-        this.giftPackageFee = Double.valueOf(System.getProperties().getProperty("gift.package.fee"));
-        this.remoteTest = Boolean.parseBoolean(System.getProperties().getProperty("remote.test"));
         this.browserType = System.getProperties().getProperty("browser.type");
-        this.username = configProps.getProperty("username");
         this.takeAVideo = Boolean.valueOf(System.getProperties().getProperty("take.a.video"));
         this.galenReportPath = configProps.getProperty("galen.report.path");
         this.harFilePath = configProps.getProperty("har.file.path");
@@ -51,184 +39,119 @@ public class Configuration
         this.implicitlyWait = Integer.valueOf(configProps.getProperty("implicitly.wait"));
         this.macChromeDriver = configProps.getProperty("mac.chrome.driver");
         this.windowsChromeDriver = configProps.getProperty("windows.chrome.driver");
-        this.accessKey = configProps.getProperty("access.key");
+        this.dbConnectionString = configProps.getProperty("dbConnectionString");
+        this.dbUser = configProps.getProperty("dbUser");
+        this.dbUserPassword = configProps.getProperty("dbUserPassword");
     }
 
-    private void loadConfigProperties() throws IOException
-    {
+    private void loadConfigProperties() throws IOException {
         String configFile = "config.properties";
         InputStream in = ClassLoader.getSystemResourceAsStream(configFile);
 
         configProps.load(in);
     }
 
-    public String getBrowserStackUrl()
-    {
-        return browserStackUrl;
-    }
-
-    public void setBrowserStackUrl(String browserStackUrl)
-    {
-        this.browserStackUrl = browserStackUrl;
-    }
-
-    public Double getPrShippingFree()
-    {
-        return prShippingFree;
-    }
-
-    public void setPrShippingFree(Double prShippingFree)
-    {
-        this.prShippingFree = prShippingFree;
-    }
-
-    public Double getShippingFee()
-    {
-        return shippingFee;
-    }
-
-    public void setShippingFee(Double shippingFee)
-    {
-        this.shippingFee = shippingFee;
-    }
-
-    public Boolean getRemoteTest()
-    {
-        return remoteTest;
-    }
-
-    public void setRemoteTest(Boolean remoteTest)
-    {
-        this.remoteTest = remoteTest;
-    }
-
-    public String getBrowserType()
-    {
+    public String getBrowserType() {
         return browserType;
     }
 
-    public void setBrowserType(String browserType)
-    {
+    public void setBrowserType(String browserType) {
         this.browserType = browserType;
     }
 
-    public String getUsername()
-    {
-        return username;
-    }
-
-    public void setUsername(String username)
-    {
-        this.username = username;
-    }
-
-    public Boolean getTakeAVideo()
-    {
+    public Boolean getTakeAVideo() {
         return takeAVideo;
     }
 
-    public void setTakeAVideo(Boolean takeAVideo)
-    {
+    public void setTakeAVideo(Boolean takeAVideo) {
         this.takeAVideo = takeAVideo;
     }
 
-    public String getGalenReportPath()
-    {
+    public String getGalenReportPath() {
         return galenReportPath;
     }
 
-    public void setGalenReportPath(String galenReportPath)
-    {
+    public void setGalenReportPath(String galenReportPath) {
         this.galenReportPath = galenReportPath;
     }
 
-    public String getHarFilePath()
-    {
+    public String getHarFilePath() {
         return harFilePath;
     }
 
-    public void setHarFilePath(String harFilePath)
-    {
+    public void setHarFilePath(String harFilePath) {
         this.harFilePath = harFilePath;
     }
 
-    public String getBaseUrl()
-    {
+    public String getBaseUrl() {
         return baseUrl;
     }
 
-    public void setBaseUrl(String baseUrl)
-    {
+    public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
     }
 
-    public Integer getPageLoadTimeout()
-    {
+    public Integer getPageLoadTimeout() {
         return pageLoadTimeout;
     }
 
-    public void setPageLoadTimeout(Integer pageLoadTimeout)
-    {
+    public void setPageLoadTimeout(Integer pageLoadTimeout) {
         this.pageLoadTimeout = pageLoadTimeout;
     }
 
-    public Integer getWaitLoadTimeout()
-    {
+    public Integer getWaitLoadTimeout() {
         return waitLoadTimeout;
     }
 
-    public void setWaitLoadTimeout(Integer waitLoadTimeout)
-    {
+    public void setWaitLoadTimeout(Integer waitLoadTimeout) {
         this.waitLoadTimeout = waitLoadTimeout;
     }
 
-    public Integer getImplicitlyWait()
-    {
+    public Integer getImplicitlyWait() {
         return implicitlyWait;
     }
 
-    public void setImplicitlyWait(Integer implicitlyWait)
-    {
+    public void setImplicitlyWait(Integer implicitlyWait) {
         this.implicitlyWait = implicitlyWait;
     }
 
-    public String getMacChromeDriver()
-    {
+    public String getMacChromeDriver() {
         return macChromeDriver;
     }
 
-    public void setMacChromeDriver(String macChromeDriver)
-    {
+    public void setMacChromeDriver(String macChromeDriver) {
         this.macChromeDriver = macChromeDriver;
     }
 
-    public String getWindowsChromeDriver()
-    {
+    public String getWindowsChromeDriver() {
         return windowsChromeDriver;
     }
 
-    public void setWindowsChromeDriver(String windowsChromeDriver)
-    {
+    public void setWindowsChromeDriver(String windowsChromeDriver) {
         this.windowsChromeDriver = windowsChromeDriver;
     }
 
-    public String getAccessKey()
-    {
-        return accessKey;
+    public String getDbConnectionString() {
+        return dbConnectionString;
     }
 
-    public void setAccessKey(String accessKey)
-    {
-        this.accessKey = accessKey;
+    public void setDbConnectionString(String dbConnectionString) {
+        this.dbConnectionString = dbConnectionString;
     }
 
-    public Double getGiftPackageFee()
-    {
-        return giftPackageFee;
+    public String getDbUser() {
+        return dbUser;
     }
 
-    public void setGiftPackageFee(Double giftPackageFee)
-    {
-        this.giftPackageFee = giftPackageFee;
+    public void setDbUser(String dbUser) {
+        this.dbUser = dbUser;
+    }
+
+    public String getDbUserPassword() {
+        return dbUserPassword;
+    }
+
+    public void setDbUserPassword(String dbUserPassword) {
+        this.dbUserPassword = dbUserPassword;
     }
 }
