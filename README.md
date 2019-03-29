@@ -4,13 +4,12 @@
 
 -Dremote.test=true
 -Dbrowser.type=chrome
--Djetty.port=8090
--Dtake.a.video=false
+git c-Dtake.a.video=false
 
 
 --> Serial Test Execute 
 
-mvn clean install site -Dbrowser.type=chrome -Dtake.a.video=false  -P "Serial"
+mvn clean install site -Dbrowser.type=chrome -Dtake.a.video=false -P "Serial"
 
 
 --> Parallel Test Execute 
