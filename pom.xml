@@ -6,7 +6,9 @@
 
     <groupId>com.selenium</groupId>
     <artifactId>anywork-selenium</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+    <name>Anywork Selenium Tests</name>
+    <description>Anywork Selenium Tests</description>
 
     <properties>
         <surefire.impl>surefire-junit47</surefire.impl>
