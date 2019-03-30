@@ -92,8 +92,6 @@ public interface Commons
 
     void clickViaJs(WebElement element);
 
-    void createFolder(String folderPathName);
-
     void pageLongDownScroll();
 
     void secureScrollPage(Integer x, Integer y);

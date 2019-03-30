@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium.pages.UrlFactory;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -28,8 +27,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     @Override
     public void navigateToURL(UrlFactory url)
     {
-        int pageLoadTimeOut = Integer.parseInt(prop.getProperty("page.load.timeout"));
-        driver.manage().timeouts().pageLoadTimeout(pageLoadTimeOut, TimeUnit.MINUTES);
+        driver.manage().timeouts().pageLoadTimeout(configuration.getPageLoadTimeout(), TimeUnit.MINUTES);
         driver.navigate().to(url.pageUrl);
     }
 
@@ -142,24 +140,21 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     @Override
     public void waitElementToBeClickable(WebElement element)
     {
-        int waitTimeOutSeconds = Integer.valueOf(prop.getProperty("wait.timeout.seconds"));
-        WebDriverWait wait = new WebDriverWait(driver, waitTimeOutSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, configuration.getWaitLoadTimeout());
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     @Override
     public void waitElementVisible(WebElement element)
     {
-        int waitTimeOutSeconds = Integer.valueOf(prop.getProperty("wait.timeout.seconds"));
-        WebDriverWait wait = new WebDriverWait(driver, waitTimeOutSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, configuration.getWaitLoadTimeout());
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     @Override
     public void waitElementNotVisible(WebElement element)
     {
-        int waitTimeOutSeconds = Integer.valueOf(prop.getProperty("wait.timeout.seconds"));
-        WebDriverWait wait = new WebDriverWait(driver, waitTimeOutSeconds);
+        WebDriverWait wait = new WebDriverWait(driver, configuration.getWaitLoadTimeout());
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
@@ -222,15 +217,13 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     @Override
     public void pageLoad()
     {
-        int pageLoadTimeOut = Integer.valueOf(prop.getProperty("page.load.timeout"));
-        driver.manage().timeouts().pageLoadTimeout(pageLoadTimeOut, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(configuration.getPageLoadTimeout(), TimeUnit.SECONDS);
     }
 
     @Override
     public void implicitlyWait()
     {
-        int implicitlyWait = Integer.valueOf(prop.getProperty("implicitly.wait"));
-        driver.manage().timeouts().implicitlyWait(implicitlyWait, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(configuration.getImplicitlyWait(), TimeUnit.SECONDS);
     }
 
     @Override
@@ -260,7 +253,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     @Override
     public void switchWindowTab(int tab)
     {
-        ArrayList<String> TabSwitch = new ArrayList<String>(driver.getWindowHandles());
+        ArrayList<String> TabSwitch = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(TabSwitch.get(tab));
     }
 
@@ -332,31 +325,6 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         executor.executeScript("arguments[0].click();", element);
     }
 
-    @Override
-    public void createFolder(String folderPathName)
-    {
-        File theDir = new File(folderPathName);
-
-        if (!theDir.exists())
-        {
-            boolean result = false;
-
-            try
-            {
-                theDir.mkdir();
-                result = true;
-            }
-            catch (SecurityException se)
-            {
-                //handle it
-            }
-            if (result)
-            {
-                System.out.println("DIR created");
-            }
-        }
-
-    }
 
     @Override
     public void pageLongDownScroll()

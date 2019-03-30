@@ -3,8 +3,12 @@ package context.base;
 import context.driver.DriverManager;
 import context.driver.DriverResponsiveTestFactory;
 import context.helper.JSHelper;
-import context.recorder.VideoRecorder;
-import context.utils.ReportGenerate;
+import context.manager.TestUserAccountManager;
+import context.security.proxy.ZapSecurityTest;
+import context.utils.Folder;
+import context.utils.layout.LayoutDesign;
+import context.utils.recorder.VideoRecorder;
+import context.utils.report.ReportGenerate;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.CaptureType;
@@ -16,18 +20,20 @@ import org.junit.rules.TestName;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
-import org.junit.runners.model.Statement;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public abstract class AbstractResponsiveTest extends AbstractLayoutDesignTest
+public abstract class AbstractResponsiveTest extends AbstractSeleniumTest
 {
     private static final Logger logger = Logger.getLogger(AbstractResponsiveTest.class);
 
     private boolean takeVideo;
     protected JSHelper jsHelper;
+    protected LayoutDesign layoutDesign;
+    protected static ZapSecurityTest zapProxy;
+    protected static TestUserAccountManager testUserAccountManager;
 
     @Rule
     public final TestName testName = new TestName();
@@ -39,9 +45,12 @@ public abstract class AbstractResponsiveTest extends AbstractLayoutDesignTest
     public final TestRule watchman = new TestWatcher()
     {
         @Override
-        public Statement apply(Statement base, org.junit.runner.Description description)
+        protected void starting(Description description)
         {
-            return super.apply(base, description);
+            logger.info("=================================================================");
+            logger.info(String.format("TEST STARTED ... -> {%s}", description.getMethodName()));
+            logger.info("=================================================================");
+
         }
 
         @Override
@@ -55,7 +64,9 @@ public abstract class AbstractResponsiveTest extends AbstractLayoutDesignTest
         @Override
         protected void failed(Throwable e, org.junit.runner.Description description)
         {
-            createFolder(System.getProperty("user.dir") + "/target/PageSource");
+            Folder folder = new Folder();
+
+            folder.createFolder(System.getProperty("user.dir").concat("/target/PageSource"));
 
             String file = System.getProperty("user.dir") + "/target/PageSource/" + description.getMethodName() + "-DOM.txt";
 
@@ -126,23 +137,18 @@ public abstract class AbstractResponsiveTest extends AbstractLayoutDesignTest
 
         driver = driverManager.getDriver(withProxy);
 
-        takeVideo = configuration.getTakeAVideo();
+        VideoRecorder.startRecording(testName.getMethodName(), configuration.getTakeAVideo());
 
-        if (takeVideo)
-        {
-            VideoRecorder.startRecording(testName.getMethodName());
-        }
-        else
-        {
-            logger.info("Scenarios will not take video");
-        }
+        testUserAccountManager = new TestUserAccountManager();
 
         jsHelper = new JSHelper(driver);
 
-        logger.info("=================================================================");
-        logger.info("TEST STARTED ... -> " + testName.getMethodName());
-        logger.info("=================================================================");
+        layoutDesign = new LayoutDesign(driver, configuration);
 
+        zapProxy = new ZapSecurityTest(
+                configuration.getZapHost(),
+                configuration.getZapPort(),
+                configuration.getZapApiKey());
     }
 
 
@@ -150,9 +156,8 @@ public abstract class AbstractResponsiveTest extends AbstractLayoutDesignTest
     public void tearDown() throws Exception
     {
         //setHarFile(testName.getMethodName());
-        takeVideo = configuration.getTakeAVideo();
 
-        if (takeVideo) VideoRecorder.stopRecording();
+        VideoRecorder.stopRecording(configuration.getTakeAVideo());
 
         try
         {
@@ -170,7 +175,7 @@ public abstract class AbstractResponsiveTest extends AbstractLayoutDesignTest
     private void setHarFile(String harFileName)
     {
 
-        String sFileName = prop.getProperty("har.file.path") + harFileName + ".har";
+        String sFileName = configuration.getHarFilePath().concat(harFileName + ".har");
 
         try
         {

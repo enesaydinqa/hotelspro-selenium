@@ -1,18 +1,24 @@
-package context.utils;
+package context.utils.report;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import context.annotations.Description;
+import context.objects.Configuration;
 import org.junit.rules.TestWatcher;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static context.driver.DriverManager.session;
 
 public class ReportGenerate extends TestWatcher
 {
-    private String filenameOfReport = System.getProperty("user.dir") + "/target/nyxcostemicstestresult.html";
+
+    private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
     protected void failed(Throwable e, org.junit.runner.Description description)
@@ -45,7 +51,21 @@ public class ReportGenerate extends TestWatcher
 
     private ExtentReports createReport()
     {
-        ExtentReports extent = new ExtentReports(filenameOfReport, false);
+        Date date = new Date();
+
+        Configuration configuration = null;
+
+        try
+        {
+            configuration = new Configuration();
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+
+        ExtentReports extent = new ExtentReports(String.format(configuration.getTestResultReport(),
+                dateFormat.format(date)), false);
         extent.config().reportName("Anywork Regression Tests");
         extent.config().reportHeadline("Regression Test Results");
         return extent;

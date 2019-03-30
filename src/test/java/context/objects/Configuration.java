@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Configuration {
+
     private static final Logger logger = Logger.getLogger(Configuration.class);
 
     private Properties configProps = new Properties();
@@ -25,6 +26,11 @@ public class Configuration {
     private String dbConnectionString;
     private String dbUser;
     private String dbUserPassword;
+    private String zapHost;
+    private Integer zapPort;
+    private String zapApiKey;
+    private String zapHtmlReport;
+    private String testResultReport;
 
     public Configuration() throws IOException {
         loadConfigProperties();
@@ -42,6 +48,11 @@ public class Configuration {
         this.dbConnectionString = configProps.getProperty("dbConnectionString");
         this.dbUser = configProps.getProperty("dbUser");
         this.dbUserPassword = configProps.getProperty("dbUserPassword");
+        this.zapHost = configProps.getProperty("zap.host");
+        this.zapPort = Integer.valueOf(configProps.getProperty("zap.port"));
+        this.zapApiKey = configProps.getProperty("zap.api.key");
+        this.zapHtmlReport = configProps.getProperty("zap.html.report");
+        this.testResultReport = configProps.getProperty("test.result.report");
     }
 
     private void loadConfigProperties() throws IOException {
@@ -153,5 +164,55 @@ public class Configuration {
 
     public void setDbUserPassword(String dbUserPassword) {
         this.dbUserPassword = dbUserPassword;
+    }
+
+    public String getZapHost()
+    {
+        return zapHost;
+    }
+
+    public void setZapHost(String zapHost)
+    {
+        this.zapHost = zapHost;
+    }
+
+    public Integer getZapPort()
+    {
+        return zapPort;
+    }
+
+    public void setZapPort(Integer zapPort)
+    {
+        this.zapPort = zapPort;
+    }
+
+    public String getZapApiKey()
+    {
+        return zapApiKey;
+    }
+
+    public void setZapApiKey(String zapApiKey)
+    {
+        this.zapApiKey = zapApiKey;
+    }
+
+    public String getZapHtmlReport()
+    {
+        return zapHtmlReport;
+    }
+
+    public void setZapHtmlReport(String zapHtmlReport)
+    {
+        this.zapHtmlReport = zapHtmlReport;
+    }
+
+    public String getTestResultReport()
+    {
+        return testResultReport;
+    }
+
+    public void setTestResultReport(String testResultReport)
+    {
+        this.testResultReport = testResultReport;
     }
 }

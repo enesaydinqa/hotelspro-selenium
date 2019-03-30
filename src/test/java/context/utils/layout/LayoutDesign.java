@@ -1,4 +1,4 @@
-package context.base;
+package context.utils.layout;
 
 import com.galenframework.api.Galen;
 import com.galenframework.config.GalenConfig;
@@ -6,8 +6,10 @@ import com.galenframework.config.GalenProperty;
 import com.galenframework.reports.GalenTestInfo;
 import com.galenframework.reports.HtmlReportBuilder;
 import com.galenframework.reports.model.LayoutReport;
+import context.objects.Configuration;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,21 +25,29 @@ import java.util.stream.IntStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public abstract class AbstractLayoutDesignTest extends AbstractSeleniumTest
+public class LayoutDesign
 {
-    private static final Logger logger = Logger.getLogger(AbstractLayoutDesignTest.class);
+    private static final Logger logger = Logger.getLogger(LayoutDesign.class);
 
+    private RemoteWebDriver webDriver;
+    private Configuration configuration;
     private List<GalenTestInfo> tests;
     private LayoutReport layoutReport;
     private String reportPath;
 
-    protected void checkLayoutDesign(String specFile, List<String> includedTags, String className) throws IOException
+    public LayoutDesign(RemoteWebDriver webDriver, Configuration configuration)
+    {
+        this.webDriver = webDriver;
+        this.configuration = configuration;
+    }
+
+    public void checkLayoutDesign(String specFile, List<String> includedTags, String className) throws IOException
     {
         try
         {
             GalenConfig.getConfig().setProperty(GalenProperty.SCREENSHOT_FULLPAGE, "true");
 
-            layoutReport = Galen.checkLayout(driver, specFile, includedTags);
+            layoutReport = Galen.checkLayout(webDriver, specFile, includedTags);
 
             tests = new LinkedList<>();
 
@@ -110,6 +120,4 @@ public abstract class AbstractLayoutDesignTest extends AbstractSeleniumTest
             this.platformName = platformName;
         }
     }
-
-
 }

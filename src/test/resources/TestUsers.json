@@ -1,11 +1,29 @@
 {
-  "users": {
-    "employeeno": "test",
-    "username": "akorkmaz",
-    "password": "12345",
-    "name": "Atike Korkmaz",
-    "title": "Test Engineer",
-    "email": "test@gmail.com",
-    "isAvailable": true
-  }
+  "users": [
+    {
+      "username": "akorkmaz",
+      "password": "12345",
+      "availability": true
+    },
+    {
+      "username": "eaydin",
+      "password": "12345",
+      "availability": true
+    },
+    {
+      "username": "gguzel",
+      "password": "12345",
+      "availability": true
+    },
+    {
+      "username": "ötugrul",
+      "password": "12345",
+      "availability": true
+    },
+    {
+      "username": "zgökhan",
+      "password": "12345",
+      "availability": true
+    }
+  ]
 }
