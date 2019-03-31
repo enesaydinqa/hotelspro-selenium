@@ -1,0 +1,212 @@
+2019-03-31 11:57:38 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 11:57:38 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5bfbf16f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@25af5db5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@12cdcf4]
+2019-03-31 11:57:39 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@78186a70: startup date [Sun Mar 31 11:57:39 EET 2019]; root of context hierarchy
+2019-03-31 11:57:39 INFO  AbstractWebTest:50 - =================================================================
+2019-03-31 11:57:39 INFO  AbstractWebTest:51 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 11:57:39 INFO  AbstractWebTest:52 - =================================================================
+2019-03-31 11:57:39 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 11:57:41 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 11:57:41 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> c1083281566be8008a5f49822b29c3b9
+2019-03-31 11:57:41 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 11:57:41 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 11:58:12 INFO  TestUserAccountManager:46 - Test Users -----> 5 userSize ------>
+2019-03-31 11:58:12 INFO  TestUserAccountManager:53 - {admin} is started to be used ...
+2019-03-31 11:59:16 INFO  TestUserAccountManager:72 - {admin} is released ...
+2019-03-31 11:59:16 INFO  VideoRecorder:88 - Video not already taken
+2019-03-31 11:59:17 INFO  AbstractWebTest:58 - =================================================================
+2019-03-31 11:59:17 INFO  AbstractWebTest:59 - TEST PASSED ...
+2019-03-31 11:59:17 INFO  AbstractWebTest:60 - =================================================================
+2019-03-31 11:59:17 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@78186a70: startup date [Sun Mar 31 11:57:39 EET 2019]; root of context hierarchy
+2019-03-31 12:01:30 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 12:01:30 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5bfbf16f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@25af5db5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@12cdcf4]
+2019-03-31 12:01:30 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@78186a70: startup date [Sun Mar 31 12:01:30 EET 2019]; root of context hierarchy
+2019-03-31 12:01:30 ERROR TestContextManager:250 - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@25af5db5] to prepare test instance [com.selenium.tests.web.Test2@3d34d211]
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'com.selenium.tests.web.Test2': Unsatisfied dependency expressed through field 'testUserAccountManager'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.selenium.context.manager.TestUserAccountManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:587)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:373)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1348)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:399)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.selenium.context.manager.TestUserAccountManager' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1509)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1065)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:584)
+	... 27 more
+2019-03-31 12:01:30 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@78186a70: startup date [Sun Mar 31 12:01:30 EET 2019]; root of context hierarchy
+2019-03-31 12:01:43 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 12:01:43 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5bfbf16f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@25af5db5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@12cdcf4]
+2019-03-31 12:01:43 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@78186a70: startup date [Sun Mar 31 12:01:43 EET 2019]; root of context hierarchy
+2019-03-31 12:01:44 INFO  AbstractWebTest:50 - =================================================================
+2019-03-31 12:01:44 INFO  AbstractWebTest:51 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 12:01:44 INFO  AbstractWebTest:52 - =================================================================
+2019-03-31 12:01:44 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 12:01:45 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 12:01:45 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> 1187d907b11da0732452e52aee936b80
+2019-03-31 12:01:45 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 12:01:45 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 12:01:56 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@78186a70: startup date [Sun Mar 31 12:01:43 EET 2019]; root of context hierarchy
+2019-03-31 12:32:49 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 12:32:49 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2f8f5f62, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1068e947, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7dc222ae]
+2019-03-31 12:32:49 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 12:32:49 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2f8f5f62, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1068e947, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7dc222ae]
+2019-03-31 12:32:49 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@24c2d571: startup date [Sun Mar 31 12:32:49 EET 2019]; root of context hierarchy
+2019-03-31 12:32:49 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@2916dac: startup date [Sun Mar 31 12:32:49 EET 2019]; root of context hierarchy
+2019-03-31 12:32:50 INFO  AbstractWebTest:50 - =================================================================
+2019-03-31 12:32:50 INFO  AbstractWebTest:51 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 12:32:50 INFO  AbstractWebTest:52 - =================================================================
+2019-03-31 12:32:50 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 12:32:50 INFO  AbstractWebTest:50 - =================================================================
+2019-03-31 12:32:50 INFO  AbstractWebTest:51 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 12:32:50 INFO  AbstractWebTest:52 - =================================================================
+2019-03-31 12:32:50 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 12:32:51 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 12:32:51 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> 486daaf238f9b1711dacb8f343ec5a4c
+2019-03-31 12:32:51 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 12:32:51 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 12:32:51 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> 9c8b3275f5cbf8835904b554803bcefa
+2019-03-31 12:32:51 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 12:32:52 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 12:32:52 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 12:33:25 INFO  TestUserAccountManager:46 - Test Users -----> 5 userSize ------>
+2019-03-31 12:33:25 INFO  TestUserAccountManager:53 - {admin} is started to be used ...
+2019-03-31 12:33:26 INFO  TestUserAccountManager:46 - Test Users -----> 5 userSize ------>
+2019-03-31 12:33:26 INFO  TestUserAccountManager:53 - {admin} is started to be used ...
+2019-03-31 12:33:31 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@2916dac: startup date [Sun Mar 31 12:32:49 EET 2019]; root of context hierarchy
+2019-03-31 12:33:31 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@24c2d571: startup date [Sun Mar 31 12:32:49 EET 2019]; root of context hierarchy
+2019-03-31 12:35:20 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 12:35:20 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5aa9e4eb, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6989da5e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@385c9627]
+2019-03-31 12:35:20 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@6db9f5a4: startup date [Sun Mar 31 12:35:20 EET 2019]; root of context hierarchy
+2019-03-31 12:35:23 INFO  AbstractWebTest:50 - =================================================================
+2019-03-31 12:35:23 INFO  AbstractWebTest:51 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 12:35:23 INFO  AbstractWebTest:52 - =================================================================
+2019-03-31 12:35:23 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 12:35:27 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 12:35:27 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> d35b6542ecb738e8cef81d18665c6196
+2019-03-31 12:35:27 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 12:35:27 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 12:36:02 INFO  TestUserAccountManager:46 - Test Users -----> 5 userSize ------>
+2019-03-31 12:36:02 INFO  TestUserAccountManager:53 - {admin} is started to be used ...
+2019-03-31 12:36:51 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@6db9f5a4: startup date [Sun Mar 31 12:35:20 EET 2019]; root of context hierarchy
+2019-03-31 12:40:28 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 12:40:28 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6989da5e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@385c9627, org.springframework.test.context.support.DirtiesContextTestExecutionListener@139982de]
+2019-03-31 12:40:28 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@5f8edcc5: startup date [Sun Mar 31 12:40:28 EET 2019]; root of context hierarchy
+2019-03-31 12:40:29 INFO  AbstractWebTest:50 - =================================================================
+2019-03-31 12:40:29 INFO  AbstractWebTest:51 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 12:40:29 INFO  AbstractWebTest:52 - =================================================================
+2019-03-31 12:40:29 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 12:40:30 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 12:40:30 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> c57f7134fd8b00af29cd8c5015c918a4
+2019-03-31 12:40:30 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 12:40:30 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 12:40:58 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@5f8edcc5: startup date [Sun Mar 31 12:40:28 EET 2019]; root of context hierarchy
+2019-03-31 13:02:14 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 13:02:14 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6989da5e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@385c9627, org.springframework.test.context.support.DirtiesContextTestExecutionListener@139982de]
+2019-03-31 13:02:14 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@5f8edcc5: startup date [Sun Mar 31 13:02:14 EET 2019]; root of context hierarchy
+2019-03-31 13:02:19 INFO  StatusRule:14 - =================================================================
+2019-03-31 13:02:20 INFO  StatusRule:15 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 13:02:20 INFO  StatusRule:16 - =================================================================
+2019-03-31 13:02:23 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 13:02:24 INFO  TestUserAccountManager:72 - {null} is released ...
+2019-03-31 13:02:24 INFO  VideoRecorder:88 - Video not already taken
+2019-03-31 13:02:25 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@5f8edcc5: startup date [Sun Mar 31 13:02:14 EET 2019]; root of context hierarchy
+2019-03-31 13:03:14 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 13:03:14 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@12cdcf4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bcea91b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5f3a4b84]
+2019-03-31 13:03:14 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:03:14 EET 2019]; root of context hierarchy
+2019-03-31 13:03:15 INFO  StatusRule:14 - =================================================================
+2019-03-31 13:03:15 INFO  StatusRule:15 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 13:03:15 INFO  StatusRule:16 - =================================================================
+2019-03-31 13:03:15 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 13:03:16 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 13:03:16 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> 1a63cb2300a6deec4ea9f9b32cc62e55
+2019-03-31 13:03:16 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 13:03:16 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 13:03:50 INFO  TestUserAccountManager:46 - Test Users -----> 5 userSize ------>
+2019-03-31 13:03:50 INFO  TestUserAccountManager:53 - {admin} is started to be used ...
+2019-03-31 13:04:48 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:03:14 EET 2019]; root of context hierarchy
+2019-03-31 13:04:52 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 13:04:52 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@12cdcf4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bcea91b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5f3a4b84]
+2019-03-31 13:04:52 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:04:52 EET 2019]; root of context hierarchy
+2019-03-31 13:04:53 INFO  StatusRule:14 - =================================================================
+2019-03-31 13:04:53 INFO  StatusRule:15 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 13:04:53 INFO  StatusRule:16 - =================================================================
+2019-03-31 13:04:53 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 13:04:54 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 13:04:54 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> 0ef05d6fed88422f425e55b632fa0b90
+2019-03-31 13:04:54 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 13:04:54 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 13:05:28 INFO  TestUserAccountManager:46 - Test Users -----> 5 userSize ------>
+2019-03-31 13:05:28 INFO  TestUserAccountManager:53 - {admin} is started to be used ...
+2019-03-31 13:05:32 INFO  TestUserAccountManager:72 - {admin} is released ...
+2019-03-31 13:05:32 INFO  VideoRecorder:88 - Video not already taken
+2019-03-31 13:05:32 INFO  StatusRule:22 - =================================================================
+2019-03-31 13:05:32 INFO  StatusRule:23 - TEST PASSED ...
+2019-03-31 13:05:32 INFO  StatusRule:24 - =================================================================
+2019-03-31 13:05:32 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:04:52 EET 2019]; root of context hierarchy
+2019-03-31 13:11:14 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 13:11:14 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@12cdcf4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bcea91b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5f3a4b84]
+2019-03-31 13:11:14 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:11:14 EET 2019]; root of context hierarchy
+2019-03-31 13:11:15 INFO  StatusRule:14 - =================================================================
+2019-03-31 13:11:15 INFO  StatusRule:15 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 13:11:15 INFO  StatusRule:16 - =================================================================
+2019-03-31 13:11:15 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 13:11:16 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 13:11:16 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> f0cda7939c88bba4eff622464452934d
+2019-03-31 13:11:16 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 13:11:17 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 13:11:50 INFO  TestUserAccountManager:46 - Test Users -----> 5 userSize ------>
+2019-03-31 13:11:50 INFO  TestUserAccountManager:53 - {admin} is started to be used ...
+2019-03-31 13:11:55 INFO  TestUserAccountManager:72 - {admin} is released ...
+2019-03-31 13:11:55 INFO  VideoRecorder:88 - Video not already taken
+2019-03-31 13:11:56 INFO  StatusRule:22 - =================================================================
+2019-03-31 13:11:56 INFO  StatusRule:23 - TEST PASSED ...
+2019-03-31 13:11:56 INFO  StatusRule:24 - =================================================================
+2019-03-31 13:11:56 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:11:14 EET 2019]; root of context hierarchy
+2019-03-31 13:12:45 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 13:12:45 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@12cdcf4, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5bcea91b, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5f3a4b84]
+2019-03-31 13:12:46 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:12:46 EET 2019]; root of context hierarchy
+2019-03-31 13:12:46 INFO  StatusRule:14 - =================================================================
+2019-03-31 13:12:46 INFO  StatusRule:15 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 13:12:46 INFO  StatusRule:16 - =================================================================
+2019-03-31 13:12:46 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 13:12:48 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 13:12:48 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> 64c99a6b0f2f1a770ef83a5583de1699
+2019-03-31 13:12:48 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 13:12:48 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 13:12:53 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@545997b1: startup date [Sun Mar 31 13:12:46 EET 2019]; root of context hierarchy
+2019-03-31 13:14:36 INFO  DefaultTestContextBootstrapper:248 - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-03-31 13:14:36 INFO  DefaultTestContextBootstrapper:177 - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@8646db9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@37374a5e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4671e53b]
+2019-03-31 13:14:36 INFO  GenericApplicationContext:590 - Refreshing org.springframework.context.support.GenericApplicationContext@6d3af739: startup date [Sun Mar 31 13:14:36 EET 2019]; root of context hierarchy
+2019-03-31 13:14:37 INFO  AutowiredAnnotationBeanPostProcessor:154 - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2019-03-31 13:14:37 INFO  StatusRule:14 - =================================================================
+2019-03-31 13:14:37 INFO  StatusRule:15 - TEST STARTED ... -> {testAnywork1}
+2019-03-31 13:14:37 INFO  StatusRule:16 - =================================================================
+2019-03-31 13:14:37 INFO  DriverWebTestFactory:16 - BrowserType (DriverWebTestFactory) : chrome
+2019-03-31 13:14:39 INFO  ChromeDriverManagerWeb:34 - =================================================================
+2019-03-31 13:14:39 INFO  ChromeDriverManagerWeb:35 - This Execute Session ID --> b82b71530e63e4856555069cef47fb44
+2019-03-31 13:14:39 INFO  ChromeDriverManagerWeb:36 - =================================================================
+2019-03-31 13:14:39 INFO  VideoRecorder:75 - The senario was not recorded on video
+2019-03-31 13:14:59 INFO  GenericApplicationContext:993 - Closing org.springframework.context.support.GenericApplicationContext@6d3af739: startup date [Sun Mar 31 13:14:36 EET 2019]; root of context hierarchy
