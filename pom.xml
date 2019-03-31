@@ -32,25 +32,25 @@
         <profile>
             <id>Parallel</id>
             <properties>
-                <testcase.groups>context.flag.ParallelExecutable</testcase.groups>
+                <testcase.groups>com.selenium.context.flag.ParallelExecutable</testcase.groups>
             </properties>
         </profile>
         <profile>
             <id>Serial</id>
             <properties>
-                <testcase.groups>context.flag.SerialExecutable</testcase.groups>
+                <testcase.groups>com.selenium.context.flag.SerialExecutable</testcase.groups>
             </properties>
         </profile>
         <profile>
             <id>Network</id>
             <properties>
-                <testcase.groups>context.flag.NetworkExecutable</testcase.groups>
+                <testcase.groups>com.selenium.context.flag.NetworkExecutable</testcase.groups>
             </properties>
         </profile>
         <profile>
             <id>Security</id>
             <properties>
-                <testcase.groups>context.flag.SecurityExecutable</testcase.groups>
+                <testcase.groups>com.selenium.context.flag.SecurityExecutable</testcase.groups>
             </properties>
         </profile>
     </profiles>
@@ -114,6 +114,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -197,6 +198,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>6.1.0.jre8</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>6.1.0</version>
@@ -218,6 +226,30 @@
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
             <version>1.9.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.6.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.6.RELEASE</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>
