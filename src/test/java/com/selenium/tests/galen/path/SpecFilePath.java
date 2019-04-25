@@ -3,12 +3,12 @@ package com.selenium.tests.galen.path;
 public enum SpecFilePath
 {
 
-    WEB_DIRECTORY(System.getProperty("user.dir") + "/src/test/resources/specs/web/"),
-    RESPONSIVE_DIRECTORY(System.getProperty("user.dir") + "/src/test/resources/specs/mobile/"),
+    WEB_DIRECTORY(System.getProperty("user.dir").concat("/src/test/resources/specs/web/")),
+    RESPONSIVE_DIRECTORY(System.getProperty("user.dir").concat("/src/test/resources/specs/mobile/")),
 
-    HOME_PAGE_WEB(WEB_DIRECTORY, "AnyworkTest.spec"), // This example
+    HOME_PAGE_WEB(WEB_DIRECTORY, "HotelsPro.spec"), // This example
 
-    HOME_PAGE_RESPONSIVE(RESPONSIVE_DIRECTORY, "AnyworkTest.spec"); // This example
+    HOME_PAGE_RESPONSIVE(RESPONSIVE_DIRECTORY, "HotelsPro.spec"); // This example
 
 
     //-----

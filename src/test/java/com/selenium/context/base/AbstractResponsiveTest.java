@@ -4,7 +4,6 @@ import com.selenium.context.driver.DriverManager;
 import com.selenium.context.driver.DriverResponsiveTestFactory;
 import com.selenium.context.helper.JSHelper;
 import com.selenium.context.security.proxy.ZapSecurityTest;
-import com.selenium.context.utils.Folder;
 import com.selenium.context.utils.layout.LayoutDesign;
 import com.selenium.context.utils.recorder.VideoRecorder;
 import com.selenium.context.utils.report.ReportGenerate;
@@ -17,13 +16,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.junit.rules.TestRule;
-import org.junit.rules.TestWatcher;
-import org.junit.runner.Description;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public abstract class AbstractResponsiveTest extends AbstractSeleniumTest
 {
@@ -107,7 +102,12 @@ public abstract class AbstractResponsiveTest extends AbstractSeleniumTest
             logger.info("Already Stopped Proxy");
         }
 
-        driverKill();
+        if (driver != null)
+        {
+            driver.close();
+            driver.quit();
+            driver = null;
+        }
     }
 
 

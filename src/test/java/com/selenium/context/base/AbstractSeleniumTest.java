@@ -3,6 +3,7 @@ package com.selenium.context.base;
 import com.selenium.context.driver.DriverManager;
 import com.selenium.pages.UrlFactory;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -38,7 +39,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public void click(WebElement element)
+    public void waitAndClick(WebElement element)
     {
         waitElementToBeClickable(element);
         element.click();
@@ -51,7 +52,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         scrollToElement(clickableElement);
         mouseOver(clickableElement);
         waitElementToBeClickable(clickableElement);
-        wait(3);
+        sleep(3);
         clickableElement.click();
     }
 
@@ -73,6 +74,8 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     public void mouseOver(WebElement element)
     {
         Actions actions = new Actions(driver);
+
+        waitElementVisible(element);
         actions.moveToElement(element).perform();
     }
 
@@ -95,8 +98,10 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public void sendKeys(WebElement element, CharSequence text)
+    public void waitAndSendKeys(WebElement element, CharSequence text)
     {
+        waitElementVisible(element);
+        scrollToElement(element);
         element.sendKeys(text);
     }
 
@@ -202,7 +207,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public void wait(int seconds)
+    public void sleep(int seconds)
     {
         try
         {
@@ -287,10 +292,10 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         org.openqa.selenium.interactions.Actions act = new org.openqa.selenium.interactions.Actions(driver);
 
         scrollToElement(from);
-        wait(1);
+        sleep(1);
         act.clickAndHold(from).build().perform();
         scrollToElement(to);
-        wait(1);
+        sleep(1);
         act.moveToElement(to).build().perform();
         act.release(to).build().perform();
     }
@@ -331,7 +336,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     {
         for (int s = 100; s <= 1700; s += 100)
         {
-            wait(1);
+            sleep(1);
             pageScroll(0, s);
         }
     }
@@ -345,14 +350,11 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         }
     }
 
-    protected void driverKill()
+    @Override
+    public boolean isTextDisplayedOnPage(String text)
     {
-        if (driver != null)
-        {
-            driver.close();
-            driver.quit();
-            driver = null;
-        }
+        List<WebElement> foundElements = driver.findElements(By.xpath("//*[contains(text(), '" + text + "')]"));
+        return foundElements.size() > 0;
     }
 
 

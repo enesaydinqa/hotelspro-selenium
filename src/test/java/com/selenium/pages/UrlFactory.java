@@ -4,8 +4,8 @@ package com.selenium.pages;
 public enum UrlFactory
 {
 
-    MAIN_URL("https://www.nyxcosmetics.com.tr"),
-    CHECKOUT_PAYMENT(MAIN_URL, "/checkout-payment");
+    MAIN_URL("https://www2.hotelspro.com"),
+    SIGNUP(MAIN_URL, "/agency/signup/");
 
     //-----
 

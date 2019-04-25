@@ -13,7 +13,7 @@ public class SecurityTestExample extends AbstractWebTest
 {
     private static final Logger logger = LoggerFactory.getLogger(SecurityTestExample.class);
 
-    private static String DEFAULT_CONTEXT = "sahibinden-test-security";
+    private static String DEFAULT_CONTEXT = "CONTENT_NAME";
 
     @Test
     @Description("")
@@ -21,9 +21,9 @@ public class SecurityTestExample extends AbstractWebTest
     @Ignore
     public void testSpiderDepthOne()
     {
-        zapTest.spider("https://www.instagram.com/yahya_basut_", true, DEFAULT_CONTEXT, 1);
+        zapTest.spider("https://www.instagram.com/", true, DEFAULT_CONTEXT, 1);
         zapTest.setEnablePassiveScan(false);
-        zapTest.scan("https://www.instagram.com/yahya_basut_", 100);
+        zapTest.scan("https://www.instagram.com/, 100", 1);
         zapTest.createTestResultHtmlReport(zapTest, zapTest.getAlerts(), configuration.getZapHtmlReport());
     }
 }

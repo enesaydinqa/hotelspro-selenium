@@ -65,7 +65,7 @@ public class ReportGenerate extends TestWatcher
 
         ExtentReports extent = new ExtentReports(String.format(configuration.getTestResultReport(),
                 dateFormat.format(date)), false);
-        extent.config().reportName("Anywork Regression Tests");
+        extent.config().reportName("HotelsPro Regression Tests");
         extent.config().reportHeadline("Regression Test Results");
         return extent;
     }

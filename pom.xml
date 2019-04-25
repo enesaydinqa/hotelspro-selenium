@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.selenium</groupId>
-    <artifactId>anywork-selenium</artifactId>
+    <artifactId>hotelspro-selenium</artifactId>
     <version>1.0</version>
-    <name>Anywork Selenium Tests</name>
-    <description>Anywork Selenium Tests</description>
+    <name>HotelsPro Selenium Tests</name>
+    <description>HotelsPro Selenium Tests</description>
 
     <properties>
         <surefire.impl>surefire-junit47</surefire.impl>
@@ -228,29 +228,6 @@
             <version>1.9.13</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.0.6.RELEASE</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>5.0.6.RELEASE</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
 
     </dependencies>
 

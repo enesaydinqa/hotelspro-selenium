@@ -1,11 +1,10 @@
 package com.selenium.context.driver;
 
-import com.selenium.context.AbstractTest;
 import com.selenium.context.objects.Configuration;
 import net.lightbody.bmp.BrowserMobProxy;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public abstract class DriverManager extends AbstractTest
+public abstract class DriverManager
 {
     protected static RemoteWebDriver driver;
     protected static BrowserMobProxy proxy;

@@ -4,7 +4,6 @@ import com.selenium.context.driver.DriverManager;
 import com.selenium.context.driver.DriverWebTestFactory;
 import com.selenium.context.helper.JSHelper;
 import com.selenium.context.security.proxy.ZapSecurityTest;
-import com.selenium.context.utils.Folder;
 import com.selenium.context.utils.layout.LayoutDesign;
 import com.selenium.context.utils.recorder.VideoRecorder;
 import com.selenium.context.utils.report.ReportGenerate;
@@ -17,20 +16,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.junit.rules.TestRule;
-import org.junit.rules.TestWatcher;
-import org.junit.runner.Description;
 import org.openqa.selenium.Dimension;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public abstract class AbstractWebTest extends AbstractSeleniumTest
 {
     private static final Logger logger = Logger.getLogger(AbstractWebTest.class);
 
-    private boolean takeVideo;
     protected JSHelper jsHelper;
     protected LayoutDesign layoutDesign;
     protected static ZapSecurityTest zapTest;
@@ -79,8 +73,6 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
 
         driver = driverManager.getDriver(withProxy);
 
-        driver.manage().window().setSize(new Dimension(1200, 800));
-
         VideoRecorder.startRecording(testName.getMethodName(), configuration.getTakeAVideo());
 
         jsHelper = new JSHelper(driver);
@@ -110,7 +102,12 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
             logger.info("Already Stopped Proxy");
         }
 
-        driverKill();
+        if (driver != null)
+        {
+            driver.close();
+            driver.quit();
+            driver = null;
+        }
     }
 
     // --------

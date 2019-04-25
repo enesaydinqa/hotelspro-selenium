@@ -1,4 +1,4 @@
-# anywork-selenium
+# hotelspro-selenium
 
 - Parameters
 

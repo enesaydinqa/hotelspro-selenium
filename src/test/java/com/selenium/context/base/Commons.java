@@ -13,7 +13,7 @@ public interface Commons
 
     void openNewTab();
 
-    void click(WebElement element);
+    void waitAndClick(WebElement element);
 
     void listElementRandomClick(List<WebElement> element) throws InterruptedException;
 
@@ -29,7 +29,7 @@ public interface Commons
 
     void selectOptionVisibleText(WebElement element, String visibleText);
 
-    void sendKeys(WebElement element, CharSequence text);
+    void waitAndSendKeys(WebElement element, CharSequence text);
 
     boolean isDisplayed(WebElement element);
 
@@ -55,7 +55,7 @@ public interface Commons
 
     String selectedOptionGetValue(WebElement element);
 
-    void wait(int seconds) throws InterruptedException;
+    void sleep(int seconds) throws InterruptedException;
 
     void pageLoad();
 
@@ -95,4 +95,7 @@ public interface Commons
     void pageLongDownScroll();
 
     void secureScrollPage(Integer x, Integer y);
+
+    boolean isTextDisplayedOnPage(String text);
+
 }

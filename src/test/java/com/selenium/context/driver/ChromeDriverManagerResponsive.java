@@ -13,7 +13,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChromeDriverManagerResponsive extends DriverManager {
+public class ChromeDriverManagerResponsive extends DriverManager
+{
 
     private static final Logger logger = Logger.getLogger(ChromeDriverManagerResponsive.class);
 
@@ -24,15 +25,19 @@ public class ChromeDriverManagerResponsive extends DriverManager {
     private static final String USER_AGENT = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1";
 
     @Override
-    public void createDriver(Boolean withProxy) {
+    public void createDriver(Boolean withProxy)
+    {
 
         mobileEmulation = mobileEmulation();
         chromeOptions = chromeOptions(mobileEmulation);
         desiredCapabilities = desiredCapabilities(withProxy, chromeOptions);
 
-        if (Platform.getCurrent().is(Platform.MAC)) {
+        if (Platform.getCurrent().is(Platform.MAC))
+        {
             System.setProperty("webdriver.chrome.driver", configuration.getMacChromeDriver());
-        } else if (Platform.getCurrent().is(Platform.WINDOWS)) {
+        }
+        else if (Platform.getCurrent().is(Platform.WINDOWS))
+        {
             System.setProperty("webdriver.chrome.driver", configuration.getWindowsChromeDriver());
         }
 
@@ -46,11 +51,13 @@ public class ChromeDriverManagerResponsive extends DriverManager {
 
     }
 
-    private DesiredCapabilities desiredCapabilities(Boolean withProxy, ChromeOptions chromeOptions) {
+    private DesiredCapabilities desiredCapabilities(Boolean withProxy, ChromeOptions chromeOptions)
+    {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        if (withProxy) {
+        if (withProxy)
+        {
             Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
 
             String host = seleniumProxy.getHttpProxy().substring(0, seleniumProxy.getHttpProxy().indexOf(":"));
@@ -69,7 +76,8 @@ public class ChromeDriverManagerResponsive extends DriverManager {
         return capabilities;
     }
 
-    private ChromeOptions chromeOptions(Map<String, String> mobileEmulation) {
+    private ChromeOptions chromeOptions(Map<String, String> mobileEmulation)
+    {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("disable-infobars");
         chromeOptions.addArguments("--disable-notifications");
@@ -80,7 +88,8 @@ public class ChromeDriverManagerResponsive extends DriverManager {
         return chromeOptions;
     }
 
-    private Map<String, String> mobileEmulation() {
+    private Map<String, String> mobileEmulation()
+    {
         Map<String, String> mobileEmulation = new HashMap<>();
 
         mobileEmulation.put("browserName", "iPhone");
