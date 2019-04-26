@@ -3,28 +3,14 @@ package com.selenium.tests.web;
 import com.selenium.context.annotations.ExpectedResult;
 import com.selenium.context.base.AbstractHotelsProTest;
 import com.selenium.context.flag.ParallelExecutable;
-import com.selenium.pages.UrlFactory;
-import com.selenium.pages.web.HomePage;
-import com.selenium.pages.web.LoginPage;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 public class LoginTest extends AbstractHotelsProTest
 {
     private String invalidLoginMessage = "Lütfen geçerli kullanıcı adı ve şifre ile giriş yapın. Kullanıcı adı ve şifrenin büyük-küçük harfe duyarlı olduğunu unutmayın.";
-
-    private HomePage homePage;
-    private LoginPage loginPage;
-
-    @Before
-    public void before()
-    {
-        homePage = new HomePage(driver);
-        loginPage = new LoginPage(driver);
-    }
 
     @Test
     @ExpectedResult("Kullanıcının yanlış login email veya yanlış şifre ile login olmaması gereklidir. Bu durumda sistem uyarı göstermelidir.")
@@ -44,7 +30,6 @@ public class LoginTest extends AbstractHotelsProTest
         String randomUserId = RandomStringUtils.randomNumeric(5);
 
         invalidTryLogin(randomUserId, configuration.getTestEmailPassword());
-
     }
 
     @Test
@@ -55,19 +40,28 @@ public class LoginTest extends AbstractHotelsProTest
         String randomPassword = RandomStringUtils.randomAlphabetic(10);
 
         invalidTryLogin(configuration.getTestEmailPassword(), randomPassword);
+    }
 
+    @Test
+    @ExpectedResult("Kullanıcının login email adresi veya User ID ve şifresi ile başarılı bir şekilde login olması gereklidir.")
+    @Category(ParallelExecutable.class)
+    public void testEmailWithLogin()
+    {
+        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
+    }
+
+    @Test
+    @ExpectedResult("Kullanıcının login email adresi veya User ID ve şifresi ile başarılı bir şekilde login olması gereklidir.")
+    @Category(ParallelExecutable.class)
+    public void testUserIdlWithLogin()
+    {
+        login(configuration.getTestUserId(), configuration.getTestEmailPassword());
     }
 
     private void invalidTryLogin(String username, String password)
     {
-        navigateToURL(UrlFactory.MAIN_URL_FIRST);
-        waitAndClick(homePage.loginMenu);
-        waitAndSendKeys(loginPage.usernameInput, username);
-        waitAndSendKeys(loginPage.passwordInput, password);
-        waitAndClick(loginPage.loginButton);
-
+        login(username, password);
         sleep(5);
-
         Assert.assertTrue("not visible or bad invalid message", isTextDisplayedOnPage(invalidLoginMessage));
     }
 }

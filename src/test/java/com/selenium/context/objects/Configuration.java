@@ -24,6 +24,7 @@ public class Configuration
     private Integer implicitlyWait;
     private String macChromeDriver;
     private String windowsChromeDriver;
+    private String testUserId;
     private String testEmail;
     private String testEmailPassword;
     private String testResultPath;
@@ -43,6 +44,7 @@ public class Configuration
         this.macChromeDriver = configProps.getProperty("mac.chrome.driver");
         this.windowsChromeDriver = configProps.getProperty("windows.chrome.driver");
         this.testEmail = configProps.getProperty("test.mail.address");
+        this.testUserId = configProps.getProperty("test.user.id");
         this.testEmailPassword = configProps.getProperty("test.mail.address.password");
         this.testResultPath = configProps.getProperty("test.result.report");
 
@@ -154,6 +156,16 @@ public class Configuration
     public void setWindowsChromeDriver(String windowsChromeDriver)
     {
         this.windowsChromeDriver = windowsChromeDriver;
+    }
+
+    public String getTestUserId()
+    {
+        return testUserId;
+    }
+
+    public void setTestUserId(String testUserId)
+    {
+        this.testUserId = testUserId;
     }
 
     public String getTestEmail()
