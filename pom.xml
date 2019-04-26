@@ -41,18 +41,6 @@
                 <testcase.groups>com.selenium.context.flag.SerialExecutable</testcase.groups>
             </properties>
         </profile>
-        <profile>
-            <id>Network</id>
-            <properties>
-                <testcase.groups>com.selenium.context.flag.NetworkExecutable</testcase.groups>
-            </properties>
-        </profile>
-        <profile>
-            <id>Security</id>
-            <properties>
-                <testcase.groups>com.selenium.context.flag.SecurityExecutable</testcase.groups>
-            </properties>
-        </profile>
     </profiles>
 
     <build>

@@ -3,7 +3,7 @@ package com.selenium.tests.web;
 import com.selenium.context.annotations.ExpectedResult;
 import com.selenium.context.base.AbstractHotelsProTest;
 import com.selenium.context.flag.ParallelExecutable;
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;

@@ -12,7 +12,7 @@ import com.selenium.pages.web.ClientPartnerSignupPage;
 import com.selenium.pages.web.HomePage;
 import com.selenium.pages.web.HotelPartnerSignupPage;
 import com.selenium.pages.web.LocalPartnerSignupPage;
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
