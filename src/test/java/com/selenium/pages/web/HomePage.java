@@ -21,6 +21,9 @@ public class HomePage extends PageObject
     @FindBy(css = "[class='sub-nav-overlay signup']  [href='/signup/local_partner/'")
     public WebElement localPartnerCustomerMenu;
 
+    @FindBy(css = "[href='/account/login/']")
+    public WebElement loginMenu;
+
     @FindBy(xpath = "//span[text()='Kaydol']")
     public WebElement signUpButton;
 

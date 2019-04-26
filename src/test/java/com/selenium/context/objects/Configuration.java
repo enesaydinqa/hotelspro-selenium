@@ -2,14 +2,13 @@ package com.selenium.context.objects;
 
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-@Component
-public class Configuration {
+public class Configuration
+{
 
     private static final Logger logger = Logger.getLogger(Configuration.class);
 
@@ -25,16 +24,12 @@ public class Configuration {
     private Integer implicitlyWait;
     private String macChromeDriver;
     private String windowsChromeDriver;
-    private String dbConnectionString;
-    private String dbUser;
-    private String dbUserPassword;
-    private String zapHost;
-    private Integer zapPort;
-    private String zapApiKey;
-    private String zapHtmlReport;
-    private String testResultReport;
+    private String testEmail;
+    private String testEmailPassword;
+    private String testResultPath;
 
-    public Configuration() throws IOException {
+    public Configuration() throws IOException
+    {
         loadConfigProperties();
 
         this.browserType = System.getProperties().getProperty("browser.type");
@@ -47,174 +42,147 @@ public class Configuration {
         this.implicitlyWait = Integer.valueOf(configProps.getProperty("implicitly.wait"));
         this.macChromeDriver = configProps.getProperty("mac.chrome.driver");
         this.windowsChromeDriver = configProps.getProperty("windows.chrome.driver");
-        this.dbConnectionString = configProps.getProperty("dbConnectionString");
-        this.dbUser = configProps.getProperty("dbUser");
-        this.dbUserPassword = configProps.getProperty("dbUserPassword");
-        this.zapHost = configProps.getProperty("zap.host");
-        this.zapPort = Integer.valueOf(configProps.getProperty("zap.port"));
-        this.zapApiKey = configProps.getProperty("zap.api.key");
-        this.zapHtmlReport = configProps.getProperty("zap.html.report");
-        this.testResultReport = configProps.getProperty("test.result.report");
+        this.testEmail = configProps.getProperty("test.mail.address");
+        this.testEmailPassword = configProps.getProperty("test.mail.address.password");
+        this.testResultPath = configProps.getProperty("test.result.report");
+
     }
 
-    private void loadConfigProperties() throws IOException {
+    private void loadConfigProperties() throws IOException
+    {
         String configFile = "config.properties";
         InputStream in = ClassLoader.getSystemResourceAsStream(configFile);
 
         configProps.load(in);
     }
 
-    public String getBrowserType() {
+    public String getBrowserType()
+    {
         return browserType;
     }
 
-    public void setBrowserType(String browserType) {
+    public void setBrowserType(String browserType)
+    {
         this.browserType = browserType;
     }
 
-    public Boolean getTakeAVideo() {
+    public Boolean getTakeAVideo()
+    {
         return takeAVideo;
     }
 
-    public void setTakeAVideo(Boolean takeAVideo) {
+    public void setTakeAVideo(Boolean takeAVideo)
+    {
         this.takeAVideo = takeAVideo;
     }
 
-    public String getGalenReportPath() {
+    public String getGalenReportPath()
+    {
         return galenReportPath;
     }
 
-    public void setGalenReportPath(String galenReportPath) {
+    public void setGalenReportPath(String galenReportPath)
+    {
         this.galenReportPath = galenReportPath;
     }
 
-    public String getHarFilePath() {
+    public String getHarFilePath()
+    {
         return harFilePath;
     }
 
-    public void setHarFilePath(String harFilePath) {
+    public void setHarFilePath(String harFilePath)
+    {
         this.harFilePath = harFilePath;
     }
 
-    public String getBaseUrl() {
+    public String getBaseUrl()
+    {
         return baseUrl;
     }
 
-    public void setBaseUrl(String baseUrl) {
+    public void setBaseUrl(String baseUrl)
+    {
         this.baseUrl = baseUrl;
     }
 
-    public Integer getPageLoadTimeout() {
+    public Integer getPageLoadTimeout()
+    {
         return pageLoadTimeout;
     }
 
-    public void setPageLoadTimeout(Integer pageLoadTimeout) {
+    public void setPageLoadTimeout(Integer pageLoadTimeout)
+    {
         this.pageLoadTimeout = pageLoadTimeout;
     }
 
-    public Integer getWaitLoadTimeout() {
+    public Integer getWaitLoadTimeout()
+    {
         return waitLoadTimeout;
     }
 
-    public void setWaitLoadTimeout(Integer waitLoadTimeout) {
+    public void setWaitLoadTimeout(Integer waitLoadTimeout)
+    {
         this.waitLoadTimeout = waitLoadTimeout;
     }
 
-    public Integer getImplicitlyWait() {
+    public Integer getImplicitlyWait()
+    {
         return implicitlyWait;
     }
 
-    public void setImplicitlyWait(Integer implicitlyWait) {
+    public void setImplicitlyWait(Integer implicitlyWait)
+    {
         this.implicitlyWait = implicitlyWait;
     }
 
-    public String getMacChromeDriver() {
+    public String getMacChromeDriver()
+    {
         return macChromeDriver;
     }
 
-    public void setMacChromeDriver(String macChromeDriver) {
+    public void setMacChromeDriver(String macChromeDriver)
+    {
         this.macChromeDriver = macChromeDriver;
     }
 
-    public String getWindowsChromeDriver() {
+    public String getWindowsChromeDriver()
+    {
         return windowsChromeDriver;
     }
 
-    public void setWindowsChromeDriver(String windowsChromeDriver) {
+    public void setWindowsChromeDriver(String windowsChromeDriver)
+    {
         this.windowsChromeDriver = windowsChromeDriver;
     }
 
-    public String getDbConnectionString() {
-        return dbConnectionString;
-    }
-
-    public void setDbConnectionString(String dbConnectionString) {
-        this.dbConnectionString = dbConnectionString;
-    }
-
-    public String getDbUser() {
-        return dbUser;
-    }
-
-    public void setDbUser(String dbUser) {
-        this.dbUser = dbUser;
-    }
-
-    public String getDbUserPassword() {
-        return dbUserPassword;
-    }
-
-    public void setDbUserPassword(String dbUserPassword) {
-        this.dbUserPassword = dbUserPassword;
-    }
-
-    public String getZapHost()
+    public String getTestEmail()
     {
-        return zapHost;
+        return testEmail;
     }
 
-    public void setZapHost(String zapHost)
+    public void setTestEmail(String testEmail)
     {
-        this.zapHost = zapHost;
+        this.testEmail = testEmail;
     }
 
-    public Integer getZapPort()
+    public String getTestEmailPassword()
     {
-        return zapPort;
+        return testEmailPassword;
     }
 
-    public void setZapPort(Integer zapPort)
+    public void setTestEmailPassword(String testEmailPassword)
     {
-        this.zapPort = zapPort;
+        this.testEmailPassword = testEmailPassword;
     }
 
-    public String getZapApiKey()
+    public String getTestResultPath()
     {
-        return zapApiKey;
+        return testResultPath;
     }
 
-    public void setZapApiKey(String zapApiKey)
+    public void setTestResultPath(String testResultPath)
     {
-        this.zapApiKey = zapApiKey;
-    }
-
-    public String getZapHtmlReport()
-    {
-        return zapHtmlReport;
-    }
-
-    public void setZapHtmlReport(String zapHtmlReport)
-    {
-        this.zapHtmlReport = zapHtmlReport;
-    }
-
-    public String getTestResultReport()
-    {
-        return testResultReport;
-    }
-
-    public void setTestResultReport(String testResultReport)
-    {
-        this.testResultReport = testResultReport;
+        this.testResultPath = testResultPath;
     }
 }

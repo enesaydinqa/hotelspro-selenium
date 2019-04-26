@@ -1,6 +1,7 @@
 package com.selenium.tests.web;
 
-import com.selenium.context.annotations.Description;
+import com.selenium.context.annotations.ExpectedResult;
+import com.selenium.context.annotations.PreconditionsToReproduce;
 import com.selenium.context.base.AbstractHotelsProTest;
 import com.selenium.context.flag.ParallelExecutable;
 import com.selenium.context.objects.ClientPartnerSignUp;
@@ -52,13 +53,14 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Description("Kullanıcı başarılı bir şekilde Client Partner Sign Up Formunu doldurabilmeli ve gönderebilmelidir.")
+    @ExpectedResult("Kullanıcı başarılı bir şekilde Client Partner Sign Up Formunu doldurabilmeli ve gönderebilmelidir.")
+    @PreconditionsToReproduce("Kullanıcının siteye önceden kayıtlı olmayan bir email adresi ile sign up olması gereklidir.")
     @Category(ParallelExecutable.class)
     public void testClientPartnerSignUp()
     {
         ClientPartnerSignUp clientPartnerSignUp = clientPartnerSignUpFormSet();
 
-        navigateToURL(UrlFactory.SIGNUP);
+        navigateToURL(UrlFactory.SIGN_UP);
         mouseOver(homePage.signUpButton);
         waitAndClick(homePage.clientPartnerCustomerMenu);
         waitAndSendKeys(clientPartnerSignupPage.agencyCountry, clientPartnerSignUp.getAgencyCountry());
@@ -106,13 +108,13 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Description("Hotelspro'da Sign up'tan yeni otel partner kaydı oluşturulabilmesi gerekmektedir.")
+    @ExpectedResult("Hotelspro'da Sign up'tan yeni otel partner kaydı oluşturulabilmesi gerekmektedir.")
     @Category(ParallelExecutable.class)
     public void testHotelPartnerSignUp()
     {
         HotelPartnerSignUp hotelPartnerSignUp = hotelPartnerSignUpFormSet();
 
-        navigateToURL(UrlFactory.SIGNUP);
+        navigateToURL(UrlFactory.SIGN_UP);
         mouseOver(homePage.signUpButton);
         waitAndClick(homePage.hotelPartnerCustomerMenu);
         waitAndClick(hotelPartnerSignupPage.saveButton);
@@ -156,13 +158,13 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Description("Hotelspro'da Sign up'tan yeni local partner kaydı oluşturulabilmesi gerekmektedir.")
+    @ExpectedResult("Hotelspro'da Sign up'tan yeni local partner kaydı oluşturulabilmesi gerekmektedir.")
     @Category(ParallelExecutable.class)
     public void testLocalPartnerSignUp()
     {
         LocalPartnerSignUp localPartnerSignUp = localPartnerSignUpFormSet();
 
-        navigateToURL(UrlFactory.SIGNUP);
+        navigateToURL(UrlFactory.SIGN_UP);
         mouseOver(homePage.signUpButton);
         waitAndClick(homePage.localPartnerCustomerMenu);
         waitAndClick(localPartnerSignupPage.saveButton);

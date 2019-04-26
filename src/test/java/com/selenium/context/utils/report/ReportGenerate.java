@@ -3,7 +3,7 @@ package com.selenium.context.utils.report;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import com.selenium.context.annotations.Description;
+import com.selenium.context.annotations.ExpectedResult;
 import com.selenium.context.objects.Configuration;
 import org.junit.rules.TestWatcher;
 
@@ -63,7 +63,7 @@ public class ReportGenerate extends TestWatcher
             ex.printStackTrace();
         }
 
-        ExtentReports extent = new ExtentReports(String.format(configuration.getTestResultReport(),
+        ExtentReports extent = new ExtentReports(String.format(configuration.getTestResultPath(),
                 dateFormat.format(date)), false);
         extent.config().reportName("HotelsPro Regression Tests");
         extent.config().reportHeadline("Regression Test Results");
@@ -82,9 +82,9 @@ public class ReportGenerate extends TestWatcher
         {
             Method method = description.getTestClass().getMethod(description.getMethodName());
 
-            Description testDescription = method.getAnnotation(Description.class);
+            ExpectedResult testExpectedResult = method.getAnnotation(ExpectedResult.class);
 
-            return testDescription.value();
+            return testExpectedResult.value();
         }
         catch (NoSuchMethodException e1)
         {

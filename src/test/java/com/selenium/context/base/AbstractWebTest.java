@@ -3,7 +3,6 @@ package com.selenium.context.base;
 import com.selenium.context.driver.DriverManager;
 import com.selenium.context.driver.DriverWebTestFactory;
 import com.selenium.context.helper.JSHelper;
-import com.selenium.context.security.proxy.ZapSecurityTest;
 import com.selenium.context.utils.layout.LayoutDesign;
 import com.selenium.context.utils.recorder.VideoRecorder;
 import com.selenium.context.utils.report.ReportGenerate;
@@ -26,7 +25,6 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
 
     protected JSHelper jsHelper;
     protected LayoutDesign layoutDesign;
-    protected static ZapSecurityTest zapTest;
 
     @Rule
     public final TestName testName = new TestName();
@@ -78,10 +76,6 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
 
         layoutDesign = new LayoutDesign(driver, configuration);
 
-        zapTest = new ZapSecurityTest(
-                configuration.getZapHost(),
-                configuration.getZapPort(),
-                configuration.getZapApiKey());
     }
 
 
