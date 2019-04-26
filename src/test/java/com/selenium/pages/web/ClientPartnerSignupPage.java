@@ -5,22 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
 
-
-public class SignupPage extends PageObject
+public class ClientPartnerSignupPage extends PageObject
 {
 
-    public SignupPage(WebDriver driver)
+    public ClientPartnerSignupPage(WebDriver driver)
     {
         super(driver);
     }
-
-    @FindBy(xpath = "//span[text()='Kaydol']")
-    public WebElement signUpButton;
-
-    @FindBy(css = "[class='sub-nav-overlay signup']  [href='/agency/signup/']")
-    public WebElement partnerCustomerMenu;
 
     @FindBy(css = "[data-agencysignupvalidationkey='agency_country']")
     public WebElement agencyCountry;

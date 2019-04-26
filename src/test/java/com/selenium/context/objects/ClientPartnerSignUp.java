@@ -1,6 +1,6 @@
 package com.selenium.context.objects;
 
-public class SignUp
+public class ClientPartnerSignUp
 {
     private String agencyCountry;
     private String agencyName;
