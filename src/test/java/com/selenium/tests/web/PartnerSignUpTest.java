@@ -9,6 +9,7 @@ import com.selenium.context.objects.HotelPartnerSignUp;
 import com.selenium.context.objects.LocalPartnerSignUp;
 import com.selenium.pages.UrlFactory;
 import com.selenium.pages.web.ClientPartnerSignupPage;
+import com.selenium.pages.web.FooterPage;
 import com.selenium.pages.web.HomePage;
 import com.selenium.pages.web.HotelPartnerSignupPage;
 import com.selenium.pages.web.LocalPartnerSignupPage;
@@ -39,6 +40,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
     private List<String> localPartnerRequiredInputTitles = Arrays.asList("Şirket Adı", "İletişim Kurulacak Kişinin Adı:", "Telefon Numarası", "E-posta adresi :", "Fatura Ülkesi", "Tanıtım");
 
     private HomePage homePage;
+    private FooterPage footerPage;
     private ClientPartnerSignupPage clientPartnerSignupPage;
     private HotelPartnerSignupPage hotelPartnerSignupPage;
     private LocalPartnerSignupPage localPartnerSignupPage;
@@ -47,6 +49,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
     public void before()
     {
         homePage = new HomePage(driver);
+        footerPage = new FooterPage(driver);
         clientPartnerSignupPage = new ClientPartnerSignupPage(driver);
         hotelPartnerSignupPage = new HotelPartnerSignupPage(driver);
         localPartnerSignupPage = new LocalPartnerSignupPage(driver);
@@ -105,6 +108,11 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         waitAndClick(clientPartnerSignupPage.saveButton);
         sleep(3);
         Assert.assertTrue(isTextDisplayedOnPage(reCAPTCHAErrorMessage));
+        footerPage.footerMenus.forEach(this::isDisplayed);
+
+        /*
+         *TODO : ReCaptcha olduğu için form save edilemiyor.
+         */
     }
 
     @Test
@@ -155,6 +163,11 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         waitAndClick(hotelPartnerSignupPage.saveButton);
         sleep(3);
         Assert.assertTrue(isTextDisplayedOnPage(reCAPTCHAErrorMessage));
+        footerPage.footerMenus.forEach(this::isDisplayed);
+
+        /*
+         *TODO : ReCaptcha olduğu için form save edilemiyor.
+         */
     }
 
     @Test
@@ -197,6 +210,11 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         waitAndClick(localPartnerSignupPage.saveButton);
         sleep(3);
         Assert.assertTrue(isTextDisplayedOnPage(reCAPTCHAErrorMessage));
+        footerPage.footerMenus.forEach(this::isDisplayed);
+
+        /*
+         *TODO : ReCaptcha olduğu için form save edilemiyor.
+         */
     }
 
     private ClientPartnerSignUp clientPartnerSignUpFormSet()

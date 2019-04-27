@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class HomePage extends PageObject
 {
     public HomePage(WebDriver driver)
@@ -24,7 +26,36 @@ public class HomePage extends PageObject
     @FindBy(css = "[href='/account/login/']")
     public WebElement loginMenu;
 
-    @FindBy(xpath = "//span[text()='Kaydol']")
+    @FindBy(xpath = "//a[contains(@class, 'header-button signup-button')]")
     public WebElement signUpButton;
 
+    @FindBy(className = "top-logo")
+    public WebElement logo;
+
+    @FindBy(className = "about")
+    public WebElement aboutMenu;
+
+    @FindBy(className = "products")
+    public WebElement productsMenu;
+
+    @FindBy(className = "offices")
+    public WebElement officesMenu;
+
+    @FindBy(className = "language")
+    public WebElement languageMenu;
+
+    @FindBy(xpath = "//li//a[text()='English']")
+    public WebElement englishOption;
+
+    @FindBy(className = "selected-language")
+    public WebElement selectedLanguage;
+
+    @FindBy(css = "[class='before-login-header-top  sticky ']")
+    public WebElement headerSticky;
+
+    @FindBy(className = "city")
+    public List<WebElement> officesList;
+
+    @FindBy(id = "google-map")
+    public WebElement googleMap;
 }

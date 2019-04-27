@@ -41,6 +41,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     @Override
     public void waitAndClick(WebElement element)
     {
+        scrollToElement(element);
         waitElementToBeClickable(element);
         element.click();
     }

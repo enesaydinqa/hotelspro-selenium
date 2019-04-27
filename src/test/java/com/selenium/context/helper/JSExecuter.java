@@ -57,4 +57,6 @@ public interface JSExecuter
     String getCurrentUrl();
 
     String getLocationPathName();
+
+    Long getScreenYPageOffset();
 }

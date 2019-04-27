@@ -209,6 +209,12 @@ public class JSHelper implements JSExecuter
         return executeScript(String.class, "return location.pathname");
     }
 
+    @Override
+    public Long getScreenYPageOffset()
+    {
+        return executeScript(Long.class, "return window.pageYOffset;");
+    }
+
 }
 
 

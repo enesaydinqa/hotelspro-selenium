@@ -16,6 +16,10 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         waitAndSendKeys(loginPage.usernameInput, username);
         waitAndSendKeys(loginPage.passwordInput, password);
         waitAndClick(loginPage.loginButton);
+
+        /*
+         *TODO : Bazı durumlarda reCaptcha çıkıyor !!!
+         */
     }
 
 }

@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5389261-e572-49f1-99a3-c59807b8ce42" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/FooterPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/FooterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/HomePageNetworkTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/HomePageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/homepagetext.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/context/flag/NetworkExecutable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/context/flag/SecurityExecutable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractHotelsProTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractHotelsProTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractSeleniumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractSeleniumTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSExecuter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSExecuter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/pages/UrlFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/selenium/pages/UrlFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/PartnerSignUpTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/PartnerSignUpTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/selenium/context/helper/JSExecuter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/selenium/context/helper/JSExecuter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/selenium/context/helper/JSHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/selenium/context/helper/JSHelper.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,7 +26,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/FooterTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="90" selection-start-line="90" selection-end-line="90" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/FooterPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -59,10 +95,8 @@
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/Test2.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/SignupTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/ClientPartnerSignUp.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSHelper.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/base/Commons.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractSeleniumTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/driver/ChromeDriverManagerWeb.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/SignupPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/ClientPartnerSignupPage.java" />
@@ -75,19 +109,27 @@
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/objects/LocalPartnerSignUp.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/LocalPartnerSignupPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/annotations/PreconditionsToReproduce.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/PartnerSignUpTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractWebTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractResponsiveTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HomePage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/ForgotPasswordTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/utils/report/ReportGenerate.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/LoginPage.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/UrlFactory.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractHotelsProTest.java" />
         <option value="$PROJECT_DIR$/src/test/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/objects/Configuration.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/LoginTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractHotelsProTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSExecuter.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSHelper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HomePage.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/homepagetext.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/PartnerSignUpTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/HomePageNetworkTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/HomePageTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractSeleniumTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/UrlFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/pages/web/FooterPage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/selenium/tests/web/FooterTest.java" />
       </list>
     </option>
   </component>
@@ -115,6 +157,11 @@
             <path>
               <item name="hotelspro-selenium" type="b2602c69:ProjectViewProjectNode" />
               <item name="hotelspro-selenium" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hotelspro-selenium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hotelspro-selenium" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hotelspro-selenium" type="b2602c69:ProjectViewProjectNode" />
@@ -298,7 +345,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556313230233" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556365266107" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -323,8 +370,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.testFalsePasswordTryLogin">
-    <configuration name="ForgotPasswordTest.testRedirectToForgotPasswordPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FooterTest.testFooterRedirectMenu">
+    <configuration name="FooterTest.testFooterRedirectMenu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hotelspro-selenium" />
       <extension name="coverage">
         <pattern>
@@ -333,8 +380,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.selenium.tests.web" />
-      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.ForgotPasswordTest" />
-      <option name="METHOD_NAME" value="testRedirectToForgotPasswordPage" />
+      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.FooterTest" />
+      <option name="METHOD_NAME" value="testFooterRedirectMenu" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-Dbrowser.type=chrome -Dtake.a.video=false" />
       <option name="PARAMETERS" value="" />
@@ -342,7 +389,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.testFalseMailAddressTryLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FooterTest.testFooterSocialMediaIcons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hotelspro-selenium" />
       <extension name="coverage">
         <pattern>
@@ -351,8 +398,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.selenium.tests.web" />
-      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.LoginTest" />
-      <option name="METHOD_NAME" value="testFalseMailAddressTryLogin" />
+      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.FooterTest" />
+      <option name="METHOD_NAME" value="testFooterSocialMediaIcons" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-Dbrowser.type=chrome -Dtake.a.video=false" />
       <option name="PARAMETERS" value="" />
@@ -360,7 +407,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.testFalsePasswordTryLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FooterTest.testHomePageLoadImages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hotelspro-selenium" />
       <extension name="coverage">
         <pattern>
@@ -369,8 +416,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.selenium.tests.web" />
-      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.LoginTest" />
-      <option name="METHOD_NAME" value="testFalsePasswordTryLogin" />
+      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.FooterTest" />
+      <option name="METHOD_NAME" value="testHomePageLoadImages" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-Dbrowser.type=chrome -Dtake.a.video=false" />
       <option name="PARAMETERS" value="" />
@@ -378,7 +425,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.testFalseUserIdTryLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HomePageNetworkTest.testHomePageLoadImages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hotelspro-selenium" />
       <extension name="coverage">
         <pattern>
@@ -387,8 +434,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.selenium.tests.web" />
-      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.LoginTest" />
-      <option name="METHOD_NAME" value="testFalseUserIdTryLogin" />
+      <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.HomePageNetworkTest" />
+      <option name="METHOD_NAME" value="testHomePageLoadImages" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-Dbrowser.type=chrome -Dtake.a.video=false" />
       <option name="PARAMETERS" value="" />
@@ -396,7 +443,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PartnerSignUpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PartnerSignUpTest.testLocalPartnerSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hotelspro-selenium" />
       <extension name="coverage">
         <pattern>
@@ -406,8 +453,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.selenium.tests.web" />
       <option name="MAIN_CLASS_NAME" value="com.selenium.tests.web.PartnerSignUpTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testLocalPartnerSignUp" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-Dbrowser.type=chrome -Dtake.a.video=false" />
       <option name="PARAMETERS" value="" />
       <method v="2">
@@ -426,11 +473,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTest.testFalsePasswordTryLogin" />
-        <item itemvalue="JUnit.LoginTest.testFalseUserIdTryLogin" />
-        <item itemvalue="JUnit.LoginTest.testFalseMailAddressTryLogin" />
-        <item itemvalue="JUnit.ForgotPasswordTest.testRedirectToForgotPasswordPage" />
-        <item itemvalue="JUnit.PartnerSignUpTest" />
+        <item itemvalue="JUnit.FooterTest.testFooterRedirectMenu" />
+        <item itemvalue="JUnit.FooterTest.testFooterSocialMediaIcons" />
+        <item itemvalue="JUnit.FooterTest.testHomePageLoadImages" />
+        <item itemvalue="JUnit.HomePageNetworkTest.testHomePageLoadImages" />
+        <item itemvalue="JUnit.PartnerSignUpTest.testLocalPartnerSignUp" />
       </list>
     </recent_temporary>
   </component>
@@ -450,49 +497,50 @@
       <workItem from="1556176480203" duration="253000" />
       <workItem from="1556269067295" duration="7782000" />
       <workItem from="1556309045501" duration="22000" />
-      <workItem from="1556309072274" duration="3830000" />
+      <workItem from="1556309072274" duration="7187000" />
+      <workItem from="1556352772821" duration="10975000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PartnerSignUpTest_testClientPartnerSignUp - 2019.04.26 at 22h 49m 35s.xml">
-      <configuration name="PartnerSignUpTest.testClientPartnerSignUp" configurationId="JUnit" />
+    <history-entry file="FooterTest_testHomePageLoadImages - 2019.04.27 at 14h 09m 36s.xml">
+      <configuration name="FooterTest.testHomePageLoadImages" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PartnerSignUpTest - 2019.04.26 at 22h 53m 11s.xml">
-      <configuration name="PartnerSignUpTest" configurationId="JUnit" />
+    <history-entry file="FooterTest_testHomePageLoadImages - 2019.04.27 at 14h 12m 26s.xml">
+      <configuration name="FooterTest.testHomePageLoadImages" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ForgotPasswordTest_testRedirectToForgotPasswordPage - 2019.04.26 at 23h 12m 31s.xml">
-      <configuration name="ForgotPasswordTest.testRedirectToForgotPasswordPage" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterSocialMediaIcons - 2019.04.27 at 14h 14m 41s.xml">
+      <configuration name="FooterTest.testFooterSocialMediaIcons" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ForgotPasswordTest_testRedirectToForgotPasswordPage - 2019.04.26 at 23h 13m 39s.xml">
-      <configuration name="ForgotPasswordTest.testRedirectToForgotPasswordPage" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterSocialMediaIcons - 2019.04.27 at 14h 17m 10s.xml">
+      <configuration name="FooterTest.testFooterSocialMediaIcons" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest_testFalseMailAddressTryLogin - 2019.04.26 at 23h 33m 23s.xml">
-      <configuration name="LoginTest.testFalseMailAddressTryLogin" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterSocialMediaIcons - 2019.04.27 at 14h 19m 03s.xml">
+      <configuration name="FooterTest.testFooterSocialMediaIcons" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest_testFalseMailAddressTryLogin - 2019.04.26 at 23h 35m 21s.xml">
-      <configuration name="LoginTest.testFalseMailAddressTryLogin" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterRedirectMenu - 2019.04.27 at 14h 30m 10s.xml">
+      <configuration name="FooterTest.testFooterRedirectMenu" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest_testFalseMailAddressTryLogin - 2019.04.26 at 23h 36m 34s.xml">
-      <configuration name="LoginTest.testFalseMailAddressTryLogin" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterRedirectMenu - 2019.04.27 at 14h 33m 48s.xml">
+      <configuration name="FooterTest.testFooterRedirectMenu" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest_testFalseUserIdTryLogin - 2019.04.26 at 23h 41m 29s.xml">
-      <configuration name="LoginTest.testFalseUserIdTryLogin" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterRedirectMenu - 2019.04.27 at 14h 37m 17s.xml">
+      <configuration name="FooterTest.testFooterRedirectMenu" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest_testFalsePasswordTryLogin - 2019.04.26 at 23h 45m 05s.xml">
-      <configuration name="LoginTest.testFalsePasswordTryLogin" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterRedirectMenu - 2019.04.27 at 14h 38m 38s.xml">
+      <configuration name="FooterTest.testFooterRedirectMenu" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoginTest_testFalsePasswordTryLogin - 2019.04.26 at 23h 47m 07s.xml">
-      <configuration name="LoginTest.testFalsePasswordTryLogin" configurationId="JUnit" />
+    <history-entry file="FooterTest_testFooterRedirectMenu - 2019.04.27 at 14h 39m 48s.xml">
+      <configuration name="FooterTest.testFooterRedirectMenu" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24533000" />
+    <option name="totallyTimeSpent" value="38865000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="848" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3111588" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.31688127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -502,8 +550,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32671958" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32804233" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.21957672" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.35978836" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.34656084" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.27248678" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -524,7 +572,7 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3111588" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31688127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -534,8 +582,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32671958" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32804233" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.21957672" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.35978836" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.34656084" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.27248678" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -559,89 +607,78 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/FooterTest.java</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>String.format(isNotAllowedToBeEmpty, title)</expression-string>
+        <expression-string>waitAndClick(footerPage.footerMenus.get(4));</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>waitAndClick(hotelPartnerSignupPage.hotelOpeningDate);</expression-string>
+        <expression-string>waitAndClick(homePage.englishOption);</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>waitAndSendKeys(hotelPartnerSignupPage.hotelOpeningDate, hotelPartnerSignUp.getOpenHotelDate());</expression-string>
+        <expression-string>waitAndClick(homePage.officesList.get(each));</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>waitAndClick(signupPage.saveButton)</expression-string>
+        <expression-string>offices.get(each)[0]</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>waitAndClick(signupPage.saveButton);</expression-string>
+        <expression-string>assertThat(googleMapSrc, CoreMatchers.containsString(offices.get(each)[0]));</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>waitAndSendKeys(signupPage.agencyCountry, country);</expression-string>
+        <expression-string>offices.get(each)[1]</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>assertThat(dubaiGeoLocation[0], CoreMatchers.containsString(googleMapSrc));</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>homePage.headerSticky.getAttribute(&quot;class&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>homePage.headerSticky</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>homePage.headerSticky.getSize()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/configuration/AppConfig.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/utils/Folder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/utils/RandomProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/utils/layout/LayoutDesign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-438">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/driver/DriverResponsiveTestFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractHotelsProResponsiveTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/security/parameter/AlertRisk.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/PageObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSExecuter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-158">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -665,13 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="160" column="91" selection-start-line="160" selection-start-column="91" selection-end-line="160" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -748,27 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HotelPartnerSignupPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="868">
-          <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/objects/LocalPartnerSignUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -830,27 +839,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/LocalPartnerSignupPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractResponsiveTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1204">
           <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractWebTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -871,16 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HomePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/LoginPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -888,20 +870,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractSeleniumTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="353" column="53" selection-start-line="353" selection-start-column="53" selection-end-line="353" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/console.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="185">
-          <caret line="860" column="32" selection-start-line="860" selection-start-column="32" selection-end-line="860" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -919,65 +887,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/objects/Configuration.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/LocalPartnerSignupPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="161" column="5" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4266#4267#0" expanded="true" />
-            <element signature="e#4322#4323#0" expanded="true" />
-            <element signature="e#4366#4367#0" expanded="true" />
-            <element signature="e#4134#4135#0" expanded="true" />
-            <element signature="e#4166#4167#0" expanded="true" />
-            <element signature="e#4310#4311#0" expanded="true" />
-            <element signature="e#4350#4351#0" expanded="true" />
-            <element signature="e#4523#4524#0" expanded="true" />
-            <element signature="e#4560#4561#0" expanded="true" />
-            <element signature="e#4624#4625#0" expanded="true" />
-            <element signature="e#4676#4677#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="325">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/UrlFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HotelPartnerSignupPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractHotelsProTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="806">
+          <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1215">
-          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+        <state relative-caret-position="-981">
+          <caret line="60" column="3" selection-start-line="60" selection-start-column="3" selection-end-line="60" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/PartnerSignUpTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1426">
-          <caret line="219" lean-forward="true" selection-start-line="219" selection-end-line="219" />
+        <state relative-caret-position="527">
+          <caret line="212" column="36" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="36" />
+          <folding>
+            <element signature="e#7434#7435#0" expanded="true" />
+            <element signature="e#7512#7513#0" expanded="true" />
+            <element signature="e#7572#7573#0" expanded="true" />
+            <element signature="e#7650#7651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/helper/JSExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="40" column="83" lean-forward="true" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/objects/Configuration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="52" selection-start-line="52" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4233#4234#0" expanded="true" />
+            <element signature="e#4266#4267#0" expanded="true" />
+            <element signature="e#4322#4323#0" expanded="true" />
+            <element signature="e#4366#4367#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/HomePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractWebTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-435">
+          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractHotelsProTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="6" column="65" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/console.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="403">
+          <caret line="2942" column="16" lean-forward="true" selection-start-line="2942" selection-start-column="16" selection-end-line="2942" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/LoginTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        <state relative-caret-position="728">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -986,8 +1005,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/ForgotPasswordTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="221">
+          <caret line="17" column="43" selection-start-line="17" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/PartnerSignUpTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240">
+          <caret line="212" column="25" selection-start-line="212" selection-start-column="25" selection-end-line="212" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/homepagetext.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/HomePageNetworkTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="20" selection-start-line="20" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/Enum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
+          <folding>
+            <element signature="e#2036#2037#0" expanded="true" />
+            <element signature="e#2063#2064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/HomePageTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="151" column="47" selection-start-line="151" selection-start-column="47" selection-end-line="151" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/UrlFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/context/base/AbstractSeleniumTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2996">
+          <caret line="44" column="42" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+          <folding>
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/pages/web/FooterPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/selenium/tests/web/FooterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
