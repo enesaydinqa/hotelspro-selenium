@@ -63,50 +63,36 @@ public class FooterTest extends AbstractHotelsProTest
     {
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
 
-        String currentUrl;
-
         waitAndClick(footerPage.footerMenus.get(0));
-        sleep(2);
-        logger.info(String.format("Verify Redirect URL : %s", UrlFactory.HOTELSPRO_LINKEDIN.pageUrl));
-
-        currentUrl = getCurrentURL();
-
-        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), UrlFactory.TERMS_CONDITIONS.pageUrl, currentUrl);
+        navigateAndVerifyUrl(UrlFactory.TERMS_CONDITIONS);
         driver.navigate().back();
 
         waitAndClick(footerPage.footerMenus.get(1));
-        sleep(2);
-        currentUrl = getCurrentURL();
-
-        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), UrlFactory.PRIVACY.pageUrl, currentUrl);
+        navigateAndVerifyUrl(UrlFactory.PRIVACY);
         driver.navigate().back();
 
         waitAndClick(footerPage.footerMenus.get(2));
-        sleep(2);
-        currentUrl = getCurrentURL();
-
-        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), UrlFactory.CONTACT_US.pageUrl, currentUrl);
+        navigateAndVerifyUrl(UrlFactory.CONTACT_US);
         driver.navigate().back();
 
         waitAndClick(footerPage.footerMenus.get(3));
-        sleep(2);
-        currentUrl = getCurrentURL();
-
-        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), UrlFactory.TRADE_FAIRS.pageUrl, currentUrl);
+        navigateAndVerifyUrl(UrlFactory.TRADE_FAIRS);
         driver.navigate().back();
 
         waitAndClick(footerPage.footerMenus.get(4));
-        sleep(2);
-        currentUrl = getCurrentURL();
-
-        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), UrlFactory.FAQ.pageUrl, currentUrl);
+        navigateAndVerifyUrl(UrlFactory.FAQ);
         driver.navigate().back();
 
         waitAndClick(footerPage.footerMenus.get(5));
         switchWindowTab(1);
-        sleep(2);
-        currentUrl = getCurrentURL();
+        navigateAndVerifyUrl(UrlFactory.BLOG);
+    }
 
-        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), UrlFactory.BLOG.pageUrl, currentUrl);
+    private void navigateAndVerifyUrl(UrlFactory urlFactory)
+    {
+        sleep(2);
+        String currentUrl = getCurrentURL();
+
+        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), urlFactory.pageUrl, currentUrl);
     }
 }
