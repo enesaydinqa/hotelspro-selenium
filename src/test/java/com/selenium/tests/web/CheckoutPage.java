@@ -22,4 +22,16 @@ public class CheckoutPage extends PageObject
 
     @FindBy(xpath = "(//div[@class='checkout-form__section'])[2]//div[@class='errorsContainer']/span")
     public List<WebElement> otherGuestInformationErrors;
+
+    @FindBy(className = "checkout-details")
+    public WebElement reservationDetailContainer;
+
+    @FindBy(className = "checkout-details__hotel-info")
+    public WebElement checkoutDetailHotelInfo;
+
+    @FindBy(css = ".checkout-details__hotel-info > img")
+    public WebElement checkoutDetailHotelInfoImage;
+
+    @FindBy(css = ".checkout-details__hotel-info > div.text")
+    public WebElement checkoutDetailHotelInfoText;
 }

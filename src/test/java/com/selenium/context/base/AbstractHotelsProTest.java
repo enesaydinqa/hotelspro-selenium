@@ -64,7 +64,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         waitHotelSearchAnimate();
     }
 
-    protected void waitHotelSearchAnimate()
+    private void waitHotelSearchAnimate()
     {
         int maxLoop = 2000;
 

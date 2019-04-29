@@ -323,7 +323,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     public void scrollToElement(WebElement element)
     {
         JavascriptExecutor scroll = driver;
-        scroll.executeScript("arguments[0].scrollIntoView();", element);
+        scroll.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});", element);
     }
 
     @Override
