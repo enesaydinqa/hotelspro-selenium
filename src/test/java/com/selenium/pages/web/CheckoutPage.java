@@ -1,4 +1,4 @@
-package com.selenium.tests.web;
+package com.selenium.pages.web;
 
 import com.selenium.pages.PageObject;
 import org.openqa.selenium.WebDriver;
@@ -34,4 +34,10 @@ public class CheckoutPage extends PageObject
 
     @FindBy(css = ".checkout-details__hotel-info > div.text")
     public WebElement checkoutDetailHotelInfoText;
+
+    @FindBy(css = ".checkout-details__book-info > div.day:nth-child(1)")
+    public WebElement checkoutDetailHotelInfoStartDay;
+
+    @FindBy(css = ".checkout-details__book-info > div.day:nth-child(2)")
+    public WebElement checkoutDetailHotelInfoEndDay;
 }

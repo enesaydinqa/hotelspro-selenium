@@ -4,6 +4,7 @@ import com.selenium.context.annotations.ExpectedResult;
 import com.selenium.context.annotations.PreconditionsToReproduce;
 import com.selenium.context.base.AbstractHotelsProTest;
 import com.selenium.context.flag.ParallelExecutable;
+import com.selenium.pages.web.CheckoutPage;
 import com.selenium.pages.web.HotelDetailsPage;
 import org.junit.Assert;
 import org.junit.Before;

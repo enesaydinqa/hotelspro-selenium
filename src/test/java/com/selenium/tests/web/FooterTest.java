@@ -86,6 +86,8 @@ public class FooterTest extends AbstractHotelsProTest
         waitAndClick(footerPage.footerMenus.get(5));
         switchWindowTab(1);
         navigateAndVerifyUrl(UrlFactory.BLOG);
+
+
     }
 
     private void navigateAndVerifyUrl(UrlFactory urlFactory)
