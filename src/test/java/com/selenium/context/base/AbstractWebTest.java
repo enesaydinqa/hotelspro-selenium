@@ -23,7 +23,7 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
 {
     private static final Logger logger = Logger.getLogger(AbstractWebTest.class);
 
-    protected JSHelper jsHelper;
+    protected JSHelper jshelper;
     protected LayoutDesign layoutDesign;
 
     @Rule
@@ -72,7 +72,7 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
 
         VideoRecorder.startRecording(testName.getMethodName(), configuration.getTakeAVideo());
 
-        jsHelper = new JSHelper(driver);
+        jshelper = new JSHelper(driver);
 
         layoutDesign = new LayoutDesign(driver, configuration);
 

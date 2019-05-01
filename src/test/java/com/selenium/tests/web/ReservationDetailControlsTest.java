@@ -13,7 +13,7 @@ import org.junit.experimental.categories.Category;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ReservationDetailControls extends AbstractHotelsProTest
+public class ReservationDetailControlsTest extends AbstractHotelsProTest
 {
     private CheckoutPage checkoutPage;
 

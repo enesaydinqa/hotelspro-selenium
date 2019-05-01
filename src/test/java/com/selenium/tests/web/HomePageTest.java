@@ -78,7 +78,7 @@ public class HomePageTest extends AbstractHotelsProTest
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
         waitAndClick(homePage.aboutMenu);
         sleep(2);
-        Long aboutUsContainerYPageOffset = jsHelper.getScreenYPageOffset();
+        Long aboutUsContainerYPageOffset = jshelper.getScreenYPageOffset();
 
         Assert.assertTrue(aboutUsContainerYPageOffset == 1722);
         Assert.assertTrue(isDisplayed(homePage.headerSticky));
@@ -86,7 +86,7 @@ public class HomePageTest extends AbstractHotelsProTest
 
         waitAndClick(homePage.productsMenu);
         sleep(2);
-        Long productsContainerYPageOffset = jsHelper.getScreenYPageOffset();
+        Long productsContainerYPageOffset = jshelper.getScreenYPageOffset();
 
         Assert.assertTrue(productsContainerYPageOffset == 4422);
         Assert.assertTrue(isDisplayed(homePage.headerSticky));
@@ -94,7 +94,7 @@ public class HomePageTest extends AbstractHotelsProTest
 
         waitAndClick(homePage.officesMenu);
         sleep(2);
-        Long officesContainerYPageOffset = jsHelper.getScreenYPageOffset();
+        Long officesContainerYPageOffset = jshelper.getScreenYPageOffset();
 
         Assert.assertTrue(officesContainerYPageOffset == 5510);
         Assert.assertTrue(isDisplayed(homePage.headerSticky));
@@ -120,7 +120,7 @@ public class HomePageTest extends AbstractHotelsProTest
 
         IntStream.range(0, homePage.officesList.size()).forEach(each ->
         {
-            jsHelper.click(homePage.officesList.get(each));
+            jshelper.click(homePage.officesList.get(each));
             String googleMapSrc = getAttribute(homePage.googleMap, "src");
             sleep(1);
 
@@ -143,7 +143,7 @@ public class HomePageTest extends AbstractHotelsProTest
     {
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
         mouseOver(homePage.languageMenu);
-        jsHelper.click(homePage.englishOption);
+        jshelper.click(homePage.englishOption);
 
         Properties config = loadConfigProperties();
 

@@ -23,10 +23,11 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
     private SearchResultPage searchResultPage;
     private HotelDetailsPage hotelDetailsPage;
     private CheckoutPage checkoutPage;
+    private LoginPage loginPage;
 
     protected void login(String username, String password)
     {
-        LoginPage loginPage = new LoginPage(driver);
+        if (loginPage == null) loginPage = new LoginPage(driver);
 
         navigateToURL(UrlFactory.LOGIN);
         waitAndSendKeys(loginPage.usernameInput, username);
@@ -40,7 +41,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     protected void checkInCheckOutDateSelect()
     {
-        searchPage = new SearchPage(driver);
+        if (searchPage == null) searchPage = new SearchPage(driver);
 
         waitAndClick(searchPage.checkinDate);
 
@@ -53,7 +54,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     protected void searchHotel(String hotel, String passportCountry, String roomCount, String adultsCount, String childrenCount)
     {
-        searchPage = new SearchPage(driver);
+        if (searchPage == null) searchPage = new SearchPage(driver);
 
         waitAndSendKeys(searchPage.pacInput, hotel);
         sleep(2);
@@ -91,7 +92,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     protected void randomHotelSelect()
     {
-        searchResultPage = new SearchResultPage(driver);
+        if (searchResultPage == null) searchResultPage = new SearchResultPage(driver);
 
         waitHotelSearchAnimate();
         sleep(3);
@@ -104,37 +105,80 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     protected void trySearchHotel(String hotel, String passportCountry, String roomCount, String adultsCount, String childrenCount)
     {
-        hotelDetailsPage = new HotelDetailsPage(driver);
-        checkoutPage = new CheckoutPage(driver);
+        trySearchHotel(hotel, passportCountry, roomCount, adultsCount, childrenCount, false);
+    }
+
+    protected void trySearchHotel(String hotel, String passportCountry, String roomCount, String adultsCount, String childrenCount, Boolean addTransfer)
+    {
+        if (hotelDetailsPage == null) hotelDetailsPage = new HotelDetailsPage(driver);
+        if (checkoutPage == null) checkoutPage = new CheckoutPage(driver);
 
         searchHotel(hotel, passportCountry, roomCount, adultsCount, childrenCount);
 
-        while (true)
+        if (addTransfer)
         {
-            randomHotelSelect();
-            switchWindowTab(1);
-            waitAndClick(hotelDetailsPage.bookNowButton);
-            switchWindowTab(2);
-
-            if (isDisplayed(hotelDetailsPage.productNotFound))
+            do
             {
-                driver.close();
+                randomHotelSelect();
                 switchWindowTab(1);
-                driver.close();
-                switchWindowTab(0);
-            }
 
-            if (!isDisplayed(hotelDetailsPage.productNotFound))
-            {
-                break;
+                if (!isDisplayed(hotelDetailsPage.addTransferText))
+                {
+                    driver.close();
+                    switchWindowTab(0);
+                }
             }
+            while (!isDisplayed(hotelDetailsPage.addTransferText));
+
+            waitAndClick(hotelDetailsPage.addTransferText);
+            transferOwnerFormFilling();
         }
 
-        checkoutPage.leadInformationInputs.parallelStream().forEach(this::waitElementVisible);
+        if (!addTransfer)
+        {
+            do
+            {
+                randomHotelSelect();
+                switchWindowTab(1);
+                waitAndClick(hotelDetailsPage.bookNowButton);
+                switchWindowTab(2);
 
-        Assert.assertEquals("team leader areas do not appear properly", 3, checkoutPage.leadInformationInputs.size());
+                if (isDisplayed(hotelDetailsPage.productNotFound))
+                {
+                    driver.close();
+                    switchWindowTab(1);
+                    driver.close();
+                    switchWindowTab(0);
+                }
+            }
+            while (isDisplayed(hotelDetailsPage.productNotFound));
 
-        waitAndClick(checkoutPage.checkoutFormSubmitButton);
+            checkoutPage.leadInformationInputs.parallelStream().forEach(this::waitElementVisible);
+
+            Assert.assertEquals("team leader areas do not appear properly", 3, checkoutPage.leadInformationInputs.size());
+
+            waitAndClick(checkoutPage.checkoutFormSubmitButton);
+        }
+
+    }
+
+    protected void transferOwnerFormFilling()
+    {
+        if (hotelDetailsPage == null) hotelDetailsPage = new HotelDetailsPage(driver);
+
+        sleep(3);
+
+        jshelper.click(hotelDetailsPage.directionOptions.get(1));
+        selectOptionIndex(hotelDetailsPage.transportSelect, 1);
+        selectOptionIndex(hotelDetailsPage.flyHour, 4);
+        selectOptionIndex(hotelDetailsPage.flyMinute, 1);
+        waitAndClick(hotelDetailsPage.searchButton);
+
+        /**
+         *
+         * Transfer -> No results found. Bu yüzden işlem devam ettirilemiyor.
+         *
+         */
     }
 
 }

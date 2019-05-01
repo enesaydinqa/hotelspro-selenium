@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebElement;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,9 +25,9 @@ public class PaymentControlsTest extends AbstractHotelsProTest
     }
 
     @Test
-    @ExpectedResult("Kullanıcı check-out sayfasındaki rezervasyon bilgilerini görebilmelidir.")
+    @ExpectedResult("Kullanıcı check-out sayfasındaki ödeme bilgilerini görebilmelidir.")
     @Category(ParallelExecutable.class)
-    public void testReservationDetail() throws IOException
+    public void testPayment()
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());
 

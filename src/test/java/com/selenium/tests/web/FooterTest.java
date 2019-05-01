@@ -63,27 +63,27 @@ public class FooterTest extends AbstractHotelsProTest
     {
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
 
-        jsHelper.click(footerPage.footerMenus.get(0));
+        jshelper.click(footerPage.footerMenus.get(0));
         navigateAndVerifyUrl(UrlFactory.TERMS_CONDITIONS);
         driver.navigate().back();
 
-        jsHelper.click(footerPage.footerMenus.get(1));
+        jshelper.click(footerPage.footerMenus.get(1));
         navigateAndVerifyUrl(UrlFactory.PRIVACY);
         driver.navigate().back();
 
-        jsHelper.click(footerPage.footerMenus.get(2));
+        jshelper.click(footerPage.footerMenus.get(2));
         navigateAndVerifyUrl(UrlFactory.CONTACT_US);
         driver.navigate().back();
 
-        jsHelper.click(footerPage.footerMenus.get(3));
+        jshelper.click(footerPage.footerMenus.get(3));
         navigateAndVerifyUrl(UrlFactory.TRADE_FAIRS);
         driver.navigate().back();
 
-        jsHelper.click(footerPage.footerMenus.get(4));
+        jshelper.click(footerPage.footerMenus.get(4));
         navigateAndVerifyUrl(UrlFactory.FAQ);
         driver.navigate().back();
 
-        jsHelper.click(footerPage.footerMenus.get(5));
+        jshelper.click(footerPage.footerMenus.get(5));
         switchWindowTab(1);
         navigateAndVerifyUrl(UrlFactory.BLOG);
     }
