@@ -34,9 +34,11 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         waitAndSendKeys(loginPage.passwordInput, password);
         waitAndClick(loginPage.loginButton);
 
-        /*
+        /**
+         *
          *TODO : Bazı durumlarda reCaptcha çıkıyor !!!
-         */
+         *
+         **/
     }
 
     protected void checkInCheckOutDateSelect()
@@ -176,7 +178,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
         /**
          *
-         * Transfer -> No results found. Bu yüzden işlem devam ettirilemiyor.
+         * TODO: Transfer -> No results found. Bu yüzden işlem devam ettirilemiyor.
          *
          */
     }
