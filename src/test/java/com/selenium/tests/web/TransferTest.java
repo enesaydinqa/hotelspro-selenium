@@ -4,9 +4,7 @@ import com.selenium.context.annotations.ExpectedResult;
 import com.selenium.context.base.AbstractHotelsProTest;
 import com.selenium.context.flag.ParallelExecutable;
 import com.selenium.context.utils.param.Constants;
-
 import com.selenium.pages.web.HotelDetailsPage;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -32,13 +30,4 @@ public class TransferTest extends AbstractHotelsProTest
         trySearchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1", true);
     }
 
-    @Test
-    @ExpectedResult("Hotelspro'da booking sürecinde bir bookinge transfer özelliğinin eklenebilmesi gerekmektedir.")
-    @Category(ParallelExecutable.class)
-    public void testAddedTransferInformationView()
-    {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-
-        trySearchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1", true);
-    }
 }
