@@ -35,16 +35,7 @@ public class ReservationDetailControls extends AbstractHotelsProTest
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());
 
-        searchHotel(hotelName, country, "2", "3", "1");
-        randomHotelSelect();
-
-        switchWindowTab(1);
-        waitAndClick(hotelDetailsPage.bookNowButton);
-        switchWindowTab(2);
-
-        Assert.assertEquals("team leader areas do not appear properly", 3, checkoutPage.leadInformationInputs.size());
-
-        waitAndClick(checkoutPage.checkoutFormSubmitButton);
+        trySearchHotel(hotelName, country, "2", "3", "1");
 
         Map<String, String> reservationDetailContainer = new HashMap<>();
         reservationDetailContainer.put("370px", "width");
@@ -62,14 +53,14 @@ public class ReservationDetailControls extends AbstractHotelsProTest
         checkoutDetailHotelInfo.put("border-box", "box-sizing");
         checkoutDetailHotelInfo.put("block", "display");
 
-        checkoutDetailHotelInfo.entrySet().parallelStream().forEach((entry) -> Assert.assertEquals(entry.getKey(), checkoutPage.checkoutDetailHotelInfo.getCssValue(entry.getValue())));
+        checkoutDetailHotelInfo.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.checkoutDetailHotelInfo.getCssValue(css.getValue())));
 
         Map<String, String> checkoutDetailHotelInfoImage = new HashMap<>();
         checkoutDetailHotelInfoImage.put("100px", "width");
         checkoutDetailHotelInfoImage.put("100px", "height");
         checkoutDetailHotelInfoImage.put("left", "float");
 
-        checkoutDetailHotelInfoImage.entrySet().parallelStream().forEach((entry) -> Assert.assertEquals(entry.getKey(), checkoutPage.checkoutDetailHotelInfoImage.getCssValue(entry.getValue())));
+        checkoutDetailHotelInfoImage.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.checkoutDetailHotelInfoImage.getCssValue(css.getValue())));
 
         Map<String, String> checkoutDetailHotelInfoText = new HashMap<>();
         checkoutDetailHotelInfoText.put("209px", "width");
@@ -78,7 +69,7 @@ public class ReservationDetailControls extends AbstractHotelsProTest
         checkoutDetailHotelInfoText.put("14px", "font-size");
         checkoutDetailHotelInfoText.put("rgba(116, 116, 118, 1)", "color");
 
-        checkoutDetailHotelInfoText.entrySet().parallelStream().forEach((entry) -> Assert.assertEquals(entry.getKey(), checkoutPage.checkoutDetailHotelInfoText.getCssValue(entry.getValue())));
+        checkoutDetailHotelInfoText.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.checkoutDetailHotelInfoText.getCssValue(css.getValue())));
 
         Map<String, String> checkoutDetailHotelInfoStartDay = new HashMap<>();
         checkoutDetailHotelInfoStartDay.put("115px", "width");
@@ -87,7 +78,7 @@ public class ReservationDetailControls extends AbstractHotelsProTest
         checkoutDetailHotelInfoStartDay.put("rgba(116, 116, 118, 1)", "color");
         checkoutDetailHotelInfoStartDay.put("baseline", "vertical-align");
 
-        checkoutDetailHotelInfoStartDay.entrySet().parallelStream().forEach((entry) -> Assert.assertEquals(entry.getKey(), checkoutPage.checkoutDetailHotelInfoStartDay.getCssValue(entry.getValue())));
+        checkoutDetailHotelInfoStartDay.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.checkoutDetailHotelInfoStartDay.getCssValue(css.getValue())));
 
         Map<String, String> checkoutDetailHotelInfoEndDay = new HashMap<>();
         checkoutDetailHotelInfoEndDay.put("20px", "margin-left");
@@ -97,7 +88,19 @@ public class ReservationDetailControls extends AbstractHotelsProTest
         checkoutDetailHotelInfoEndDay.put("rgba(116, 116, 118, 1)", "color");
         checkoutDetailHotelInfoEndDay.put("baseline", "vertical-align");
 
-        checkoutDetailHotelInfoEndDay.entrySet().parallelStream().forEach((entry) -> Assert.assertEquals(entry.getKey(), checkoutPage.checkoutDetailHotelInfoEndDay.getCssValue(entry.getValue())));
+        checkoutDetailHotelInfoEndDay.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.checkoutDetailHotelInfoEndDay.getCssValue(css.getValue())));
+
+        Map<String, String> reservationDetailIcons = new HashMap<>();
+        reservationDetailIcons.put("hidden", "overflow");
+        reservationDetailIcons.put("15px 0px", "margin");
+        reservationDetailIcons.put("328px", "width");
+        reservationDetailIcons.put("baseline", "vertical-align");
+        reservationDetailIcons.put("rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box", "background");
+        reservationDetailIcons.put("optimizelegibility", "text-rendering");
+        reservationDetailIcons.put("antialiased", "-webkit-font-smoothing");
+        reservationDetailIcons.put("border-box", "box-sizing");
+
+        reservationDetailIcons.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.reservationDetailIcons.getCssValue(css.getValue())));
 
     }
 

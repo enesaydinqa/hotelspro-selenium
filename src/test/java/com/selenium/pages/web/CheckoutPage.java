@@ -40,4 +40,7 @@ public class CheckoutPage extends PageObject
 
     @FindBy(css = ".checkout-details__book-info > div.day:nth-child(2)")
     public WebElement checkoutDetailHotelInfoEndDay;
+
+    @FindBy(className = "icon-reservation-detail")
+    public WebElement reservationDetailIcons;
 }

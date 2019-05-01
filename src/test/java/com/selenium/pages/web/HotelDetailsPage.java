@@ -15,5 +15,8 @@ public class HotelDetailsPage extends PageObject
     @FindBy(css = ".single-hotel-about__prices .button-book-now")
     public WebElement bookNowButton;
 
+    @FindBy(xpath = "//p[text()='Bu ürün artık mevcut değildir.']")
+    public WebElement productNotFound;
+
 
 }

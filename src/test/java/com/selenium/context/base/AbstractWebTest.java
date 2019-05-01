@@ -97,7 +97,6 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
 
         if (driver != null)
         {
-            driver.close();
             driver.quit();
             driver = null;
         }

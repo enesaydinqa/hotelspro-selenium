@@ -1,10 +1,13 @@
 package com.selenium.context.base;
 
 import com.selenium.pages.UrlFactory;
+import com.selenium.pages.web.CheckoutPage;
+import com.selenium.pages.web.HotelDetailsPage;
 import com.selenium.pages.web.LoginPage;
 import com.selenium.pages.web.SearchPage;
 import com.selenium.pages.web.SearchResultPage;
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -15,6 +18,11 @@ import java.util.Random;
 public abstract class AbstractHotelsProTest extends AbstractWebTest
 {
     private Logger logger = Logger.getLogger(AbstractHotelsProTest.class);
+
+    private SearchPage searchPage;
+    private SearchResultPage searchResultPage;
+    private HotelDetailsPage hotelDetailsPage;
+    private CheckoutPage checkoutPage;
 
     protected void login(String username, String password)
     {
@@ -32,7 +40,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     protected void checkInCheckOutDateSelect()
     {
-        SearchPage searchPage = new SearchPage(driver);
+        searchPage = new SearchPage(driver);
 
         waitAndClick(searchPage.checkinDate);
 
@@ -45,7 +53,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     protected void searchHotel(String hotel, String passportCountry, String roomCount, String adultsCount, String childrenCount)
     {
-        SearchPage searchPage = new SearchPage(driver);
+        searchPage = new SearchPage(driver);
 
         waitAndSendKeys(searchPage.pacInput, hotel);
         sleep(2);
@@ -83,7 +91,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     protected void randomHotelSelect()
     {
-        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        searchResultPage = new SearchResultPage(driver);
 
         waitHotelSearchAnimate();
 
@@ -91,6 +99,39 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
         logger.info("Search Result Select Hotel Count :" + selectHotelCount);
         waitAndClick(searchResultPage.hotelList.get(selectHotelCount));
+    }
+
+    protected void trySearchHotel(String hotel, String passportCountry, String roomCount, String adultsCount, String childrenCount)
+    {
+        hotelDetailsPage = new HotelDetailsPage(driver);
+        checkoutPage = new CheckoutPage(driver);
+
+        searchHotel(hotel, passportCountry, roomCount, adultsCount, childrenCount);
+
+        while (true)
+        {
+            randomHotelSelect();
+            switchWindowTab(1);
+            waitAndClick(hotelDetailsPage.bookNowButton);
+            switchWindowTab(2);
+
+            if (!isDisplayed(hotelDetailsPage.productNotFound))
+            {
+                break;
+            }
+
+            if (isDisplayed(hotelDetailsPage.productNotFound))
+            {
+                driver.close();
+                switchWindowTab(1);
+                driver.close();
+                switchWindowTab(0);
+            }
+        }
+
+        Assert.assertEquals("team leader areas do not appear properly", 3, checkoutPage.leadInformationInputs.size());
+
+        waitAndClick(checkoutPage.checkoutFormSubmitButton);
     }
 
 }
