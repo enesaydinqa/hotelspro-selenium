@@ -28,7 +28,7 @@ public class ReportGenerate extends TestWatcher
 
         String testDescription = getDescription(description);
 
-        test.log(LogStatus.INFO, "Description : " + testDescription);
+        test.log(LogStatus.INFO, "Expected Result : " + testDescription);
         test.log(LogStatus.FAIL, "Session id : " + session);
         test.log(LogStatus.FAIL, "Stack Trace : " + e.toString());
         flushReports(extent, test);
@@ -42,7 +42,7 @@ public class ReportGenerate extends TestWatcher
 
         String testDescription = getDescription(description);
 
-        test.log(LogStatus.INFO, "Description : " + testDescription);
+        test.log(LogStatus.INFO, "Expected Result : " + testDescription);
         test.log(LogStatus.PASS, "Session id : " + session);
         flushReports(extent, test);
     }

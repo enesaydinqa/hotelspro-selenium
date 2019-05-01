@@ -3,8 +3,8 @@ package com.selenium.tests.web;
 import com.selenium.context.annotations.ExpectedResult;
 import com.selenium.context.base.AbstractHotelsProTest;
 import com.selenium.context.flag.ParallelExecutable;
+import com.selenium.context.utils.param.Constants;
 import com.selenium.pages.web.CheckoutPage;
-import com.selenium.pages.web.HotelDetailsPage;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,16 +15,11 @@ import java.util.Map;
 
 public class ReservationDetailControls extends AbstractHotelsProTest
 {
-    private String hotelName = "Istanbul";
-    private String country = "Turkey";
-
-    private HotelDetailsPage hotelDetailsPage;
     private CheckoutPage checkoutPage;
 
     @Before
     public void before()
     {
-        hotelDetailsPage = new HotelDetailsPage(driver);
         checkoutPage = new CheckoutPage(driver);
     }
 
@@ -35,7 +30,7 @@ public class ReservationDetailControls extends AbstractHotelsProTest
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());
 
-        trySearchHotel(hotelName, country, "2", "3", "1");
+        trySearchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
 
         Map<String, String> reservationDetailContainer = new HashMap<>();
         reservationDetailContainer.put("370px", "width");
@@ -102,6 +97,28 @@ public class ReservationDetailControls extends AbstractHotelsProTest
 
         reservationDetailIcons.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.reservationDetailIcons.getCssValue(css.getValue())));
 
+        Map<String, String> checkoutFormTitle = new HashMap<>();
+        checkoutFormTitle.put("60px", "min-height");
+        checkoutFormTitle.put("15px", "padding-top");
+        checkoutFormTitle.put("13px", "padding-bottom");
+        checkoutFormTitle.put("baseline", "vertical-align");
+        checkoutFormTitle.put("rgba(221, 220, 221, 1)", "background-color");
+        checkoutFormTitle.put("rgb(221, 220, 221) none repeat scroll 0% 0% / auto padding-box border-box", "background");
+        checkoutFormTitle.put("optimizelegibility", "text-rendering");
+        checkoutFormTitle.put("antialiased", "-webkit-font-smoothing");
+
+        checkoutFormTitle.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.checkoutFormTitle.getCssValue(css.getValue())));
+
+        Map<String, String> priceContainer = new HashMap<>();
+        priceContainer.put("368px", "width");
+        priceContainer.put("left", "float");
+        priceContainer.put("baseline", "vertical-align");
+        priceContainer.put("rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box", "background");
+        priceContainer.put("optimizelegibility", "text-rendering");
+        priceContainer.put("antialiased", "-webkit-font-smoothing");
+        priceContainer.put("border-box", "box-sizing");
+
+        priceContainer.entrySet().parallelStream().forEach((css) -> Assert.assertEquals(css.getKey(), checkoutPage.priceContainer.getCssValue(css.getValue())));
     }
 
 }

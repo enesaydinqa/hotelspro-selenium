@@ -43,4 +43,25 @@ public class CheckoutPage extends PageObject
 
     @FindBy(className = "icon-reservation-detail")
     public WebElement reservationDetailIcons;
+
+    @FindBy(className = "checkout-form__title")
+    public WebElement checkoutFormTitle;
+
+    @FindBy(className = "price-container")
+    public WebElement priceContainer;
+
+    @FindBy(xpath = "(//div[@class='checkout-form__section'])[3]")
+    public WebElement paymentContainer;
+
+    @FindBy(css = ".checkout-card__form .payment-warning:nth-child(1)")
+    public WebElement paymentWarningOne;
+
+    @FindBy(css = ".checkout-card__form .payment-warning:nth-child(2)")
+    public WebElement paymentWarningSecond;
+
+    @FindBy(css = ".checkout-card__form > div:nth-child(5)")
+    public WebElement paymentForm;
+
+    @FindBy(className = "checkout-card__info")
+    public WebElement cardInfo;
 }

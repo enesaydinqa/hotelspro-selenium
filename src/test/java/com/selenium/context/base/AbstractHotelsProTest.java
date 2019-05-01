@@ -94,6 +94,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         searchResultPage = new SearchResultPage(driver);
 
         waitHotelSearchAnimate();
+        sleep(3);
 
         int selectHotelCount = new Random().nextInt(searchResultPage.hotelList.size());
 
@@ -115,11 +116,6 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
             waitAndClick(hotelDetailsPage.bookNowButton);
             switchWindowTab(2);
 
-            if (!isDisplayed(hotelDetailsPage.productNotFound))
-            {
-                break;
-            }
-
             if (isDisplayed(hotelDetailsPage.productNotFound))
             {
                 driver.close();
@@ -127,7 +123,14 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
                 driver.close();
                 switchWindowTab(0);
             }
+
+            if (!isDisplayed(hotelDetailsPage.productNotFound))
+            {
+                break;
+            }
         }
+
+        checkoutPage.leadInformationInputs.parallelStream().forEach(this::waitElementVisible);
 
         Assert.assertEquals("team leader areas do not appear properly", 3, checkoutPage.leadInformationInputs.size());
 
