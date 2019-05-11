@@ -67,4 +67,11 @@ public class SearchResultPage extends PageObject
 
     @FindBy(id = "status")
     public WebElement landmarkStatusSelect;
+
+    @FindBy(className = "button-show-on-map")
+    public WebElement showOnMapButton;
+
+    @FindBy(className = "map-container")
+    public WebElement mapContainer;
+
 }

@@ -32,7 +32,8 @@ public class SearchTest extends AbstractHotelsProTest
     }
 
     @Test
-    @ExpectedResult("Hotelspro'da yapılan search sonrası gelinen Hotel results sayfasındaki Change search butonu ile arama kriterlerinin değiştirilmesi ve tekrar arama yapılabilmesi gerekmektedir.")
+    @ExpectedResult("Hotelspro'da yapılan search sonrası gelinen Hotel results sayfasındaki Change search butonu ile arama kriterlerinin değiştirilmesi " +
+            "ve tekrar arama yapılabilmesi gerekmektedir.")
     public void testChangeSearch()
     {
         loginAndSearchHotel();
@@ -193,6 +194,37 @@ public class SearchTest extends AbstractHotelsProTest
     public void testFilterForPromotionAndDeals()
     {
         loginAndSearchFilter(searchResultPage.promotionAndDealsMenuTitle, Constants.Filter.PROMOTION_AND_DEALS);
+    }
+
+    @Test
+    @ExpectedResult("Hotelspro'da yapılan search sonrası gelinen Hotel results sayfasında Show on Map butonu ile otellerin haritadaki konumlarını gördükten sonra " +
+            "Hide Map butonu ile Hotel Results sayfasına geri dönülebilmesi gerekmektedir.")
+    public void testHideMap()
+    {
+        loginAndSearchHotel();
+        validateElementExistence(searchResultPage.showOnMapButton);
+
+        int maxLoop = 5000;
+        int loop = 0;
+
+        while (true)
+        {
+            loop++;
+
+            logger.info("check show on map button do not disable counter -> " + loop);
+            String buttonDisabled = getAttribute(searchResultPage.showOnMapButton, "class");
+
+            if (buttonDisabled.equals("button-show-on-map") & loop < maxLoop)
+            {
+                break;
+            }
+        }
+
+        waitAndClick(searchResultPage.showOnMapButton);
+        Assert.assertTrue("show on map button not appeared !!!", isDisplayed(searchResultPage.mapContainer));
+
+        waitAndClick(searchResultPage.showOnMapButton);
+        Assert.assertFalse("show on map button appeared !!!", isDisplayed(searchResultPage.mapContainer));
     }
 
     private void loginAndSearchHotel()
