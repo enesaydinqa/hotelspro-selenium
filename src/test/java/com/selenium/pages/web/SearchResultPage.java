@@ -74,4 +74,10 @@ public class SearchResultPage extends PageObject
     @FindBy(className = "map-container")
     public WebElement mapContainer;
 
+    @FindBy(css = ".sort-options > ul > li")
+    public List<WebElement> sortOptionsList;
+
+    @FindBy(css = ".price-sorting-options li span")
+    public List<WebElement> priceSortingOptions;
+
 }
