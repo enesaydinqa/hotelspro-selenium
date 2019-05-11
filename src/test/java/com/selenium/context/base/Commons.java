@@ -81,6 +81,8 @@ public interface Commons
 
     void dragAndDrop(WebElement from, WebElement to) throws Exception;
 
+    void validateElementExistence(WebElement element);
+
 
     //-- Javascript
 

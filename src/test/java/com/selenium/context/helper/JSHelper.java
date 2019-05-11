@@ -158,7 +158,7 @@ public class JSHelper implements JSExecuter
     @Override
     public JSExecuter scrollToElement(WebElement element)
     {
-        return executeScript(JSExecuter.class, "arguments[0].scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});", element);
+        return executeScript(JSExecuter.class, "arguments[0].scrollIntoView(true);", element);
     }
 
     @Override

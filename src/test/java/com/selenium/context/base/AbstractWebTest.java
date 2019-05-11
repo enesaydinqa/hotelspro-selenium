@@ -8,7 +8,6 @@ import com.selenium.context.utils.recorder.VideoRecorder;
 import com.selenium.context.utils.report.ReportGenerate;
 import com.selenium.context.utils.report.StatusRule;
 import net.lightbody.bmp.BrowserMobProxyServer;
-import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.proxy.CaptureType;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -16,14 +15,11 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 
-import java.io.File;
-import java.io.IOException;
-
 public abstract class AbstractWebTest extends AbstractSeleniumTest
 {
     private static final Logger logger = Logger.getLogger(AbstractWebTest.class);
 
-    protected JSHelper jshelper;
+    protected JSHelper browserJS;
     protected LayoutDesign layoutDesign;
 
     @Rule
@@ -72,7 +68,7 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
 
         VideoRecorder.startRecording(testName.getMethodName(), configuration.getTakeAVideo());
 
-        jshelper = new JSHelper(driver);
+        browserJS = new JSHelper(driver);
 
         layoutDesign = new LayoutDesign(driver, configuration);
 
@@ -82,8 +78,6 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
     @After
     public void tearDown() throws Exception
     {
-        //setHarFile(testName.getMethodName());
-
         VideoRecorder.stopRecording(configuration.getTakeAVideo());
 
         try
@@ -102,30 +96,5 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
         }
     }
 
-    // --------
-
-    private void setHarFile(String harFileName)
-    {
-
-        String sFileName = configuration.getHarFilePath().concat(harFileName.concat(".har"));
-
-        try
-        {
-            Har har = proxy.getHar();
-            File harFile = new File(sFileName);
-            try
-            {
-                har.writeTo(harFile);
-            }
-            catch (IOException ex)
-            {
-                logger.info("Could not find file " + sFileName);
-                ex.printStackTrace();
-            }
-        }
-        catch (Exception ex)
-        {
-        }
-    }
 
 }

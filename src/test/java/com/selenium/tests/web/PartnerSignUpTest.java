@@ -69,7 +69,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         waitAndSendKeys(clientPartnerSignupPage.agencyCountry, clientPartnerSignUp.getAgencyCountry());
         waitAndClick(clientPartnerSignupPage.listFirstOption);
 
-        jshelper.clear(clientPartnerSignupPage.agencyCountry); // Clear
+        browserJS.clear(clientPartnerSignupPage.agencyCountry); // Clear
 
         waitAndClick(clientPartnerSignupPage.saveButton);
 
@@ -103,7 +103,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         waitAndSendKeys(clientPartnerSignupPage.jobTitle, clientPartnerSignUp.getJobTitle());
         waitAndSendKeys(clientPartnerSignupPage.companyEmail, clientPartnerSignUp.getCompanyEmail());
 
-        jshelper.click(clientPartnerSignupPage.signupAgreement);
+        browserJS.click(clientPartnerSignupPage.signupAgreement);
 
         waitAndClick(clientPartnerSignupPage.saveButton);
         sleep(3);
@@ -158,7 +158,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         waitAndSendKeys(hotelPartnerSignupPage.totalSuitesInput, hotelPartnerSignUp.getTotalSuites());
         waitAndSendKeys(hotelPartnerSignupPage.informationInput, hotelPartnerSignUp.getInformation());
 
-        jshelper.click(hotelPartnerSignupPage.signupAgreement);
+        browserJS.click(hotelPartnerSignupPage.signupAgreement);
 
         waitAndClick(hotelPartnerSignupPage.saveButton);
         sleep(3);
@@ -205,7 +205,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         waitAndSendKeys(localPartnerSignupPage.addressInput, localPartnerSignUp.getAddress());
         waitAndSendKeys(localPartnerSignupPage.introductionInput, localPartnerSignUp.getCompanyForIntroduction());
 
-        jshelper.click(localPartnerSignupPage.signupAgreement);
+        browserJS.click(localPartnerSignupPage.signupAgreement);
 
         waitAndClick(localPartnerSignupPage.saveButton);
         sleep(3);

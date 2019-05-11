@@ -33,15 +33,14 @@ public class PaymentControlsTest extends AbstractHotelsProTest
 
         trySearchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
 
-        List<WebElement> paymentElements = Arrays.asList(
-                checkoutPage.paymentContainer,
-                checkoutPage.paymentWarningOne,
-                checkoutPage.paymentWarningSecond,
-                checkoutPage.paymentForm,
-                checkoutPage.cardInfo
+        List<WebElement> paymentElements = Arrays.asList(checkoutPage.paymentContainer,
+                checkoutPage.paymentWarningOne, checkoutPage.paymentWarningSecond,
+                checkoutPage.paymentForm, checkoutPage.cardInfo
         );
 
         paymentElements.parallelStream().forEach(this::isDisplayed);
+
+        enterCreditCardInformation();
 
         /**
          *

@@ -33,6 +33,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         waitAndSendKeys(loginPage.usernameInput, username);
         waitAndSendKeys(loginPage.passwordInput, password);
         waitAndClick(loginPage.loginButton);
+        waitLoadIconNotView();
 
         /**
          *
@@ -59,11 +60,32 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         if (searchPage == null) searchPage = new SearchPage(driver);
 
         waitAndSendKeys(searchPage.pacInput, hotel);
-        sleep(2);
+        sleep(3);
         waitAndClick(searchPage.destinationOptions.get(0));
         waitAndSendKeys(searchPage.countryInput, passportCountry);
-        sleep(2);
+        sleep(3);
         waitAndClick(searchPage.countryOptions.get(0));
+
+        checkInCheckOutDateSelect();
+
+        selectOptionVisibleText(searchPage.roomsSelect, roomCount);
+        selectOptionVisibleText(searchPage.adultsSelect, adultsCount);
+        selectOptionVisibleText(searchPage.childrenSelect, childrenCount);
+        waitAndClick(searchPage.searchHotelButton);
+
+        waitHotelSearchAnimate();
+    }
+
+    protected void changeSearchHotel(String hotel, String passportCountry, String roomCount, String adultsCount, String childrenCount)
+    {
+        if (searchPage == null) searchPage = new SearchPage(driver);
+
+        waitAndSendKeys(searchPage.pacInput, hotel);
+        sleep(3);
+        waitAndClick(searchPage.destinationOptionsOther.get(0));
+        waitAndSendKeys(searchPage.countryInput, passportCountry);
+        sleep(3);
+        waitAndClick(searchPage.countryOptionsOther.get(0));
 
         checkInCheckOutDateSelect();
 
@@ -170,7 +192,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
         sleep(3);
 
-        jshelper.click(hotelDetailsPage.directionOptions.get(1));
+        browserJS.click(hotelDetailsPage.directionOptions.get(1));
         selectOptionIndex(hotelDetailsPage.transportSelect, 1);
         selectOptionIndex(hotelDetailsPage.flyHour, 4);
         selectOptionIndex(hotelDetailsPage.flyMinute, 1);
@@ -181,6 +203,35 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
          * TODO: Transfer -> No results found. Bu yüzden işlem devam ettirilemiyor.
          *
          */
+    }
+
+    protected void enterCreditCardInformation()
+    {
+        if (checkoutPage == null) checkoutPage = new CheckoutPage(driver);
+
+        selectOptionVisibleText(checkoutPage.paymentType, configuration.getPaymentType());
+        waitAndSendKeys(checkoutPage.cardHolderName, configuration.getCardHolderName());
+        waitAndSendKeys(checkoutPage.cardNumber, configuration.getCardNumber());
+        selectOptionValue(checkoutPage.cardExpirationMonth, configuration.getCardExpirationMonth());
+        selectOptionValue(checkoutPage.cardExpirationYear, configuration.getCardExpirationYear());
+        waitAndSendKeys(checkoutPage.cardCvc, configuration.getCardCVC());
+    }
+
+    protected void waitLoadIconNotView()
+    {
+        if (searchResultPage == null) searchResultPage = new SearchResultPage(driver);
+
+        while (true)
+        {
+            if (isDisplayed(searchResultPage.loadingIcon))
+            {
+                logger.info("loading icon still appearing");
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 
 }

@@ -20,11 +20,17 @@ public class SearchPage extends PageObject
     @FindBy(css = "#ui-id-1 > li[class='ui-menu-item']")
     public List<WebElement> destinationOptions;
 
+    @FindBy(css = "#pac-input + span + ul  > li")
+    public List<WebElement> destinationOptionsOther;
+
     @FindBy(id = "country-autocomplete")
     public WebElement countryInput;
 
     @FindBy(css = "#ui-id-2 > li[class='ui-menu-item']")
     public List<WebElement> countryOptions;
+
+    @FindBy(css = "#country-autocomplete + span + ul  > li")
+    public List<WebElement> countryOptionsOther;
 
     @FindBy(css = ".DateRangePickerInput > div:nth-child(1)")
     public WebElement checkinDate;
@@ -40,5 +46,8 @@ public class SearchPage extends PageObject
 
     @FindBy(css = ".room-select-items + button")
     public WebElement searchHotelButton;
+
+    @FindBy(css = ".search-criteria > a")
+    public WebElement changeSearch;
 
 }

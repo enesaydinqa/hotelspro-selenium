@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import static org.awaitility.Awaitility.await;
+
 public abstract class AbstractSeleniumTest extends DriverManager implements Commons
 {
     @Override
@@ -290,7 +292,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public void dragAndDrop(WebElement from, WebElement to) throws Exception
+    public void dragAndDrop(WebElement from, WebElement to)
     {
         org.openqa.selenium.interactions.Actions act = new org.openqa.selenium.interactions.Actions(driver);
 
@@ -301,6 +303,13 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         sleep(1);
         act.moveToElement(to).build().perform();
         act.release(to).build().perform();
+    }
+
+    @Override
+    public boolean isTextDisplayedOnPage(String text)
+    {
+        List<WebElement> foundElements = driver.findElements(By.xpath("//*[contains(text(), '" + text + "')]"));
+        return foundElements.size() > 0;
     }
 
 
@@ -333,6 +342,14 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         executor.executeScript("arguments[0].click();", element);
     }
 
+    @Override
+    public void validateElementExistence(WebElement element)
+    {
+        await("waiting for element --> " + element).atMost(configuration.getWaitLoadTimeout(), TimeUnit.SECONDS)
+                .pollInterval(200, TimeUnit.MILLISECONDS)
+                .ignoreExceptions()
+                .until(element::isDisplayed);
+    }
 
     @Override
     public void pageLongDownScroll()
@@ -351,13 +368,6 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         {
             pageScroll(x, i);
         }
-    }
-
-    @Override
-    public boolean isTextDisplayedOnPage(String text)
-    {
-        List<WebElement> foundElements = driver.findElements(By.xpath("//*[contains(text(), '" + text + "')]"));
-        return foundElements.size() > 0;
     }
 
 

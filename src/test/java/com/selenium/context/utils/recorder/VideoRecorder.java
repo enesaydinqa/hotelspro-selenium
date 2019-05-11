@@ -72,7 +72,7 @@ public class VideoRecorder
         }
         else
         {
-            logger.info("The senario was not recorded on video");
+            logger.info("The scenario was not recorded on video");
         }
 
     }

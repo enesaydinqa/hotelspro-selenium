@@ -64,4 +64,23 @@ public class CheckoutPage extends PageObject
 
     @FindBy(className = "checkout-card__info")
     public WebElement cardInfo;
+
+    @FindBy(name = "payment_type")
+    public WebElement paymentType;
+
+    @FindBy(name = "card_holder_name")
+    public WebElement cardHolderName;
+
+    @FindBy(name = "card_number")
+    public WebElement cardNumber;
+
+    @FindBy(name = "card_expiration_0")
+    public WebElement cardExpirationMonth;
+
+    @FindBy(name = "card_expiration_1")
+    public WebElement cardExpirationYear;
+
+    @FindBy(name = "card_cvc")
+    public WebElement cardCvc;
+
 }

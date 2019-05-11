@@ -5,6 +5,8 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.Properties;
 
 public class Configuration
@@ -28,6 +30,12 @@ public class Configuration
     private String testEmail;
     private String testEmailPassword;
     private String testResultPath;
+    private String paymentType;
+    private String cardHolderName;
+    private String cardNumber;
+    private String cardExpirationMonth;
+    private String cardExpirationYear;
+    private String cardCVC;
 
     public Configuration() throws IOException
     {
@@ -47,7 +55,12 @@ public class Configuration
         this.testUserId = configProps.getProperty("test.user.id");
         this.testEmailPassword = configProps.getProperty("test.mail.address.password");
         this.testResultPath = configProps.getProperty("test.result.report");
-
+        this.paymentType = configProps.getProperty("payment.type");
+        this.cardHolderName = configProps.getProperty("card.holder.name");
+        this.cardNumber = configProps.getProperty("card.number");
+        this.cardExpirationMonth = configProps.getProperty("card.expiration.month");
+        this.cardExpirationYear = configProps.getProperty("card.expiration.year");
+        this.cardCVC = configProps.getProperty("card.cvc");
     }
 
     private void loadConfigProperties() throws IOException
@@ -55,7 +68,7 @@ public class Configuration
         String configFile = "config.properties";
         InputStream in = ClassLoader.getSystemResourceAsStream(configFile);
 
-        configProps.load(in);
+        configProps.load(new InputStreamReader(in, Charset.forName("UTF-8")));
     }
 
     public String getBrowserType()
@@ -196,5 +209,65 @@ public class Configuration
     public void setTestResultPath(String testResultPath)
     {
         this.testResultPath = testResultPath;
+    }
+
+    public String getPaymentType()
+    {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType)
+    {
+        this.paymentType = paymentType;
+    }
+
+    public String getCardHolderName()
+    {
+        return cardHolderName;
+    }
+
+    public void setCardHolderName(String cardHolderName)
+    {
+        this.cardHolderName = cardHolderName;
+    }
+
+    public String getCardNumber()
+    {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber)
+    {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getCardExpirationMonth()
+    {
+        return cardExpirationMonth;
+    }
+
+    public void setCardExpirationMonth(String cardExpirationMonth)
+    {
+        this.cardExpirationMonth = cardExpirationMonth;
+    }
+
+    public String getCardExpirationYear()
+    {
+        return cardExpirationYear;
+    }
+
+    public void setCardExpirationYear(String cardExpirationYear)
+    {
+        this.cardExpirationYear = cardExpirationYear;
+    }
+
+    public String getCardCVC()
+    {
+        return cardCVC;
+    }
+
+    public void setCardCVC(String cardCVC)
+    {
+        this.cardCVC = cardCVC;
     }
 }
