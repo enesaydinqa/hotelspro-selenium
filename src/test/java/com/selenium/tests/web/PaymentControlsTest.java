@@ -44,7 +44,7 @@ public class PaymentControlsTest extends AbstractHotelsProTest
 
         /**
          *
-         * ÖDEME YAPILACAK
+         * ÖDEME ONAYLANACAK
          *
          */
 
