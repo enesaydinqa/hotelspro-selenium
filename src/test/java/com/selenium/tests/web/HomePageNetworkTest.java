@@ -34,7 +34,8 @@ public class HomePageNetworkTest extends AbstractHotelsProTest
 
         List<HarEntry> entries = proxy.getHar().getLog().getEntries();
 
-        entries.stream().filter(link -> link.getRequest().getUrl().contains(".png") | link.getRequest().getUrl().contains(".jpg"))
+        entries.stream()
+                .filter(link -> link.getRequest().getUrl().contains(".png") | link.getRequest().getUrl().contains(".jpg"))
                 .forEach(png -> {
 
                     logger.info("Check Response This Url -> " + png.getRequest().getUrl());

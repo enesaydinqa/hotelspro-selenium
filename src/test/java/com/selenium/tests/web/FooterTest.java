@@ -11,8 +11,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.openqa.selenium.WebElement;
 
+import java.util.stream.IntStream;
 
+@Category(ParallelExecutable.class)
 public class FooterTest extends AbstractHotelsProTest
 {
     private static final Logger logger = Logger.getLogger(FooterTest.class);
@@ -27,72 +30,48 @@ public class FooterTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Category(ParallelExecutable.class)
     @PreconditionsToReproduce("Kullanıcı login olmaz.")
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testFooterSocialMediaIcons()
     {
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
 
-        logger.info(String.format("Verify Linkedin Icon URL : %s", UrlFactory.HOTELSPRO_LINKEDIN.pageUrl));
-        String linkedinUrl = getAttribute(footerPage.linkedinIcon, "href");
-
-        Assert.assertEquals(String.format("Invalid Url : %s", linkedinUrl), UrlFactory.HOTELSPRO_LINKEDIN.pageUrl, linkedinUrl);
-
-        logger.info(String.format("Verify Facebook Icon URL : %s", UrlFactory.HOTELSPRO_FACEBOOK.pageUrl));
-        String facebookUrl = getAttribute(footerPage.facebookIcon, "href");
-
-        Assert.assertEquals(String.format("Invalid Url : %s", facebookUrl), UrlFactory.HOTELSPRO_FACEBOOK.pageUrl, facebookUrl);
-
-        logger.info(String.format("Verify Instagram Icon URL : %s", UrlFactory.HOTELSPRO_INSTAGRAM.pageUrl));
-        String instagramUrl = getAttribute(footerPage.instagramIcon, "href");
-
-        Assert.assertEquals(String.format("Invalid Url : %s", instagramUrl), UrlFactory.HOTELSPRO_INSTAGRAM.pageUrl, instagramUrl);
-
-        logger.info(String.format("Verify Blog Icon URL : %s", UrlFactory.HOTELSPRO_BLOG.pageUrl));
-        String blogUrl = getAttribute(footerPage.blogIcon, "href");
-
-        Assert.assertEquals(String.format("Invalid Url : %s", blogUrl), UrlFactory.HOTELSPRO_BLOG.pageUrl, blogUrl);
+        assertSocialMediaUrl(UrlFactory.HOTELSPRO_LINKEDIN, footerPage.linkedinIcon);
+        assertSocialMediaUrl(UrlFactory.HOTELSPRO_FACEBOOK, footerPage.facebookIcon);
+        assertSocialMediaUrl(UrlFactory.HOTELSPRO_INSTAGRAM, footerPage.instagramIcon);
+        assertSocialMediaUrl(UrlFactory.HOTELSPRO_BLOG, footerPage.blogIcon);
     }
 
     @Test
-    @Category(ParallelExecutable.class)
     @PreconditionsToReproduce("Kullanıcı login olmaz.")
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testFooterRedirectMenus()
     {
+        UrlFactory[] url = {UrlFactory.TERMS_CONDITIONS, UrlFactory.PRIVACY, UrlFactory.CONTACT_US, UrlFactory.TRADE_FAIRS, UrlFactory.FAQ, UrlFactory.BLOG};
+
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
 
-        browserJS.click(footerPage.footerMenus.get(0));
-        navigateAndVerifyUrl(UrlFactory.TERMS_CONDITIONS);
-        driver.navigate().back();
+        IntStream.range(0, 6).forEach(index -> {
 
-        browserJS.click(footerPage.footerMenus.get(1));
-        navigateAndVerifyUrl(UrlFactory.PRIVACY);
-        driver.navigate().back();
+            browserJS.click(footerPage.footerMenus.get(index));
+            sleep(2);
 
-        browserJS.click(footerPage.footerMenus.get(2));
-        navigateAndVerifyUrl(UrlFactory.CONTACT_US);
-        driver.navigate().back();
+            if (index == 5) switchWindowTab(1);
 
-        browserJS.click(footerPage.footerMenus.get(3));
-        navigateAndVerifyUrl(UrlFactory.TRADE_FAIRS);
-        driver.navigate().back();
+            String currentUrl = getCurrentURL();
 
-        browserJS.click(footerPage.footerMenus.get(4));
-        navigateAndVerifyUrl(UrlFactory.FAQ);
-        driver.navigate().back();
+            Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), url[index].pageUrl, currentUrl);
 
-        browserJS.click(footerPage.footerMenus.get(5));
-        switchWindowTab(1);
-        navigateAndVerifyUrl(UrlFactory.BLOG);
+            driver.navigate().back();
+
+        });
     }
 
-    private void navigateAndVerifyUrl(UrlFactory urlFactory)
+    private void assertSocialMediaUrl(UrlFactory urlFactory, WebElement socialMediaIcon)
     {
-        sleep(2);
-        String currentUrl = getCurrentURL();
+        logger.info(String.format("Verify Social Media Icon URL : %s", urlFactory.pageUrl));
+        String socialMediaUrl = getAttribute(socialMediaIcon, "href");
 
-        Assert.assertEquals(String.format("Verify Redirect URL : %s", currentUrl), urlFactory.pageUrl, currentUrl);
+        Assert.assertEquals(String.format("Invalid Url : %s", socialMediaUrl), urlFactory.pageUrl, socialMediaUrl);
     }
 }

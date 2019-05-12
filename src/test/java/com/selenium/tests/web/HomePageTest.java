@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -52,21 +53,20 @@ public class HomePageTest extends AbstractHotelsProTest
     public void testHomePageHeaderVisibleMenu()
     {
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
-        Assert.assertTrue(isDisplayed(homePage.logo));
-        Assert.assertTrue(isDisplayed(homePage.productsMenu));
-        Assert.assertTrue(isDisplayed(homePage.aboutMenu));
-        Assert.assertTrue(isDisplayed(homePage.officesMenu));
-        Assert.assertTrue(isDisplayed(homePage.languageMenu));
-        Assert.assertTrue(isDisplayed(homePage.signUpButton));
-        Assert.assertTrue(isDisplayed(homePage.loginMenu));
+
+        List<WebElement> headerElements = Arrays.asList(homePage.logo, homePage.productsMenu, homePage.aboutMenu,
+                homePage.officesMenu, homePage.languageMenu, homePage.signUpButton, homePage.loginMenu);
+
+        headerElements.parallelStream().forEach(elem -> Assert.assertTrue(isDisplayed(elem)));
 
         mouseOver(homePage.languageMenu);
         Assert.assertTrue(isDisplayed(homePage.selectedLanguage));
 
         mouseOver(homePage.signUpButton);
-        Assert.assertTrue(isDisplayed(homePage.clientPartnerCustomerMenu));
-        Assert.assertTrue(isDisplayed(homePage.hotelPartnerCustomerMenu));
-        Assert.assertTrue(isDisplayed(homePage.localPartnerCustomerMenu));
+
+        List<WebElement> otherHeaderElements = Arrays.asList(homePage.clientPartnerCustomerMenu, homePage.hotelPartnerCustomerMenu, homePage.localPartnerCustomerMenu);
+
+        otherHeaderElements.parallelStream().forEach(elem -> Assert.assertTrue(isDisplayed(elem)));
     }
 
     @Test
