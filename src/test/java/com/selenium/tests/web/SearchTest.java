@@ -227,12 +227,6 @@ public class SearchTest extends AbstractHotelsProTest
         Assert.assertFalse("show on map button appeared !!!", isDisplayed(searchResultPage.mapContainer));
     }
 
-    private void loginAndSearchHotel()
-    {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
-    }
-
     private void loginAndSearchFilter(WebElement menu, String filterKeyword)
     {
         loginAndSearchHotel();

@@ -31,9 +31,7 @@ public class SortingTest extends AbstractHotelsProTest
     @ExpectedResult("Hotelspro'da yapılan sıralama işlemlerinin düzgün bir şekilde çalışması gerekmektedir.")
     public void testSortingForDistance()
     {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
-
+        loginAndSearchHotel();
         sortingAndAssert(searchResultPage.sortOptionsList.get(1), SortName.DISTANCE);
     }
 
@@ -41,9 +39,7 @@ public class SortingTest extends AbstractHotelsProTest
     @ExpectedResult("Hotelspro'da yapılan sıralama işlemlerinin düzgün bir şekilde çalışması gerekmektedir.")
     public void testSortingForPrice()
     {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
-
+        loginAndSearchHotel();
         sortingAndAssert(searchResultPage.sortOptionsList.get(2), SortName.PRICE);
     }
 
@@ -51,9 +47,7 @@ public class SortingTest extends AbstractHotelsProTest
     @ExpectedResult("Hotelspro'da yapılan sıralama işlemlerinin düzgün bir şekilde çalışması gerekmektedir.")
     public void testSortingForStarRating()
     {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
-
+        loginAndSearchHotel();
         sortingAndAssert(searchResultPage.sortOptionsList.get(3), SortName.STAR_RATING);
     }
 
@@ -61,9 +55,7 @@ public class SortingTest extends AbstractHotelsProTest
     @ExpectedResult("Hotelspro'da yapılan sıralama işlemlerinin düzgün bir şekilde çalışması gerekmektedir.")
     public void testSortingForPopularity()
     {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
-
+        loginAndSearchHotel();
         sortingAndAssert(searchResultPage.sortOptionsList.get(4), SortName.POPULARITY);
     }
 
@@ -71,9 +63,7 @@ public class SortingTest extends AbstractHotelsProTest
     @ExpectedResult("Hotelspro'da yapılan sıralama işlemlerinin düzgün bir şekilde çalışması gerekmektedir.")
     public void testSortingForTripAdvisor()
     {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
-
+        loginAndSearchHotel();
         sortingAndAssert(searchResultPage.sortOptionsList.get(5), SortName.TRIP_ADVISOR);
     }
 
@@ -81,11 +71,10 @@ public class SortingTest extends AbstractHotelsProTest
     @ExpectedResult("Hotelspro'da yapılan sıralama işlemlerinin düzgün bir şekilde çalışması gerekmektedir.")
     public void testSortingForHotelName()
     {
-        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
-        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
-
+        loginAndSearchHotel();
         sortingAndAssert(searchResultPage.sortOptionsList.get(5), SortName.HOTEL_NAME);
     }
+
 
     private void sortingAndAssert(WebElement sortingElement, SortName sortName)
     {

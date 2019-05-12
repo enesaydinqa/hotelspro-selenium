@@ -1,5 +1,6 @@
 package com.selenium.context.base;
 
+import com.selenium.context.utils.param.Constants;
 import com.selenium.pages.UrlFactory;
 import com.selenium.pages.web.CheckoutPage;
 import com.selenium.pages.web.HotelDetailsPage;
@@ -215,6 +216,12 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         selectOptionValue(checkoutPage.cardExpirationMonth, configuration.getCardExpirationMonth());
         selectOptionValue(checkoutPage.cardExpirationYear, configuration.getCardExpirationYear());
         waitAndSendKeys(checkoutPage.cardCvc, configuration.getCardCVC());
+    }
+
+    protected void loginAndSearchHotel()
+    {
+        login(configuration.getTestEmail(), configuration.getTestEmailPassword());
+        searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
     }
 
     protected void waitLoadIconNotView()
