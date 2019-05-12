@@ -13,6 +13,7 @@ import org.junit.experimental.categories.Category;
 import java.util.HashMap;
 import java.util.Map;
 
+@Category(ParallelExecutable.class)
 public class ReservationDetailControlsTest extends AbstractHotelsProTest
 {
     private CheckoutPage checkoutPage;
@@ -25,7 +26,6 @@ public class ReservationDetailControlsTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Kullanıcı check-out sayfasındaki rezervasyon bilgilerini görebilmelidir.")
-    @Category(ParallelExecutable.class)
     public void testReservationDetail()
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());

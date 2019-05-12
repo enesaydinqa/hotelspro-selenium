@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import java.util.Arrays;
 import java.util.List;
 
-
+@Category(ParallelExecutable.class)
 public class PaymentControlsTest extends AbstractHotelsProTest
 {
     private CheckoutPage checkoutPage;
@@ -26,7 +26,6 @@ public class PaymentControlsTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Kullanıcı check-out sayfasındaki ödeme bilgilerini görebilmelidir.")
-    @Category(ParallelExecutable.class)
     public void testPayment()
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());

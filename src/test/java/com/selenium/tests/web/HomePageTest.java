@@ -24,6 +24,7 @@ import java.util.stream.IntStream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@Category(ParallelExecutable.class)
 public class HomePageTest extends AbstractHotelsProTest
 {
     private static final Logger logger = Logger.getLogger(HomePageTest.class);
@@ -47,7 +48,6 @@ public class HomePageTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Category(ParallelExecutable.class)
     @PreconditionsToReproduce("Kullanıcı login olmaz.")
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testHomePageHeaderVisibleMenu()
@@ -70,7 +70,6 @@ public class HomePageTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Category(ParallelExecutable.class)
     @PreconditionsToReproduce("Kullanıcı login olmaz.")
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testHomePageMenuScroll()
@@ -101,7 +100,6 @@ public class HomePageTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Category(ParallelExecutable.class)
     @PreconditionsToReproduce("Kullanıcı login olmaz.")
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testGoogleMapOffices()
@@ -136,7 +134,6 @@ public class HomePageTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Category(ParallelExecutable.class)
     @PreconditionsToReproduce("Kullanıcı login olmaz.")
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testChangeLanguageCheckText() throws IOException

@@ -8,13 +8,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+@Category(ParallelExecutable.class)
 public class LoginTest extends AbstractHotelsProTest
 {
     private String invalidLoginMessage = "Lütfen geçerli kullanıcı adı ve şifre ile giriş yapın. Kullanıcı adı ve şifrenin büyük-küçük harfe duyarlı olduğunu unutmayın.";
 
     @Test
     @ExpectedResult("Kullanıcının yanlış login email veya yanlış şifre ile login olmaması gereklidir. Bu durumda sistem uyarı göstermelidir.")
-    @Category(ParallelExecutable.class)
     public void testInvalidMailAddressTryLogin()
     {
         String randomEmail = RandomStringUtils.randomAlphanumeric(5).concat("@").concat(RandomStringUtils.randomAlphabetic(4)).concat(".com");
@@ -24,7 +24,6 @@ public class LoginTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Kullanıcının yanlış login email veya yanlış şifre ile login olmaması gereklidir. Bu durumda sistem uyarı göstermelidir.")
-    @Category(ParallelExecutable.class)
     public void testInvalidUserIdTryLogin()
     {
         String randomUserId = RandomStringUtils.randomNumeric(5);
@@ -34,7 +33,6 @@ public class LoginTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Kullanıcının yanlış login email veya yanlış şifre ile login olmaması gereklidir. Bu durumda sistem uyarı göstermelidir.")
-    @Category(ParallelExecutable.class)
     public void testInvalidPasswordTryLogin()
     {
         String randomPassword = RandomStringUtils.randomAlphabetic(10);
@@ -44,7 +42,6 @@ public class LoginTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Kullanıcının login email adresi veya User ID ve şifresi ile başarılı bir şekilde login olması gereklidir.")
-    @Category(ParallelExecutable.class)
     public void testEmailWithLogin()
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());
@@ -52,7 +49,6 @@ public class LoginTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Kullanıcının login email adresi veya User ID ve şifresi ile başarılı bir şekilde login olması gereklidir.")
-    @Category(ParallelExecutable.class)
     public void testUserIdlWithLogin()
     {
         login(configuration.getTestUserId(), configuration.getTestEmailPassword());

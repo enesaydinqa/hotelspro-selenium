@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+@Category(ParallelExecutable.class)
 public class ForgotPasswordTest extends AbstractHotelsProTest
 {
     private static final Logger logger = Logger.getLogger(ForgotPasswordTest.class);
@@ -30,7 +31,6 @@ public class ForgotPasswordTest extends AbstractHotelsProTest
     @Test
     @ExpectedResult("Kullanıcı login sayfasında başarılı bir şekilde Forgot Password butonu ile, şifre sıfırlama işlemini tamamlayabilmelidir")
     @PreconditionsToReproduce("Kullanıcı Hotelsprp'ya login olmamalıdır.")
-    @Category(ParallelExecutable.class)
     public void testRedirectToForgotPasswordPage()
     {
         navigateToURL(UrlFactory.MAIN_URL_SECOND);

@@ -14,6 +14,7 @@ import org.junit.experimental.categories.Category;
 
 import java.util.List;
 
+@Category(ParallelExecutable.class)
 public class HomePageNetworkTest extends AbstractHotelsProTest
 {
     private static final Logger logger = Logger.getLogger(HomePageNetworkTest.class);
@@ -25,7 +26,6 @@ public class HomePageNetworkTest extends AbstractHotelsProTest
     }
 
     @Test
-    @Category(ParallelExecutable.class)
     @PreconditionsToReproduce("Kullanıcı login olmaz.")
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testHomePageLoadImages()

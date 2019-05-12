@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @NotThreadSafe
+@Category(ParallelExecutable.class)
 public class PartnerSignUpTest extends AbstractHotelsProTest
 {
     private static final Logger logger = Logger.getLogger(PartnerSignUpTest.class);
@@ -58,7 +59,6 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
     @Test
     @ExpectedResult("Kullanıcı başarılı bir şekilde Client Partner Sign Up Formunu doldurabilmeli ve gönderebilmelidir.")
     @PreconditionsToReproduce("Kullanıcının siteye önceden kayıtlı olmayan bir email adresi ile sign up olması gereklidir.")
-    @Category(ParallelExecutable.class)
     public void testClientPartnerSignUp()
     {
         ClientPartnerSignUp clientPartnerSignUp = clientPartnerSignUpFormSet();
@@ -117,7 +117,6 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Hotelspro'da Sign up'tan yeni otel partner kaydı oluşturulabilmesi gerekmektedir.")
-    @Category(ParallelExecutable.class)
     public void testHotelPartnerSignUp()
     {
         HotelPartnerSignUp hotelPartnerSignUp = hotelPartnerSignUpFormSet();
@@ -172,7 +171,6 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Hotelspro'da Sign up'tan yeni local partner kaydı oluşturulabilmesi gerekmektedir.")
-    @Category(ParallelExecutable.class)
     public void testLocalPartnerSignUp()
     {
         LocalPartnerSignUp localPartnerSignUp = localPartnerSignUpFormSet();

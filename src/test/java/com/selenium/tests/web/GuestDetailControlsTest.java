@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+@Category(ParallelExecutable.class)
 public class GuestDetailControlsTest extends AbstractHotelsProTest
 {
     private String hotelName = "Istanbul";
@@ -28,7 +29,6 @@ public class GuestDetailControlsTest extends AbstractHotelsProTest
     @Test
     @ExpectedResult("Kullanıcı check-out sayfasındaki konuk misafir isim-soyisim detaylarını başarılı bir şekilde girebilmelidir.")
     @PreconditionsToReproduce("Kullanıcının birden fazla kişi sayısı için rezervasyon yaptırması gerekir.")
-    @Category(ParallelExecutable.class)
     public void testMultipleReservation()
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());

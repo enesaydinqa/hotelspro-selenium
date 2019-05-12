@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-
+@Category(ParallelExecutable.class)
 public class TransferTest extends AbstractHotelsProTest
 {
     private HotelDetailsPage hotelDetailsPage;
@@ -22,7 +22,6 @@ public class TransferTest extends AbstractHotelsProTest
 
     @Test
     @ExpectedResult("Hotelspro'da bir bookinge eklenen transfer bilgilerinin görüntülenebilmesi gerekmektedir.")
-    @Category(ParallelExecutable.class)
     public void testAddedTransferInformationView()
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());
