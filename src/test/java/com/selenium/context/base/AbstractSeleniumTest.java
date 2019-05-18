@@ -117,7 +117,8 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
 
         try
         {
-            isDisplayed = element.isDisplayed() ? true : false;
+            sleep(3);
+            isDisplayed = element.isDisplayed();
         }
         catch (Exception ex)
         {

@@ -1,6 +1,5 @@
 package com.selenium.context.objects;
 
-
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -16,10 +15,9 @@ public class Configuration
 
     private Properties configProps = new Properties();
 
+    private String language;
     private String browserType;
     private Boolean takeAVideo;
-    private String galenReportPath;
-    private String harFilePath;
     private String baseUrl;
     private Integer pageLoadTimeout;
     private Integer waitLoadTimeout;
@@ -41,10 +39,9 @@ public class Configuration
     {
         loadConfigProperties();
 
+        this.language = readLanguage();
         this.browserType = System.getProperties().getProperty("browser.type");
         this.takeAVideo = Boolean.valueOf(System.getProperties().getProperty("take.a.video"));
-        this.galenReportPath = configProps.getProperty("galen.report.path");
-        this.harFilePath = configProps.getProperty("har.file.path");
         this.baseUrl = configProps.getProperty("base.url");
         this.pageLoadTimeout = Integer.valueOf(configProps.getProperty("page.load.timeout"));
         this.waitLoadTimeout = Integer.valueOf(configProps.getProperty("wait.timeout.seconds"));
@@ -71,6 +68,30 @@ public class Configuration
         configProps.load(new InputStreamReader(in, Charset.forName("UTF-8")));
     }
 
+    private String readLanguage()
+    {
+        String defaultLanguage = "tr";
+
+        String language = System.getProperties().getProperty("language");
+
+        if (language != null)
+        {
+            defaultLanguage = language;
+        }
+
+        return defaultLanguage;
+    }
+
+    public String getLanguage()
+    {
+        return language;
+    }
+
+    public void setLanguage(String language)
+    {
+        this.language = language;
+    }
+
     public String getBrowserType()
     {
         return browserType;
@@ -89,26 +110,6 @@ public class Configuration
     public void setTakeAVideo(Boolean takeAVideo)
     {
         this.takeAVideo = takeAVideo;
-    }
-
-    public String getGalenReportPath()
-    {
-        return galenReportPath;
-    }
-
-    public void setGalenReportPath(String galenReportPath)
-    {
-        this.galenReportPath = galenReportPath;
-    }
-
-    public String getHarFilePath()
-    {
-        return harFilePath;
-    }
-
-    public void setHarFilePath(String harFilePath)
-    {
-        this.harFilePath = harFilePath;
     }
 
     public String getBaseUrl()

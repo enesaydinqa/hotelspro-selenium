@@ -15,7 +15,6 @@ import org.junit.experimental.categories.Category;
 import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -142,7 +141,7 @@ public class HomePageTest extends AbstractHotelsProTest
         mouseOver(homePage.languageMenu);
         browserJS.click(homePage.englishOption);
 
-        Properties config = loadConfigProperties();
+        Properties config = loadConfigProperties("homepagetext.properties");
 
         homePageText.forEach(text -> {
             logger.info(String.format("searching text -> %s", config.getProperty(text)));
@@ -154,16 +153,4 @@ public class HomePageTest extends AbstractHotelsProTest
         sleep(2);
     }
 
-
-    private Properties loadConfigProperties() throws IOException
-    {
-        Properties config = new Properties();
-
-        String configFile = "homepagetext.properties";
-        InputStream in = ClassLoader.getSystemResourceAsStream(configFile);
-
-        config.load(in);
-
-        return config;
-    }
 }

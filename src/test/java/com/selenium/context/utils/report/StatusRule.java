@@ -20,7 +20,7 @@ public class StatusRule extends TestWatcher
     protected void succeeded(Description description)
     {
         logger.info("=================================================================");
-        logger.info("TEST PASSED ...");
+        logger.info(String.format("TEST PASSED ... -> {%s}", description.getMethodName()));
         logger.info("=================================================================");
     }
 }

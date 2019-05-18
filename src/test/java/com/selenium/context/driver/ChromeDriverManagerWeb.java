@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +23,6 @@ public class ChromeDriverManagerWeb extends DriverManager
     @Override
     public void createDriver(Boolean withProxy)
     {
-
         chromeOptions = chromeOptions();
 
         desiredCapabilities = desiredCapabilities(withProxy, chromeOptions);
@@ -72,15 +72,39 @@ public class ChromeDriverManagerWeb extends DriverManager
 
     private ChromeOptions chromeOptions()
     {
+        String downloadDir = System.getProperty("user.dir").concat(System.getProperty("file.separator")).concat("downloadFiles");
+        deleteDir(new File(downloadDir));
+
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("disable-infobars");
-        chromeOptions.addArguments("-lang= sl");
         chromeOptions.addArguments("--window-size=1400,800");
         Map<String, Object> prefs = new HashMap<>();
-        prefs.put("intl.accept_languages", "tr");
+        prefs.put("intl.accept_languages", configuration.getLanguage());
+        prefs.put("profile.default_content_settings.popups", 0);
+        prefs.put("download.default_directory", downloadDir);
         chromeOptions.setExperimentalOption("prefs", prefs);
 
         return chromeOptions;
+    }
+
+    private boolean deleteDir(File dir)
+    {
+        if (dir.isDirectory())
+        {
+            String[] children = dir.list();
+
+            for (int i = 0; i < children.length; i++)
+            {
+                boolean success = deleteDir(new File(dir, children[i]));
+
+                if (!success)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return dir.delete();
     }
 
 }

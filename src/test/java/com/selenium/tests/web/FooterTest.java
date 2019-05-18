@@ -47,7 +47,7 @@ public class FooterTest extends AbstractHotelsProTest
     @ExpectedResult("Kullanıcının başarılı bir şekilde https://www.hotelspro.com/ sayfasına ulaşması, login olmadan sayfada ki alanları başarı ile görüntüleyebilmesi.")
     public void testFooterRedirectMenus()
     {
-        UrlFactory[] url = {UrlFactory.TERMS_CONDITIONS, UrlFactory.PRIVACY, UrlFactory.CONTACT_US, UrlFactory.TRADE_FAIRS, UrlFactory.FAQ, UrlFactory.BLOG};
+        UrlFactory[] url = {UrlFactory.TERMS_CONDITIONS, UrlFactory.PRIVACY, UrlFactory.CONTACT_US, UrlFactory.TRADE_FAIRS, UrlFactory.FAQ, UrlFactory.HOTELSPRO_BLOG};
 
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
 

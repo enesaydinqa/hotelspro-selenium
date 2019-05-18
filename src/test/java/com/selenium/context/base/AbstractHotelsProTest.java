@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Properties;
 import java.util.Random;
 
 public abstract class AbstractHotelsProTest extends AbstractWebTest
@@ -239,6 +240,23 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
                 break;
             }
         }
+    }
+
+    protected Properties readNotifications() throws Exception
+    {
+        String fileSeparator = System.getProperty("file.separator");
+        String fileName = fileSeparator.concat("notifications.properties");
+
+        if (configuration.getLanguage().equals("tr"))
+        {
+            return loadConfigProperties("tr" + fileName);
+        }
+        else if (configuration.getLanguage().equals("en"))
+        {
+            return loadConfigProperties("en" + fileName);
+        }
+
+        throw new Exception("This language not set properties file");
     }
 
 }

@@ -23,7 +23,7 @@ public class SearchResultPage extends PageObject
     @FindBy(id = "hotel-name__filter")
     public WebElement hotelNameFilterInput;
 
-    @FindBy(xpath = "//div[@class='pricesearch_loading']")
+    @FindBy(xpath = "//div[@class='pricesearch_loading']/div/div")
     public WebElement loadingIcon;
 
     @FindBy(css = ".search-hotel-count span")

@@ -1,14 +1,14 @@
 package com.selenium.pages;
 
-
 public enum UrlFactory
 {
 
     MAIN_URL_FIRST("https://www2.hotelspro.com"),
     MAIN_URL_SECOND("https://www.hotelspro.com"),
     PASSWORD_RESET(MAIN_URL_SECOND, "/account/password_reset/"),
-    LOGIN(MAIN_URL_SECOND, "/account/login/"),
+    LOGIN(MAIN_URL_FIRST, "/account/login/"),
     SIGN_UP(MAIN_URL_FIRST, "/agency/signup/"),
+    TICKETS(MAIN_URL_FIRST, "/account/tickets/"),
 
     HOTELSPRO_LINKEDIN("https://www.linkedin.com/company/hotelspro/"),
     HOTELSPRO_INSTAGRAM("https://www.instagram.com/hotelspro/"),
@@ -19,9 +19,7 @@ public enum UrlFactory
     PRIVACY(MAIN_URL_FIRST, "/page/privacy/"),
     CONTACT_US(MAIN_URL_FIRST, "/contactus/"),
     TRADE_FAIRS(MAIN_URL_FIRST, "/trade_fairs/"),
-    FAQ(MAIN_URL_FIRST, "/faq/"),
-    BLOG("http://blog.hotelspro.com/");
-
+    FAQ(MAIN_URL_FIRST, "/faq/");
     //-----
 
     public final String pageUrl;

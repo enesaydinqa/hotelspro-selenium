@@ -14,6 +14,13 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.Properties;
+
 public abstract class AbstractWebTest extends AbstractSeleniumTest
 {
     private static final Logger logger = Logger.getLogger(AbstractWebTest.class);
@@ -91,5 +98,15 @@ public abstract class AbstractWebTest extends AbstractSeleniumTest
         }
     }
 
+    protected Properties loadConfigProperties(String fileName) throws IOException
+    {
+        Properties config = new Properties();
+
+        InputStream in = ClassLoader.getSystemResourceAsStream(fileName);
+
+        config.load(new InputStreamReader(in, Charset.forName("UTF-8")));
+
+        return config;
+    }
 
 }
