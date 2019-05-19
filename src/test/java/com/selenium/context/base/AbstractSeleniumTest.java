@@ -5,7 +5,6 @@ import com.selenium.pages.UrlFactory;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import static org.awaitility.Awaitility.await;
@@ -39,12 +37,6 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public void openNewTab()
-    {
-        ((JavascriptExecutor) driver).executeScript("window.open()");
-    }
-
-    @Override
     public void waitAndClick(WebElement element)
     {
         validateElementExistence(element);
@@ -54,31 +46,6 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         scrollToElement(element);
         sleep(DEFAULT_SLEEP);
         element.click();
-    }
-
-    @Override
-    public void listElementRandomClick(List<WebElement> element)
-    {
-        WebElement clickableElement = element.get(new Random().nextInt(element.size()));
-        scrollToElement(clickableElement);
-        mouseOver(clickableElement);
-        waitElementToBeClickable(clickableElement);
-        sleep(DEFAULT_MEDIUM_SLEEP);
-        clickableElement.click();
-    }
-
-    @Override
-    public void rightClick(WebElement element)
-    {
-        org.openqa.selenium.interactions.Actions action = new org.openqa.selenium.interactions.Actions(driver);
-        action.contextClick(element).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.RETURN).build().perform();
-    }
-
-    @Override
-    public void doubleClick(WebElement element)
-    {
-        org.openqa.selenium.interactions.Actions action = new org.openqa.selenium.interactions.Actions(driver);
-        action.doubleClick(element).perform();
     }
 
     @Override
@@ -135,26 +102,6 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public boolean isAttributePresent(WebElement element, String attribute)
-    {
-        Boolean result = false;
-
-        try
-        {
-            String value = element.getAttribute(attribute);
-            if (value != null)
-            {
-                result = true;
-            }
-        }
-        catch (Exception e)
-        {
-        }
-
-        return result;
-    }
-
-    @Override
     public void waitElementToBeClickable(WebElement element)
     {
         WebDriverWait wait = new WebDriverWait(driver, configuration.getWaitLoadTimeout());
@@ -166,25 +113,6 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     {
         WebDriverWait wait = new WebDriverWait(driver, configuration.getWaitLoadTimeout());
         wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
-    @Override
-    public void waitElementNotVisible(WebElement element)
-    {
-        WebDriverWait wait = new WebDriverWait(driver, configuration.getWaitLoadTimeout());
-        wait.until(ExpectedConditions.invisibilityOf(element));
-    }
-
-    @Override
-    public void clearInput(WebElement element)
-    {
-        element.clear();
-    }
-
-    @Override
-    public void clearMultipleSelectedOption(WebElement element)
-    {
-        new Select(element).deselectAll();
     }
 
     @Override
@@ -207,18 +135,6 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public String selectedOptionGetText(WebElement element)
-    {
-        return new Select(element).getFirstSelectedOption().getText();
-    }
-
-    @Override
-    public String selectedOptionGetValue(WebElement element)
-    {
-        return new Select(element).getFirstSelectedOption().getAttribute("value");
-    }
-
-    @Override
     public void sleep(int seconds)
     {
         try
@@ -232,39 +148,9 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public void pageLoad()
-    {
-        driver.manage().timeouts().pageLoadTimeout(configuration.getPageLoadTimeout(), TimeUnit.SECONDS);
-    }
-
-    @Override
-    public void implicitlyWait()
-    {
-        driver.manage().timeouts().implicitlyWait(configuration.getImplicitlyWait(), TimeUnit.SECONDS);
-    }
-
-    @Override
     public void assertEquals(Object actual, Object expected)
     {
         Assert.assertEquals(actual, expected);
-    }
-
-    @Override
-    public void checkBoxChecked(WebElement element)
-    {
-        element.isSelected();
-    }
-
-    @Override
-    public void pageRefresh()
-    {
-        driver.navigate().refresh();
-    }
-
-    @Override
-    public void keysENTER(WebElement element)
-    {
-        element.sendKeys(Keys.ENTER);
     }
 
     @Override
@@ -275,79 +161,12 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     }
 
     @Override
-    public void switchParentFrame()
-    {
-        driver.switchTo().parentFrame();
-    }
-
-    @Override
-    public void switchFrame(WebElement element)
-    {
-        driver.switchTo().frame(element);
-    }
-
-    @Override
-    public String getWindowHandle()
-    {
-        return driver.getWindowHandle();
-    }
-
-    @Override
-    public void deleteCookie()
-    {
-        driver.manage().deleteAllCookies();
-    }
-
-    @Override
-    public void dragAndDrop(WebElement from, WebElement to)
-    {
-        org.openqa.selenium.interactions.Actions act = new org.openqa.selenium.interactions.Actions(driver);
-
-        scrollToElement(from);
-        sleep(DEFAULT_SLEEP);
-        act.clickAndHold(from).build().perform();
-        scrollToElement(to);
-        sleep(DEFAULT_SLEEP);
-        act.moveToElement(to).build().perform();
-        act.release(to).build().perform();
-    }
-
-    @Override
     public boolean isTextDisplayedOnPage(String text)
     {
         List<WebElement> foundElements = driver.findElements(By.xpath("//*[contains(text(), '" + text + "')]"));
         return foundElements.size() > 0;
     }
 
-
-    //-- Actions JavaScript
-
-    @Override
-    public void pageZoom(String zoomValue)
-    {
-        ((JavascriptExecutor) driver).executeScript("document.body.style.zoom='" + zoomValue + "%'");
-    }
-
-    @Override
-    public void pageScroll(int x, int y)
-    {
-        JavascriptExecutor scroll = driver;
-        scroll.executeScript("scroll(" + x + "," + y + ")");
-    }
-
-    @Override
-    public void scrollToElement(WebElement element)
-    {
-        JavascriptExecutor scroll = driver;
-        scroll.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});", element);
-    }
-
-    @Override
-    public void clickViaJs(WebElement element)
-    {
-        JavascriptExecutor executor = driver;
-        executor.executeScript("arguments[0].click();", element);
-    }
 
     @Override
     public void validateElementExistence(WebElement element)
@@ -358,24 +177,15 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
                 .until(element::isEnabled);
     }
 
-    @Override
-    public void pageLongDownScroll()
-    {
-        for (int s = 100; s <= 1700; s += 100)
-        {
-            sleep(DEFAULT_SLEEP);
-            pageScroll(0, s);
-        }
-    }
+
+    /**
+     * Actions JavaScript
+     **/
 
     @Override
-    public void secureScrollPage(Integer x, Integer y)
+    public void scrollToElement(WebElement element)
     {
-        for (int i = 50; i <= y; i += 50)
-        {
-            pageScroll(x, i);
-        }
+        JavascriptExecutor scroll = driver;
+        scroll.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});", element);
     }
-
-
 }

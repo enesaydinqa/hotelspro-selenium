@@ -4,6 +4,7 @@
 
 -Dbrowser.type=chrome
 -Dtake.a.video=false
+-Dlanguage=tr/en (optional)
 
 
 --> Serial Test Execute 
