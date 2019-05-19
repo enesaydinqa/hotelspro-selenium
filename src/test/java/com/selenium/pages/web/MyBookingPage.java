@@ -41,9 +41,6 @@ public class MyBookingPage extends PageObject
     @FindBy(css = ".autocomplete-select input")
     public WebElement reservationNumber;
 
-    @FindBy(css = "#list li")
-    public List<WebElement> selectOptionList;
-
     @FindBy(id = "category")
     public WebElement categorySelect;
 

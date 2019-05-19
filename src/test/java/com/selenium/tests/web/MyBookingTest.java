@@ -42,7 +42,7 @@ public class MyBookingTest extends AbstractHotelsProTest
         loginAndGoMyBookings();
         waitAndClick(myBookingPage.actionsMenu.get(0));
         waitAndClick(myBookingPage.sendMessageOption.get(0));
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
 
         logger.info("Check Url :" + EXPECTED_TICKET_PAGE_URL);
         assertThat("expected url not found !!!", getCurrentURL(), CoreMatchers.containsString(EXPECTED_TICKET_PAGE_URL));
@@ -113,7 +113,7 @@ public class MyBookingTest extends AbstractHotelsProTest
         loginAndGoMyBookings();
 
         waitAndClick(myBookingPage.bookingIdList.get(0));
-        sleep(5);
+        sleep(DEFAULT_MEDIUM_SLEEP);
 
         Assert.assertTrue(myBookingPage.bookingDetails.size() == 3);
     }
@@ -125,14 +125,14 @@ public class MyBookingTest extends AbstractHotelsProTest
         loginAndGoMyBookings();
 
         waitAndClick(myBookingPage.bookingIdList.get(0));
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         waitAndClick(myBookingPage.reservationDetailOperations.get(0));
 
         String noteText = RandomStringUtils.randomAlphabetic(30);
 
         waitAndSendKeys(myBookingPage.addNoteInput, noteText);
         waitAndClick(myBookingPage.addNoteButton);
-        sleep(1);
+        sleep(DEFAULT_SLEEP);
 
         assertThat("successfully message is wrong !!!", getText(myBookingPage.successfullyMessageArea), CoreMatchers.containsString(readNotifications().getProperty("booking.note.added.message")));
         Assert.assertTrue("note not appeared !!!", isTextDisplayedOnPage(noteText));
@@ -144,7 +144,7 @@ public class MyBookingTest extends AbstractHotelsProTest
     {
         testCreateNewRequest();
         navigateToURL(UrlFactory.TICKETS);
-        sleep(5);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         waitAndClick(myBookingPage.ticketList.get(0));
 
         Assert.assertTrue(isDisplayed(myBookingPage.ticketDetailContainer));
@@ -158,10 +158,10 @@ public class MyBookingTest extends AbstractHotelsProTest
         navigateToURL(UrlFactory.TICKETS);
 
         waitAndClick(myBookingPage.ticketNumberSelect);
-        sleep(5);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         waitAndClick(myBookingPage.selectOptionList.get(0));
         waitAndClick(myBookingPage.otherApplyFilterButton);
-        sleep(5);
+        sleep(DEFAULT_MEDIUM_SLEEP);
 
         Assert.assertEquals("ticket filter not working !!!", 1, myBookingPage.ticketList.size());
     }
@@ -188,7 +188,7 @@ public class MyBookingTest extends AbstractHotelsProTest
         loginAndGoMyBookings();
 
         waitAndClick(myBookingPage.exportToExcelButton);
-        sleep(5);
+        sleep(DEFAULT_MEDIUM_SLEEP);
 
         String dir = System.getProperty("user.dir").concat(System.getProperty("file.separator")).concat("downloadFiles");
         File downloadFile = new File(dir);
@@ -212,7 +212,7 @@ public class MyBookingTest extends AbstractHotelsProTest
 
         myBookingPage.attachment.sendKeys(getImage().getAbsolutePath());
         waitAndClick(myBookingPage.createNewRequestButton);
-        sleep(5);
+        sleep(DEFAULT_MEDIUM_SLEEP);
     }
 
     private File getImage()

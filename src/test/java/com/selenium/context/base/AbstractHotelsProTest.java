@@ -62,10 +62,10 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         if (searchPage == null) searchPage = new SearchPage(driver);
 
         waitAndSendKeys(searchPage.pacInput, hotel);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         waitAndClick(searchPage.destinationOptions.get(0));
         waitAndSendKeys(searchPage.countryInput, passportCountry);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         waitAndClick(searchPage.countryOptions.get(0));
 
         checkInCheckOutDateSelect();
@@ -83,10 +83,10 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         if (searchPage == null) searchPage = new SearchPage(driver);
 
         waitAndSendKeys(searchPage.pacInput, hotel);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         waitAndClick(searchPage.destinationOptionsOther.get(0));
         waitAndSendKeys(searchPage.countryInput, passportCountry);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         waitAndClick(searchPage.countryOptionsOther.get(0));
 
         checkInCheckOutDateSelect();
@@ -116,17 +116,33 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         }
     }
 
-    protected void randomHotelSelect()
+    private void randomHotelSelect()
     {
         if (searchResultPage == null) searchResultPage = new SearchResultPage(driver);
 
         waitHotelSearchAnimate();
-        sleep(3);
 
-        int selectHotelCount = new Random().nextInt(searchResultPage.hotelList.size());
+        while (true)
+        {
+            sleep(DEFAULT_MEDIUM_SLEEP);
 
-        logger.info("Search Result Select Hotel Count :" + selectHotelCount);
-        waitAndClick(searchResultPage.hotelList.get(selectHotelCount));
+            int selectHotelCount = new Random().nextInt(searchResultPage.hotelList.size());
+
+            logger.info("Search Result Select Hotel Count :" + selectHotelCount);
+            waitAndClick(searchResultPage.hotelList.get(selectHotelCount));
+            switchWindowTab(1);
+
+            if (isTextDisplayedOnPage("için müsaitlik bulunamamıştır"))
+            {
+                driver.close();
+                switchWindowTab(0);
+            }
+            else
+            {
+                break;
+            }
+        }
+
     }
 
     protected void trySearchHotel(String hotel, String passportCountry, String roomCount, String adultsCount, String childrenCount)
@@ -146,7 +162,6 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
             do
             {
                 randomHotelSelect();
-                switchWindowTab(1);
 
                 if (!isDisplayed(hotelDetailsPage.addTransferText))
                 {
@@ -157,7 +172,7 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
             while (!isDisplayed(hotelDetailsPage.addTransferText));
 
             waitAndClick(hotelDetailsPage.addTransferText);
-            transferOwnerFormFilling();
+            transferOwnerFormFill();
         }
 
         if (!addTransfer)
@@ -165,7 +180,6 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
             do
             {
                 randomHotelSelect();
-                switchWindowTab(1);
                 waitAndClick(hotelDetailsPage.bookNowButton);
                 switchWindowTab(2);
 
@@ -188,11 +202,11 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
 
     }
 
-    protected void transferOwnerFormFilling()
+    private void transferOwnerFormFill()
     {
         if (hotelDetailsPage == null) hotelDetailsPage = new HotelDetailsPage(driver);
 
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
 
         browserJS.click(hotelDetailsPage.directionOptions.get(1));
         selectOptionIndex(hotelDetailsPage.transportSelect, 1);
@@ -219,10 +233,20 @@ public abstract class AbstractHotelsProTest extends AbstractWebTest
         waitAndSendKeys(checkoutPage.cardCvc, configuration.getCardCVC());
     }
 
-    protected void loginAndSearchHotel()
+    protected void loginAndSearchHotel(boolean isRandomHotelSelect)
     {
         login(configuration.getTestEmail(), configuration.getTestEmailPassword());
         searchHotel(Constants.HOTEL_NAME, Constants.COUNTRY, "2", "3", "1");
+
+        if (isRandomHotelSelect)
+        {
+            randomHotelSelect();
+        }
+    }
+
+    protected void loginAndSearchHotel()
+    {
+        loginAndSearchHotel(false);
     }
 
     protected void waitLoadIconNotView()

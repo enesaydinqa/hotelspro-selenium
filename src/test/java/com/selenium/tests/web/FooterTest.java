@@ -54,7 +54,7 @@ public class FooterTest extends AbstractHotelsProTest
         IntStream.range(0, 6).forEach(index -> {
 
             browserJS.click(footerPage.footerMenus.get(index));
-            sleep(2);
+            sleep(DEFAULT_SLEEP * 2);
 
             if (index == 5) switchWindowTab(1);
 

@@ -106,7 +106,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         browserJS.click(clientPartnerSignupPage.signupAgreement);
 
         waitAndClick(clientPartnerSignupPage.saveButton);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         Assert.assertTrue(isTextDisplayedOnPage(reCAPTCHAErrorMessage));
         footerPage.footerMenus.forEach(this::isDisplayed);
 
@@ -160,7 +160,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         browserJS.click(hotelPartnerSignupPage.signupAgreement);
 
         waitAndClick(hotelPartnerSignupPage.saveButton);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         Assert.assertTrue(isTextDisplayedOnPage(reCAPTCHAErrorMessage));
         footerPage.footerMenus.forEach(this::isDisplayed);
 
@@ -206,7 +206,7 @@ public class PartnerSignUpTest extends AbstractHotelsProTest
         browserJS.click(localPartnerSignupPage.signupAgreement);
 
         waitAndClick(localPartnerSignupPage.saveButton);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         Assert.assertTrue(isTextDisplayedOnPage(reCAPTCHAErrorMessage));
         footerPage.footerMenus.forEach(this::isDisplayed);
 

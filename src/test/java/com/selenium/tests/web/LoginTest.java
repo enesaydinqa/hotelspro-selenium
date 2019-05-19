@@ -57,7 +57,7 @@ public class LoginTest extends AbstractHotelsProTest
     private void invalidTryLogin(String username, String password)
     {
         login(username, password);
-        sleep(5);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         Assert.assertTrue("not visible or bad invalid message", isTextDisplayedOnPage(invalidLoginMessage));
     }
 }

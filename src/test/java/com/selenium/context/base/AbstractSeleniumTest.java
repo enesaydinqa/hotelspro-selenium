@@ -21,6 +21,10 @@ import static org.awaitility.Awaitility.await;
 
 public abstract class AbstractSeleniumTest extends DriverManager implements Commons
 {
+    protected static final int DEFAULT_SLEEP = 1;
+    protected static final int DEFAULT_MEDIUM_SLEEP = 5;
+    protected static final int DEFAULT_LARGE_SLEEP = 10;
+
     @Override
     public String getCurrentURL()
     {
@@ -43,10 +47,12 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     @Override
     public void waitAndClick(WebElement element)
     {
+        validateElementExistence(element);
         waitElementVisible(element);
         scrollToElement(element);
         waitElementToBeClickable(element);
-        sleep(1);
+        scrollToElement(element);
+        sleep(DEFAULT_SLEEP);
         element.click();
     }
 
@@ -57,7 +63,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         scrollToElement(clickableElement);
         mouseOver(clickableElement);
         waitElementToBeClickable(clickableElement);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         clickableElement.click();
     }
 
@@ -117,7 +123,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
 
         try
         {
-            sleep(3);
+            sleep(DEFAULT_MEDIUM_SLEEP);
             isDisplayed = element.isDisplayed();
         }
         catch (Exception ex)
@@ -298,10 +304,10 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         org.openqa.selenium.interactions.Actions act = new org.openqa.selenium.interactions.Actions(driver);
 
         scrollToElement(from);
-        sleep(1);
+        sleep(DEFAULT_SLEEP);
         act.clickAndHold(from).build().perform();
         scrollToElement(to);
-        sleep(1);
+        sleep(DEFAULT_SLEEP);
         act.moveToElement(to).build().perform();
         act.release(to).build().perform();
     }
@@ -349,7 +355,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
         await("waiting for element --> " + element).atMost(configuration.getWaitLoadTimeout(), TimeUnit.SECONDS)
                 .pollInterval(200, TimeUnit.MILLISECONDS)
                 .ignoreExceptions()
-                .until(element::isDisplayed);
+                .until(element::isEnabled);
     }
 
     @Override
@@ -357,7 +363,7 @@ public abstract class AbstractSeleniumTest extends DriverManager implements Comm
     {
         for (int s = 100; s <= 1700; s += 100)
         {
-            sleep(1);
+            sleep(DEFAULT_SLEEP);
             pageScroll(0, s);
         }
     }

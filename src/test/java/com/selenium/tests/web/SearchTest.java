@@ -84,7 +84,7 @@ public class SearchTest extends AbstractHotelsProTest
         int preFilterHotelCount = Integer.valueOf(getText(searchResultPage.searchHotelCount));
         logger.info("Search Result Hotel Count : " + preFilterHotelCount);
 
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         browserJS.click(searchResultPage.startRatings.get(0));
         waitAndClick(searchResultPage.searchButton);
         waitLoadIconNotView();
@@ -242,7 +242,7 @@ public class SearchTest extends AbstractHotelsProTest
         WebElement filterOption = driver.findElement(By.xpath("//p[text()='" + filterKeyword + "']//parent::label/input"));
 
         browserJS.scrollToElement(filterOption);
-        sleep(3);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         browserJS.click(filterOption);
         waitAndClick(searchResultPage.searchButton);
         waitLoadIconNotView();

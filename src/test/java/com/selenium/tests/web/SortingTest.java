@@ -3,7 +3,6 @@ package com.selenium.tests.web;
 import com.selenium.context.annotations.ExpectedResult;
 import com.selenium.context.base.AbstractHotelsProTest;
 import com.selenium.context.flag.ParallelExecutable;
-import com.selenium.context.utils.param.Constants;
 import com.selenium.pages.web.SearchResultPage;
 import org.apache.log4j.Logger;
 import org.junit.Assert;

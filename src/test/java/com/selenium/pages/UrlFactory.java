@@ -9,6 +9,8 @@ public enum UrlFactory
     LOGIN(MAIN_URL_FIRST, "/account/login/"),
     SIGN_UP(MAIN_URL_FIRST, "/agency/signup/"),
     TICKETS(MAIN_URL_FIRST, "/account/tickets/"),
+    OFFER_PDF(MAIN_URL_FIRST, "/hotels/offerpdf/"),
+    COLLECTIONS(MAIN_URL_FIRST, "/collection/"),
 
     HOTELSPRO_LINKEDIN("https://www.linkedin.com/company/hotelspro/"),
     HOTELSPRO_INSTAGRAM("https://www.instagram.com/hotelspro/"),

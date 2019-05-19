@@ -75,7 +75,7 @@ public class HomePageTest extends AbstractHotelsProTest
     {
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
         waitAndClick(homePage.aboutMenu);
-        sleep(2);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         Long aboutUsContainerYPageOffset = browserJS.getScreenYPageOffset();
 
         Assert.assertTrue(aboutUsContainerYPageOffset == 1722);
@@ -83,7 +83,7 @@ public class HomePageTest extends AbstractHotelsProTest
 
 
         waitAndClick(homePage.productsMenu);
-        sleep(2);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         Long productsContainerYPageOffset = browserJS.getScreenYPageOffset();
 
         Assert.assertTrue(productsContainerYPageOffset == 4422);
@@ -91,7 +91,7 @@ public class HomePageTest extends AbstractHotelsProTest
 
 
         waitAndClick(homePage.officesMenu);
-        sleep(2);
+        sleep(DEFAULT_MEDIUM_SLEEP);
         Long officesContainerYPageOffset = browserJS.getScreenYPageOffset();
 
         Assert.assertTrue(officesContainerYPageOffset == 5510);
@@ -105,7 +105,7 @@ public class HomePageTest extends AbstractHotelsProTest
     {
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
         waitAndClick(homePage.officesMenu);
-        sleep(2);
+        sleep(DEFAULT_MEDIUM_SLEEP);
 
         List<String[]> offices = new ArrayList<>();
         offices.add(dubaiGeoLocation);
@@ -119,7 +119,7 @@ public class HomePageTest extends AbstractHotelsProTest
         {
             browserJS.click(homePage.officesList.get(each));
             String googleMapSrc = getAttribute(homePage.googleMap, "src");
-            sleep(1);
+            sleep(DEFAULT_SLEEP);
 
             String latitude = offices.get(each)[0];
             String longitude = offices.get(each)[1];
@@ -150,7 +150,7 @@ public class HomePageTest extends AbstractHotelsProTest
 
         navigateToURL(UrlFactory.MAIN_URL_FIRST);
         waitAndClick(homePage.officesMenu);
-        sleep(2);
+        sleep(DEFAULT_MEDIUM_SLEEP);
     }
 
 }
